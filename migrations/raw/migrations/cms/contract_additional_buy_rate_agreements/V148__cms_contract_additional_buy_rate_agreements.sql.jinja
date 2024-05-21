@@ -1,0 +1,26 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "contract_additional_buy_rate_agreements",
+    "cms_stage",
+    "ContractAdditionalBuyRateAgreements"
+  ) -%}
+    id varchar,
+    contract_buy_rate_agreement_id varchar,
+    product_id varchar,
+    product_display_name varchar,
+    buy_rate number(18,2),
+    is_active boolean,
+    is_deleted boolean,
+    tenant_id varchar,
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    created_by varchar,
+    created_at timestamp_tz(9),
+    tenant_country_id varchar,
+    currency_code varchar(50),
+    currency_code_id varchar,
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

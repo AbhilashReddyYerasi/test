@@ -1,0 +1,105 @@
+subledger:
+  columns:
+  - name: name
+    transformation: name::varchar
+    type: varchar
+  - name: source
+    transformation: source::varchar
+    type: varchar
+  - name: jecategory
+    transformation: jecategory::varchar
+    type: varchar
+  - name: batchname
+    transformation: batchname::varchar
+    type: varchar
+  - name: glaccountstring
+    transformation: glaccountstring::varchar
+    type: varchar
+  - name: periodname
+    transformation: periodname::varchar
+    type: varchar
+  - name: customerorvendor
+    transformation: customerorvendor::varchar
+    type: varchar
+  - name: currencycode
+    transformation: currencycode::varchar
+    type: varchar
+  - name: accdate
+    transformation: accdate::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: linedescr
+    transformation: linedescr::varchar
+    type: varchar
+  - name: effectiveperiodnum
+    transformation: effectiveperiodnum::number(38,0)
+    type: number(38,0)
+  - name: lineentcr
+    transformation: lineentcr::number(36,2)
+    type: number(36,2)
+  - name: lineentdr
+    transformation: lineentdr::number(36,2)
+    type: number(36,2)
+  - name: lineacctdcr
+    transformation: lineacctdcr::number(36,2)
+    type: number(36,2)
+  - name: lineacctddr
+    transformation: lineacctddr::number(36,2)
+    type: number(36,2)
+  - name: entry
+    transformation: entry::varchar
+    type: varchar
+  - name: lline
+    transformation: lline::number(38,0)
+    type: number(38,0)
+  - name: slalineenteredcr
+    transformation: slalineenteredcr::number(36,2)
+    type: number(36,2)
+  - name: slalineentereddr
+    transformation: slalineentereddr::number(36,2)
+    type: number(36,2)
+  - name: slalineaccountedcr
+    transformation: slalineaccountedcr::number(36,2)
+    type: number(36,2)
+  - name: slalineaccounteddr
+    transformation: slalineaccounteddr::number(36,2)
+    type: number(36,2)
+  - name: netaccountedamount
+    transformation: netaccountedamount::number(36,2)
+    type: number(36,2)
+  - name: netenteredamt
+    transformation: netenteredamt::number(36,2)
+    type: number(36,2)
+  - name: transactionnum
+    transformation: transactionnum::varchar
+    type: varchar
+  - name: gccreportingunit
+    transformation: gccreportingunit::varchar
+    type: varchar
+  - name: gccmanagementunit
+    transformation: gccmanagementunit::number(38,0)
+    type: number(38,0)
+  - name: gcccustomerunit
+    transformation: gcccustomerunit::number(38,0)
+    type: number(38,0)
+  - name: gccservicearea
+    transformation: gccservicearea::number(38,0)
+    type: number(38,0)
+  - name: gccaccount
+    transformation: gccaccount::number(38,0)
+    type: number(38,0)
+  - name: gccmovementtype
+    transformation: gccmovementtype::varchar
+    type: varchar
+  - name: gccfunction
+    transformation: gccfunction::number(38,0)
+    type: number(38,0)
+  - name: gccintercompany
+    transformation: gccintercompany::varchar
+    type: varchar
+  - name: gccanalysis
+    transformation: gccanalysis::number(38,0)
+    type: number(38,0)
+  file_name: oracle_subledger
+  stage: oracle_stage
+  table_name: subledger
+  unique_id: customer

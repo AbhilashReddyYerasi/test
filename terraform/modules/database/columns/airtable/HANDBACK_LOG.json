@@ -1,0 +1,15 @@
+[
+    {"name": "ID", "type": "VARCHAR"},
+    {"name": "CREATED_TIME", "type": "TIMESTAMP_TZ(9)"},
+    {"name": "SHIPMENT_NUMBER", "type": "VARCHAR"},
+    {"name": "HANDBACK_TYPE", "type": "VARCHAR"},
+    {"name": "CODE", "type": "VARCHAR"},
+    {"name": "SECONDARY_REASON_CODE_CARRIER", "type": "VARCHAR"},
+    {"name": "SECONDARY_REASON_CODE_SHIPPER", "type": "VARCHAR"},
+    {"name": "COMMENTS", "type": "VARCHAR"},
+    {"name": "CARRIER_NAME", "type": "VARCHAR"},
+    {"name": "CARRIER_NAME_LOOKUP", "type": "VARCHAR"},
+    {"name": "NOTIFICATION_DATE", "type": "TIMESTAMP_TZ(9)"},
+    {"name": "LOAD_TS", "type" : "TIMESTAMP_NTZ(9)"},
+    {"name": "ORIGINAL_COST", "type": "VARCHAR"}
+]

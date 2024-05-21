@@ -1,0 +1,89 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+{% from 'macros/cms.j2' import convert_to_mastercountry_tz -%}
+
+{% set table_name = "rate_history" %}
+
+{% set columns = [
+  ("transport_order_id", "var:TransportOrderid::varchar"),
+  ("rate_output", "var:Rateoutput::varchar"),
+  ("created_at", convert_to_mastercountry_tz("to_timestamp_ntz(var:CreatedAt::int, 6)")),
+  ("updated_at", convert_to_mastercountry_tz("to_timestamp_ntz(var:UpdatedAt::int, 6)")),
+  ("country_code", "var:CountryCode::varchar"),
+  ("rateid", "replace(try_parse_json(var:Rateoutput::varchar):rateId,'\"','')"),
+  ("rate_type", "replace(try_parse_json(var:Rateoutput::varchar):rateType,'\"','')"),
+  ("contract_id", "replace(try_parse_json(var:Rateoutput::varchar):contractId,'\"','')"),
+  ("sell_rate", "try_parse_json(var:Rateoutput::varchar):sellRate"),
+  ("buy_rate", "try_parse_json(var:Rateoutput::varchar):buyRate"),
+  ("sell_rate_cbt", "try_parse_json(var:Rateoutput::varchar):sellRateCBT"),
+  ("buy_rate_cbt", "try_parse_json(var:Rateoutput::varchar):buyRateCBT"),
+  ("carrier_id", "replace(try_parse_json(var:Rateoutput::varchar):carrierId,'\"','')"),
+  ("carriers", "try_parse_json(var:Rateoutput::varchar):carriers"),
+  ("margin", "try_parse_json(var:Rateoutput::varchar):margin"),
+  ("live", "try_parse_json(var:Rateoutput::varchar):live"),
+  ("products", "try_parse_json(var:Rateoutput::varchar):products"),
+  ("margin_margin_name", "try_parse_json(var:Rateoutput::varchar):margin:marginName"),
+  ("margin_margin_triggers", "try_parse_json(var:Rateoutput::varchar):margin.marginTriggers"),
+  ("margin_margin_products", "try_parse_json(var:Rateoutput::varchar):margin.marginProducts"),
+  ("live_offer_time_window_start", convert_to_mastercountry_tz("to_timestamp_ntz(try_parse_json(var:Rateoutput):live.offerTimeWindowStart::int, 3)")),
+  ("live_offer_time_window_end", convert_to_mastercountry_tz("to_timestamp_ntz(try_parse_json(var:Rateoutput):live.offerTimeWindowEnd::int, 3)")),
+  ("live_time_zone", "replace(try_parse_json(var:Rateoutput::varchar):live.timeZone,'\"','')"),
+  ("live_instant_accept_enabled", "try_parse_json(var:Rateoutput::varchar):live.instantAccept.enabled"),
+  ("live_instant_accept_benchmark_perc", "try_parse_json(var:Rateoutput::varchar):live.instantAccept.benchmarkPerc"),
+  ("live_closed_accept_enabled", "try_parse_json(var:Rateoutput::varchar):live.closedAccept.enabled"),
+  ("live_closed_accept_benchmark_perc", "try_parse_json(var:Rateoutput::varchar):live.closedAccept.benchmarkPerc"),
+  ("live_benchmark_costs", "try_parse_json(var:Rateoutput::varchar):live.benchmarkCosts"),
+  ("faf_response", "try_parse_json(var:Rateoutput::varchar):fafResponse"),
+  ("carrier_contract_id", "replace(carrier.value:contractId,'\"','')"),
+  ("carrier_carrier_id", "replace(carrier.value:carrierId,'\"','')"),
+  ("carrier_carrier_display_id", "replace(carrier.value:carrierDisplayId,'\"','')"),
+  ("carrier_dispatcher_id", "replace(carrier.value:dispatcherId,'\"','')"),
+  ("carrier_sell_rate", "carrier.value:sellRate"),
+  ("carrier_buy_rate", "carrier.value:buyRate"),
+  ("carrier_sell_rate_cbt", "carrier.value:sellRateCBT"),
+  ("carrier_buy_rate_cbt", "carrier.value:buyRateCBT"),
+  ("carrier_metadata", "carrier.value:metadata"),
+  ("carrier_is_cra_buy_rate", "carrier.value:isCRABuyRate"),
+  ("carrier_reference", "carrier.value:reference"),
+  ("carrier_products", "carrier.value:products"),
+  ("tenant_country_id", "mc.master_country_id"),
+  ("master_countries_country_time_zone", "mc.country_time_zone"),
+  ("load_ts", "convert_timezone('UTC',current_timestamp)::timestamp_tz")
+] %}
+
+{% call create_merge_task(load_cms_schema, table_name) -%}
+merge into {{ cms_schema }}.{{ table_name }} as t
+using(
+  select distinct
+        {% for name, source in columns -%}
+            {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+  from
+    {{ load_cms_schema }}.load_{{ table_name }}_stream
+    left join
+    {{ cms_schema }}.master_countries mc on mc.country_code =var:CountryCode::varchar,
+    lateral flatten(input => parse_json(var:Rateoutput):carriers, outer => true) carrier
+) as s
+ON (
+  t.rateid = s.rateid 
+  and t.carrier_contract_id = s.carrier_contract_id 
+  and t.carrier_carrier_id = s.carrier_carrier_id
+)
+when matched and not(
+    {% for name, _ in columns if name not in ['load_ts', 'updated_at', 'rateid'] -%}
+        equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+    {% endfor -%}
+) and s.updated_at > t.updated_at
+then update set
+    {% for name, _ in columns -%}
+        t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+when not matched then insert (
+    {% for name, _ in columns -%}
+        {{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+) values (
+    {% for name, _ in columns -%}
+        s.{{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+)
+{%- endcall %}

@@ -1,0 +1,43 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "contract_lanes",
+        [
+        ('id', "var:Id::varchar"),
+        ('contract_id', "var:ContractId::varchar"),
+        ('project_id', "var:ProjectId::varchar"),
+        ('origin_transport_location_type', "var:OriginTransportLocationType::varchar"),
+        ('origin_source', "var:OriginSource::varchar"),
+        ('origin_address_book_id', "var:OriginAddressBookId::varchar"),
+        ('origin_zone_id', "var:OriginZoneId::varchar"),
+        ('origin_name', "var:OriginName::varchar"),
+        ('origin_location_type', "var:OriginLocationType::varchar"),
+        ('origin_city_district_name', "var:OriginCityDistrictName::varchar"),
+        ('origin_state_province_name', "var:OriginStateProvinceName::varchar"),
+        ('destination_transport_location_type', "var:DestinationTransportLocationType::varchar"),
+        ('destination_source', "var:DestinationSource::varchar"),
+        ('destination_address_book_id', "var:DestinationAddressBookId::varchar"),
+        ('destination_zone_id', "var:DestinationZoneId::varchar"),
+        ('destination_name', "var:DestinationName::varchar"),
+        ('destination_location_type', "var:DestinationLocationType::varchar"),
+        ('destination_city_district_name', "var:DestinationCityDistrictName::varchar"),
+        ('destination_state_province_name', "var:DestinationStateProvinceName::varchar"),
+        ('lane_type', "var:LaneType::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('destination_border_zone_display_name', "var:DestinationBorderZoneDisplayName::varchar"),
+        ('destination_border_zone_id', "var:DestinationBorderZoneID::varchar"),
+        ('origin_border_zone_display_name', "var:OriginBorderZoneDisplayName::varchar"),
+        ('origin_border_zone_id', "var:OriginBorderZoneID::varchar"),
+        ('is_apply_fuel_surcharges', "var:IsApplyFuelSurcharges::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

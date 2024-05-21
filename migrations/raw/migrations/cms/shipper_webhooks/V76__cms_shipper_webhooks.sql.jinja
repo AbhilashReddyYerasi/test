@@ -1,0 +1,35 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "shipper_webhooks",
+    "cms_stage",
+    "ShipperWebhooks"
+  ) -%}
+    id varchar(16777216),
+    project_id varchar(16777216),
+    booking_webhook varchar(16777216),
+    booking_auth varchar(16777216),
+    booking_auth_type varchar(16777216),
+    is_booking_active boolean,
+    status_webhook varchar(16777216),
+    status_auth varchar(16777216),
+    status_auth_type varchar(16777216),
+    is_status_active boolean,
+    is_deleted boolean,
+    cost_auth varchar(16777216),
+    cost_auth_type varchar(16777216),
+    cost_web_hook varchar(16777216),
+    is_cost_active boolean,
+    pta_auth varchar(16777216),
+    pta_auth_type varchar(16777216),
+    pta_web_hook varchar(16777216),
+    is_pta_active boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

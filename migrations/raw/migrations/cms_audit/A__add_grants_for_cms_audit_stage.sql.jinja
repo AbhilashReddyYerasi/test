@@ -1,0 +1,15 @@
+{# Only give access to final tables, not the load_* tables #}
+{% set schema_name = cms_audit_schema %}
+
+{% for role in ["analyst", "transformer"] %}
+grant usage on schema {{ schema_name }} to role {{ role }};
+
+grant select on all tables in schema {{ schema_name }} to role {{ role }};
+grant select on all views in schema {{ schema_name }} to role {{ role }};
+{% endfor %}
+
+{% if not is_prod %}
+grant usage on schema {{ schema_name }} to role developer;
+grant select on all tables in schema {{ schema_name }} to role developer;
+grant select on all views in schema {{ schema_name }} to role developer;
+{% endif %}

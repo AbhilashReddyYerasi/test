@@ -1,0 +1,23 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "currency_exchange_rates",
+    "cms_stage",
+    "CurrencyExchangeRates"
+  ) -%}
+    id varchar,
+    date_time timestamp_tz(9),
+    rate_type varchar,
+    rate varchar,
+    updated_at timestamp_tz(9),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar,
+    tenant_id varchar,
+    from_currency_code varchar,
+    from_currency_name varchar,
+    to_currency_code varchar,
+    to_currency_name varchar,
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

@@ -1,0 +1,36 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "vehicle_login_histories",
+    "cms_stage",
+    "VehicleLoginHistories"
+  ) -%}
+    id varchar(16777216),
+    vehicle_login_id varchar(16777216),
+    carrier_truck_id varchar(16777216),
+    carrier_id varchar(16777216),
+    login_device_id varchar(16777216),
+    is_event_success boolean,
+    device_name varchar(16777216),
+    device_model varchar(16777216),
+    login_expires_at timestamp_tz(9),
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    device_app_version varchar(16777216),
+    device_ip_address varchar(16777216),
+    device_os_version varchar(16777216),
+    device_platform varchar(16777216),
+    event_at timestamp_tz(9),
+    event_type varchar(16777216),
+    failure_message varchar(16777216),
+    latitude number(18,6),
+    longitude number(18,6),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

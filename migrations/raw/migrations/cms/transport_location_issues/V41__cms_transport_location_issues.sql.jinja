@@ -1,0 +1,30 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "transport_location_issues",
+    "cms_stage",
+    "TransportLocationIssues"
+  ) -%}
+    id varchar(16777216),
+    transport_location_id varchar(16777216),
+    status varchar(16777216),
+    issue_time timestamp_tz(9),
+    issue_code_id varchar(16777216),
+    issue_code_name varchar(16777216),
+    issue_remarks varchar(16777216),
+    inserted varchar(16777216),
+    issue_id varchar(16777216),
+    is_deleted boolean,
+    is_share_with_shipper boolean,
+    issue_code_primary varchar(16777216),
+    issue_code_secondary varchar(16777216),
+    issue_reason_code varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

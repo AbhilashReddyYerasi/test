@@ -1,0 +1,36 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cfx_schema,
+    load_cfx_schema,
+    "dg_deleted_invoice",
+    "cfx_stage",
+    "DG_DELETED_INVOICE"
+  ) -%}
+    audit_trail_gid varchar,
+    audit_trail_xid varchar,
+    notify_subject_gid varchar,
+    notify_function_gid varchar,
+    gl_user_gid varchar,
+    audit_time timestamp_tz(9),
+    app_action_gid varchar,
+    app_action_parameters varchar,
+    bs_quick_code_gid varchar,
+    bs_responsible_party_gid varchar,
+    bs_status_group_gid varchar,
+    bs_status_code_gid varchar,
+    bs_reason_group_gid varchar,
+    bs_reason_code_gid varchar,
+    bs_reason_comment varchar,
+    transactional_event_gid varchar,
+    audit_object_type_gid varchar,
+    object_gid varchar,
+    reason_required_type varchar,
+    reason_source varchar,
+    marked_for_purge varchar,
+    domain_name varchar,
+    insert_user varchar,
+    insert_date timestamp_tz(9),
+    update_user varchar,
+    update_date timestamp_tz(9)
+    {%- endcall %}

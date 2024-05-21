@@ -1,0 +1,25 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_documents",
+        [
+        ('id', "var:Id::varchar"),
+        ('document_type', "var:DocumentType::varchar"),
+        ('document_url', "var:DocumentURL::varchar"),
+        ('document_ref', "var:DocumentRef::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('transport_route_id', "var:TransportRouteId::varchar"),
+        ('transport_location_id', "var:TransportLocationId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('shipment_document_type_id', "var:ShipmentDocumentTypeId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

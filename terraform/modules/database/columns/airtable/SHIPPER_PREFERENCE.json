@@ -1,0 +1,14 @@
+[
+    {"name": "ID", "type": "VARCHAR"},
+    {"name": "CREATED_TIME", "type": "TIMESTAMP_TZ(9)"},
+    {"name": "PROJECT_NAME", "type": "VARCHAR"},
+    {"name": "POD", "type": "NUMBER(38,0)"},
+    {"name": "SERVICE_TRANSPARENCY", "type": "NUMBER(38,0)"},
+    {"name": "ON_DAY_COLLECTION", "type": "NUMBER(38,0)"},
+    {"name": "ON_DAY_DELIVERY", "type": "NUMBER(38,0)"},
+    {"name": "_HASH", "type": "NUMBER(19,0)"},
+    {"name": "_VALID_FROM", "type" : "TIMESTAMP_NTZ(9)"},
+    {"name": "_VALID_TO", "type" : "TIMESTAMP_NTZ(9)"},
+    {"name": "_IS_ACTIVE", "type": "BOOLEAN"},
+    {"name": "SHIPPER_PROJECT_ID", "type": "VARCHAR"}
+]

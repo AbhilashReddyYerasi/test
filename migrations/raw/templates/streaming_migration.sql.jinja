@@ -1,0 +1,14 @@
+{% raw %}{% from 'macros/shared_v1.j2' import create_table_and_stream -%}{% endraw %}
+
+{% raw %}{% call create_table_and_stream(
+    streaming_schema,
+    load_streaming_schema,{% endraw %}
+    "{{ table_name }}",
+    "{{ stage }}",
+    "{{ file_name }}"
+{% raw %}  ) -%}{% endraw %}
+    {% for c in columns -%}
+    {{ c["name"] | escape_keywords }} {{ c["type"] }},
+    {% endfor -%}
+    master_countries_country_time_zone varchar
+{% raw %}{%- endcall %}{% endraw %}

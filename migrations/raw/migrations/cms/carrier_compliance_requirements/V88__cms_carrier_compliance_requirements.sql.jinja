@@ -1,0 +1,29 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_compliance_requirements",
+    "cms_stage",
+    "CarrierComplianceRequirements"
+  ) -%}
+    id varchar(16777216),
+    carrier_id varchar(16777216),
+    requirement_title varchar(16777216),
+    document_category varchar(16777216),
+    shipment_document_type_id varchar(16777216),
+    expiry_date timestamp_tz(9),
+    reference_value_1 varchar(16777216),
+    reference_value_2 varchar(16777216),
+    is_mandatory boolean,
+    is_active boolean,
+    description varchar(16777216),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

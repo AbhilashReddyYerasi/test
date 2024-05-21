@@ -1,0 +1,42 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "contracts",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_id', "var:ShipperId::varchar"),
+        ('shipper_display_id', "var:ShipperDisplayId::varchar"),
+        ('shipper_name', "var:ShipperName::varchar"),
+        ('shipper_project_id', "var:ShipperProjectId::varchar"),
+        ('shipper_project_name', "var:ShipperProjectName::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('valid_from', convert_to_mastercountry_tz("var:ValidFrom")),
+        ('valid_to', convert_to_mastercountry_tz("var:ValidTo")),
+        ('is_active', "var:IsActive::boolean"),
+        ('vehicle_size_id', "var:VehicleSizeId::varchar"),
+        ('vehicle_size_name', "var:VehicleSizeName::varchar"),
+        ('vehicle_buildup_id', "var:VehicleBuildUpId::varchar"),
+        ('vehicle_buildup_name', "var:VehicleBuildUpName::varchar"),
+        ('sell_rate_type', "var:SellRateType::varchar"),
+        ('sell_rate', "var:SellRate::varchar"),
+        ('is_bonded', "var:IsBonded::boolean"),
+        ('bonded_sell_rate', "var:BondedSellRate::varchar"),
+        ('is_additional_drop', "var:IsAdditionalDrop::boolean"),
+        ('additional_drop_sell_rate', "var:AdditionalDropSellRate::varchar"),
+        ('origin_names', "var:OriginNames::varchar"),
+        ('destination_names', "var:DestinationNames::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

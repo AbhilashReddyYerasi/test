@@ -1,0 +1,35 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "contract_buy_rates",
+        [
+        ('id', "var:Id::varchar"),
+        ('contract_id', "var:ContractId::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('carrier_display_id', "var:CarrierDisplayId::varchar"),
+        ('carrier_company_name', "var:CarrierCompanyName::varchar"),
+        ('dispatcher_id', "var:DispatcherId::varchar"),
+        ('dispatcher_first_name', "var:DispatcherFirstName::varchar"),
+        ('dispatcher_last_name', "var:DispatcherLastName::varchar"),
+        ('dispatcher_display_id', "var:DispatcherDisplayId::varchar"),
+        ('buy_rate_type', "var:BuyRateType::varchar"),
+        ('buy_rate', "var:BuyRate::varchar"),
+        ('is_bonded', "var:IsBonded::boolean"),
+        ('bonded_buy_rate', "var:BondedBuyRate::varchar"),
+        ('is_additional_drop', "var:IsAdditionalDrop::boolean"),
+        ('additional_drop_buy_rate', "var:AdditionalDropBuyRate::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

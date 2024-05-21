@@ -1,0 +1,8 @@
+alter table {{ cms_schema }}.transport_locations
+add column
+    zone_id varchar,
+    zone_name varchar,
+    zones varchar,
+    is_rebooked boolean,
+    distance_from_last_location_in_meters number(38, 0),
+    distance_from_last_location_in_seconds number(38, 0);

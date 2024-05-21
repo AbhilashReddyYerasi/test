@@ -1,0 +1,23 @@
+[
+    { "name" : "FILE_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "STAGE_LOCATION", "type" : "VARCHAR(16777216)" },
+    { "name" : "LAST_LOAD_TIME", "type" : "TIMESTAMP_TZ(9)" },
+    { "name" : "ROW_COUNT", "type" : "NUMBER(38,0)" },
+    { "name" : "ROW_PARSED", "type" : "NUMBER(38,0)" },
+    { "name" : "FILE_SIZE", "type" : "NUMBER(38,0)" },
+    { "name" : "FIRST_ERROR_MESSAGE", "type" : "VARCHAR(16777216)" },
+    { "name" : "FIRST_ERROR_LINE_NUMBER", "type" : "NUMBER(38,0)" },
+    { "name" : "FIRST_ERROR_CHARACTER_POS", "type" : "NUMBER(38,0)" },
+    { "name" : "FIRST_ERROR_COLUMN_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "ERROR_COUNT", "type" : "NUMBER(38,0)" },
+    { "name" : "ERROR_LIMIT", "type" : "NUMBER(38,0)" },
+    { "name" : "STATUS", "type" : "VARCHAR(16777216)" },
+    { "name" : "TABLE_CATALOG_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "TABLE_SCHEMA_NAME", "type" : "VARCHAR(16777216)"},
+    { "name" : "TABLE_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "PIPE_CATALOG_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "PIPE_SCHEMA_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "PIPE_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "PIPE_RECEIVED_TIME", "type" : "TIMESTAMP_TZ(9)" }
+]
+

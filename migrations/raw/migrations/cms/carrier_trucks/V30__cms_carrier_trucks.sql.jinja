@@ -1,0 +1,39 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_trucks",
+    "cms_stage",
+    "CarrierTrucks"
+  ) -%}
+    id varchar(16777216),
+    carrier_id varchar(16777216),
+    vehicle_display_id varchar(16777216),
+    vehicle_reg_no varchar(16777216),
+    brand_make varchar(16777216),
+    model varchar(16777216),
+    road_tax_expiry timestamp_tz(9),
+    vehicle_reg_date timestamp_tz(9),
+    vehicle_image varchar(16777216),
+    transport_category varchar(16777216),
+    vehicle_size_id varchar(16777216),
+    vehicle_size varchar(16777216),
+    vehicle_buildup_id varchar(16777216),
+    vehicle_buildup varchar(16777216),
+    vehicle_max_weight number(18,2),
+    vehicle_max_volume number(18,2),
+    default_driver_id varchar(16777216),
+    is_active boolean,
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    device_id varchar(16777216),
+    customs_seals number(38,0),
+    vehicle_login_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

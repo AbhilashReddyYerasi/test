@@ -1,0 +1,42 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "shipper_project_carrier_sensitives",
+    "cms_stage",
+    "ShipperProjectCarrierSensitives"
+  ) -%}
+    id varchar(16777216),
+    project_id varchar(16777216),
+    shipper_id varchar(16777216),
+    company_name number(38,0),
+    dispatcher_name number(38,0),
+    driver_name number(38,0),
+    driver_phone_number number(38,0),
+    driver_identity_number number(38,0),
+    vehicle_brand number(38,0),
+    vehicle_model number(38,0),
+    vehicle_license number(38,0),
+    custom_seal number(38,0),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    driver_avatar number(38,0),
+    vehicle_image number(38,0),
+    carrier_history_company_name number(38,0),
+    carrier_history_dispatcher_name number(38,0),
+    carrier_history_driver_name number(38,0),
+    carrier_history_vehicle_license number(38,0),
+    vehicle_buildup number(38,0),
+    vehicle_size number(38,0),
+    vehicle_trailer_no number(38,0),
+    carrier_container_no number(38,0),
+    carrier_history_carrier_container_no number(38,0),
+    carrier_history_trailer_no number(38,0),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

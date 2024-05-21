@@ -1,0 +1,36 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "transport_orders_ext",
+    "cms_stage",
+    "TransportOrdersExt"
+  ) -%}
+    id varchar(16777216),
+    transport_order_id varchar(16777216),
+    job_file_status varchar(16777216),
+    is_pta_issue boolean,
+    is_deleted boolean,
+    pod_status varchar(16777216),
+    pod_status_delivered number(38,0),
+    pod_status_pending number(38,0),
+    pod_status_received number(38,0),
+    pod_status_validated number(38,0),
+    booking_ref varchar(16777216),
+    last_amendment_at timestamp_tz(9),
+    is_pending_cancellation boolean,
+    cancellation_note varchar(16777216),
+    cancellation_reason_code number(38,0),
+    epod_status varchar(16777216),
+    epod_status_delivered number(38,0),
+    epod_status_pending number(38,0),
+    epod_status_received number(38,0),
+    epod_status_validated number(38,0),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

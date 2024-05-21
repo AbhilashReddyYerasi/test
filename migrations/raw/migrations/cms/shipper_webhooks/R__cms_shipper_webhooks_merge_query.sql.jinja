@@ -1,0 +1,35 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_webhooks",
+        [
+        ('id', "var:Id::varchar"),
+        ('project_id', "var:ProjectId::varchar"),
+        ('booking_webhook', "var:BookingWebhook::varchar"),
+        ('booking_auth', "var:BookingAuth::varchar"),
+        ('booking_auth_type', "var:BookingAuthType::varchar"),
+        ('is_booking_active', "var:IsBookingActive::boolean"),
+        ('status_webhook', "var:StatusWebhook::varchar"),
+        ('status_auth', "var:StatusAuth::varchar"),
+        ('status_auth_type', "var:StatusAuthType::varchar"),
+        ('is_status_active', "var:IsStatusActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('cost_auth', "var:CostAuth::varchar"),
+        ('cost_auth_type', "var:CostAuthType::varchar"),
+        ('cost_web_hook', "var:CostWebhook::varchar"),
+        ('is_cost_active', "var:IsCostActive::boolean"),
+        ('pta_auth', "var:PTAAuth::varchar"),
+        ('pta_auth_type', "var:PTAAuthType::varchar"),
+        ('pta_web_hook', "var:PTAWebhook::varchar"),
+        ('is_pta_active', "var:IsPTAActive::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:UpdatedAt::int, 6)")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:CreatedAt::int, 6)")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

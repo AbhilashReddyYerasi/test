@@ -1,0 +1,9 @@
+-- Add new column
+alter table {{ cms_schema }}.transport_locations
+add column
+    duration_from_last_location_in_seconds number(38, 0);
+
+-- Drop deleted column
+alter table {{ cms_schema }}.transport_locations
+drop column
+    distance_from_last_location_in_seconds;

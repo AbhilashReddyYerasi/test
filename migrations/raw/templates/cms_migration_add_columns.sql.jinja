@@ -1,0 +1,5 @@
+alter table {% raw %}{{ cms_schema }}{% endraw %}.{{ table_name }}
+add column
+    {%- for c in add_columns %}
+    {{ c["name"] | escape_keywords }} {{ c["type"] }}{% if not loop.last %},{% endif %}
+    {%- endfor %};

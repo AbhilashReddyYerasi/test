@@ -1,0 +1,32 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_faf_settings",
+        [
+        ('id', "var:Id::varchar"),
+        ('faf_formula_id', "var:FAFFormulaId::varchar"),
+        ('faf_formula_name', "var:FAFFormulaName::varchar"),
+        ('faf_formula_display_name', "var:FAFFormulaDisplayName::varchar"),
+        ('faf_formula_is_active', "var:FAFFormulaIsActive::varchar"),
+        ('shipper_project_id', "var:ShipperProjectId::varchar"),
+        ('shipper_project_name', "var:ShipperProjectName::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('formula_value', "var:FormulaValue::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('valid_from', convert_to_mastercountry_tz("var:ValidFrom")),
+        ('valid_to', convert_to_mastercountry_tz("var:ValidTo")),
+        ('updated_by_name', "var:UpdatedByName::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

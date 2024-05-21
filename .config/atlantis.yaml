@@ -1,0 +1,10 @@
+version: 3
+projects:
+  - name: root
+    dir: terraform/
+  - name: core
+    dir: terraform/modules/core
+  - name: database
+    dir: terraform/modules/database
+  - name: integration
+    dir: terraform/modules/integration

@@ -1,0 +1,5 @@
+resource_group_name  = "rg-dhdp-tfstates"
+storage_account_name = "dhdptfstates"
+container_name       = "tfstates-snowflake-prod"
+key                  = "snowflake-prod.tfstate"
+subscription_id      = "ae6c8e8f-43b0-48bc-9738-280f6d450ccb"

@@ -1,0 +1,15 @@
+create schema {{ cfx_schema }};
+create schema {{ load_cfx_schema }};
+
+create or replace file format {{ load_cfx_schema }}.{{ cfx_schema }}_parquet
+  type = parquet
+  compression = snappy;
+
+create or replace stage {{ load_cfx_schema }}.{{ cfx_schema }}_stage
+  {%- if is_prod %}
+  url = 'azure://sadhdpdataprod.blob.core.windows.net/cfx'
+  {% else %}
+  url = 'azure://sadhdpdatadev.blob.core.windows.net/cfx'
+  {% endif -%}
+  storage_integration = az_storage_integration
+  file_format = {{ load_cfx_schema }}.{{ cfx_schema }}_parquet;

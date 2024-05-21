@@ -1,0 +1,37 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "route_driver_locations",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_route_id', "var:TransportRouteId::varchar"),
+        ('driver_id', "var:DriverId::varchar"),
+        ('device_id', "var:DeviceId::varchar"),
+        ('latitude', "var:Latitude::number(18,6)"),
+        ('longitude', "var:Longitude::number(18,6)"),
+        ('location_time', convert_to_mastercountry_tz("var:LocationTime")),
+        ('device_time', convert_to_mastercountry_tz("var:DeviceTime")),
+        ('device_model', "var:DeviceModel::varchar"),
+        ('device_os', "var:DeviceOS::varchar"),
+        ('app_version', "var:AppVersion::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('accuracy', "var:Accuracy::number(18,2)"),
+        ('actual_speed', "var:ActualSpeed::number(18,2)"),
+        ('avg_speed', "var:AvgSpeed::number(18,2)"),
+        ('direction', "var:Direction::number(18,2)"),
+        ('distance', "var:Distance::number(18,2)"),
+        ('frequency', "var:Frequency::number(18,2)"),
+        ('is_valid', "var:IsValid::boolean"),
+        ('source', "var:Source::varchar"),
+        ('time', "var:Time::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

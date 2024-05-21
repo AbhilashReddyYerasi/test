@@ -1,0 +1,39 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_trucks",
+        [
+        ('id', "var:Id::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('vehicle_display_id', "var:VehicleDisplayID::varchar"),
+        ('vehicle_reg_no', "var:VehicleRegNo::varchar"),
+        ('brand_make', "var:BrandMake::varchar"),
+        ('model', "var:Model::varchar"),
+        ('road_tax_expiry', convert_to_mastercountry_tz("var:RoadTaxExpiry")),
+        ('vehicle_reg_date', convert_to_mastercountry_tz("var:VehicleRegDate")),
+        ('vehicle_image', "var:VehicleImage::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('vehicle_size_id', "var:VehicleSizeId::varchar"),
+        ('vehicle_size', "var:VehicleSize::varchar"),
+        ('vehicle_buildup_id', "var:VehicleBuildUpId::varchar"),
+        ('vehicle_buildup', "var:VehicleBuildUp::varchar"),
+        ('vehicle_max_weight', "var:VehicleMaxWeight::number(18,2)"),
+        ('vehicle_max_volume', "var:VehicleMaxVolume::number(18,2)"),
+        ('default_driver_id', "var:DefaultDriverId::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('device_id', "var:DeviceId::varchar"),
+        ('customs_seals', "var:CustomsSeals::number(38,0)"),
+        ('vehicle_login_id', "var:VehicleLoginId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

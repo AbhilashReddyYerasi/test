@@ -1,0 +1,43 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "transport_requirements",
+    "cms_stage",
+    "TransportRequirements"
+  ) -%}
+    id varchar(16777216),
+    transport_order_id varchar(16777216),
+    transport_route_id varchar(16777216),
+    vehicle_size varchar(16777216),
+    vehicle_buildup varchar(16777216),
+    is_contract boolean,
+    manpower number(38,0),
+    is_lift_jack boolean,
+    is_pallet_jack boolean,
+    is_bonded boolean,
+    special_requirements varchar(16777216),
+    cargo_description varchar(16777216),
+    cargo_value varchar(16777216),
+    is_insurance boolean,
+    insurance_cost number(18,2),
+    insurance_under_writer varchar(16777216),
+    is_dr_pod_returned boolean,
+    is_dr_customs_form_returned boolean,
+    is_dr_invoice_returned boolean,
+    is_dr_packing_list_returned boolean,
+    is_dr_airway_bill_returned boolean,
+    is_sms_shipment_departed boolean,
+    is_sms_shipment_arrived boolean,
+    is_sms_shipment_completed boolean,
+    is_deleted boolean,
+    insurance_policy_number varchar(16777216),
+    is_ignore_mandatory_accreditation boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

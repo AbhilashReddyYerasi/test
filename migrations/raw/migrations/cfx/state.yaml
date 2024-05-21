@@ -1,0 +1,2095 @@
+dg_deleted_invoice:
+  columns:
+  - name: audit_trail_gid
+    transformation: var:AUDIT_TRAIL_GID::varchar
+    type: varchar
+  - name: audit_trail_xid
+    transformation: var:AUDIT_TRAIL_XID::varchar
+    type: varchar
+  - name: notify_subject_gid
+    transformation: var:NOTIFY_SUBJECT_GID::varchar
+    type: varchar
+  - name: notify_function_gid
+    transformation: var:NOTIFY_FUNCTION_GID::varchar
+    type: varchar
+  - name: gl_user_gid
+    transformation: var:GL_USER_GID::varchar
+    type: varchar
+  - name: audit_time
+    transformation: nullif(var:AUDIT_TIME::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: app_action_gid
+    transformation: var:APP_ACTION_GID::varchar
+    type: varchar
+  - name: app_action_parameters
+    transformation: var:APP_ACTION_PARAMETERS::varchar
+    type: varchar
+  - name: bs_quick_code_gid
+    transformation: var:BS_QUICK_CODE_GID::varchar
+    type: varchar
+  - name: bs_responsible_party_gid
+    transformation: var:BS_RESPONSIBLE_PARTY_GID::varchar
+    type: varchar
+  - name: bs_status_group_gid
+    transformation: var:BS_STATUS_GROUP_GID::varchar
+    type: varchar
+  - name: bs_status_code_gid
+    transformation: var:BS_STATUS_CODE_GID::varchar
+    type: varchar
+  - name: bs_reason_group_gid
+    transformation: var:BS_REASON_GROUP_GID::varchar
+    type: varchar
+  - name: bs_reason_code_gid
+    transformation: var:BS_REASON_CODE_GID::varchar
+    type: varchar
+  - name: bs_reason_comment
+    transformation: var:BS_REASON_COMMENT::varchar
+    type: varchar
+  - name: transactional_event_gid
+    transformation: var:TRANSACTIONAL_EVENT_GID::varchar
+    type: varchar
+  - name: audit_object_type_gid
+    transformation: var:AUDIT_OBJECT_TYPE_GID::varchar
+    type: varchar
+  - name: object_gid
+    transformation: var:OBJECT_GID::varchar
+    type: varchar
+  - name: reason_required_type
+    transformation: var:REASON_REQUIRED_TYPE::varchar
+    type: varchar
+  - name: reason_source
+    transformation: var:REASON_SOURCE::varchar
+    type: varchar
+  - name: marked_for_purge
+    transformation: var:MARKED_FOR_PURGE::varchar
+    type: varchar
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_deleted_invoice
+  stage: cfx_stage
+  table_name: dg_deleted_invoice
+  unique_id: audit_trail_gid
+dg_deleted_shipment:
+  columns:
+  - name: audit_trail_gid
+    transformation: var:AUDIT_TRAIL_GID::varchar
+    type: varchar
+  - name: audit_trail_xid
+    transformation: var:AUDIT_TRAIL_XID::varchar
+    type: varchar
+  - name: notify_subject_gid
+    transformation: var:NOTIFY_SUBJECT_GID::varchar
+    type: varchar
+  - name: notify_function_gid
+    transformation: var:NOTIFY_FUNCTION_GID::varchar
+    type: varchar
+  - name: gl_user_gid
+    transformation: var:GL_USER_GID::varchar
+    type: varchar
+  - name: audit_time
+    transformation: nullif(var:AUDIT_TIME::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: app_action_gid
+    transformation: var:APP_ACTION_GID::varchar
+    type: varchar
+  - name: app_action_parameters
+    transformation: var:APP_ACTION_PARAMETERS::varchar
+    type: varchar
+  - name: bs_quick_code_gid
+    transformation: var:BS_QUICK_CODE_GID::varchar
+    type: varchar
+  - name: bs_responsible_party_gid
+    transformation: var:BS_RESPONSIBLE_PARTY_GID::varchar
+    type: varchar
+  - name: bs_status_group_gid
+    transformation: var:BS_STATUS_GROUP_GID::varchar
+    type: varchar
+  - name: bs_status_code_gid
+    transformation: var:BS_STATUS_CODE_GID::varchar
+    type: varchar
+  - name: bs_reason_group_gid
+    transformation: var:BS_REASON_GROUP_GID::varchar
+    type: varchar
+  - name: bs_reason_code_gid
+    transformation: var:BS_REASON_CODE_GID::varchar
+    type: varchar
+  - name: bs_reason_comment
+    transformation: var:BS_REASON_COMMENT::varchar
+    type: varchar
+  - name: transactional_event_gid
+    transformation: var:TRANSACTIONAL_EVENT_GID::varchar
+    type: varchar
+  - name: audit_object_type_gid
+    transformation: var:AUDIT_OBJECT_TYPE_GID::varchar
+    type: varchar
+  - name: object_gid
+    transformation: var:OBJECT_GID::varchar
+    type: varchar
+  - name: reason_required_type
+    transformation: var:REASON_REQUIRED_TYPE::varchar
+    type: varchar
+  - name: reason_source
+    transformation: var:REASON_SOURCE::varchar
+    type: varchar
+  - name: marked_for_purge
+    transformation: var:MARKED_FOR_PURGE::varchar
+    type: varchar
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_deleted_shipment_table
+  stage: cfx_stage
+  table_name: dg_deleted_shipment
+  unique_id: audit_trail_gid
+dg_deleted_shipment_stop:
+  columns:
+  - name: audit_trail_gid
+    transformation: var:AUDIT_TRAIL_GID::varchar
+    type: varchar
+  - name: audit_trail_xid
+    transformation: var:AUDIT_TRAIL_XID::varchar
+    type: varchar
+  - name: notify_subject_gid
+    transformation: var:NOTIFY_SUBJECT_GID::varchar
+    type: varchar
+  - name: notify_function_gid
+    transformation: var:NOTIFY_FUNCTION_GID::varchar
+    type: varchar
+  - name: gl_user_gid
+    transformation: var:GL_USER_GID::varchar
+    type: varchar
+  - name: audit_time
+    transformation: nullif(var:AUDIT_TIME::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: app_action_gid
+    transformation: var:APP_ACTION_GID::varchar
+    type: varchar
+  - name: app_action_parameters
+    transformation: var:APP_ACTION_PARAMETERS::varchar
+    type: varchar
+  - name: bs_quick_code_gid
+    transformation: var:BS_QUICK_CODE_GID::varchar
+    type: varchar
+  - name: bs_responsible_party_gid
+    transformation: var:BS_RESPONSIBLE_PARTY_GID::varchar
+    type: varchar
+  - name: bs_status_group_gid
+    transformation: var:BS_STATUS_GROUP_GID::varchar
+    type: varchar
+  - name: bs_status_code_gid
+    transformation: var:BS_STATUS_CODE_GID::varchar
+    type: varchar
+  - name: bs_reason_group_gid
+    transformation: var:BS_REASON_GROUP_GID::varchar
+    type: varchar
+  - name: bs_reason_code_gid
+    transformation: var:BS_REASON_CODE_GID::varchar
+    type: varchar
+  - name: bs_reason_comment
+    transformation: var:BS_REASON_COMMENT::varchar
+    type: varchar
+  - name: transactional_event_gid
+    transformation: var:TRANSACTIONAL_EVENT_GID::varchar
+    type: varchar
+  - name: audit_object_type_gid
+    transformation: var:AUDIT_OBJECT_TYPE_GID::varchar
+    type: varchar
+  - name: object_gid
+    transformation: var:OBJECT_GID::varchar
+    type: varchar
+  - name: reason_required_type
+    transformation: var:REASON_REQUIRED_TYPE::varchar
+    type: varchar
+  - name: reason_source
+    transformation: var:REASON_SOURCE::varchar
+    type: varchar
+  - name: marked_for_purge
+    transformation: var:MARKED_FOR_PURGE::varchar
+    type: varchar
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_deleted_shipment_stop
+  stage: cfx_stage
+  table_name: dg_deleted_shipment_stop
+  unique_id: audit_trail_gid
+dg_invoice:
+  columns:
+  - name: invoice_gid
+    transformation: var:INVOICE_GID::varchar
+    type: varchar
+  - name: invoice_xid
+    transformation: var:INVOICE_XID::varchar
+    type: varchar
+  - name: invoice_type
+    transformation: var:INVOICE_TYPE::varchar
+    type: varchar
+  - name: invoice_source
+    transformation: var:INVOICE_SOURCE::varchar
+    type: varchar
+  - name: invoicestatus
+    transformation: var:INVOICESTATUS::varchar
+    type: varchar
+  - name: entered_by_gl_user_gid
+    transformation: var:ENTERED_BY_GL_USER_GID::varchar
+    type: varchar
+  - name: invoice_number
+    transformation: var:INVOICE_NUMBER::varchar
+    type: varchar
+  - name: servprov_alias_qual_gid
+    transformation: var:SERVPROV_ALIAS_QUAL_GID::varchar
+    type: varchar
+  - name: servprov_alias_value
+    transformation: var:SERVPROV_ALIAS_VALUE::varchar
+    type: varchar
+  - name: correction_code_id
+    transformation: var:CORRECTION_CODE_ID::varchar
+    type: varchar
+  - name: invoice_date
+    transformation: nullif(var:INVOICE_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: currency_gid
+    transformation: var:CURRENCY_GID::varchar
+    type: varchar
+  - name: net_amount_due
+    transformation: nullif(var:NET_AMOUNT_DUE::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: net_amount_due_gid
+    transformation: var:NET_AMOUNT_DUE_GID::varchar
+    type: varchar
+  - name: net_amount_base
+    transformation: nullif(var:NET_AMOUNT_BASE::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: net_due_date
+    transformation: nullif(var:NET_DUE_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: payment_method_code_gid
+    transformation: var:PAYMENT_METHOD_CODE_GID::varchar
+    type: varchar
+  - name: start_date
+    transformation: nullif(var:START_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: end_date
+    transformation: nullif(var:END_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: invoice_service_code_gid
+    transformation: var:INVOICE_SERVICE_CODE_GID::varchar
+    type: varchar
+  - name: inco_term_gid
+    transformation: var:INCO_TERM_GID::varchar
+    type: varchar
+  - name: discount_amount
+    transformation: nullif(var:DISCOUNT_AMOUNT::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: discount_amount_gid
+    transformation: var:DISCOUNT_AMOUNT_GID::varchar
+    type: varchar
+  - name: discount_amount_base
+    transformation: nullif(var:DISCOUNT_AMOUNT_BASE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: discount_percentage
+    transformation: nullif(var:DISCOUNT_PERCENTAGE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: discount_days_due
+    transformation: nullif(var:DISCOUNT_DAYS_DUE::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: discount_due_date
+    transformation: nullif(var:DISCOUNT_DUE_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: origin_station_city
+    transformation: var:ORIGIN_STATION_CITY::varchar
+    type: varchar
+  - name: origin_station_fsac
+    transformation: var:ORIGIN_STATION_FSAC::varchar
+    type: varchar
+  - name: origin_station_splc
+    transformation: var:ORIGIN_STATION_SPLC::varchar
+    type: varchar
+  - name: origin_station_province_code
+    transformation: var:ORIGIN_STATION_PROVINCE_CODE::varchar
+    type: varchar
+  - name: origin_station_postal_code
+    transformation: var:ORIGIN_STATION_POSTAL_CODE::varchar
+    type: varchar
+  - name: origin_country_code3_gid
+    transformation: var:ORIGIN_COUNTRY_CODE3_GID::varchar
+    type: varchar
+  - name: dest_station_city
+    transformation: var:DEST_STATION_CITY::varchar
+    type: varchar
+  - name: dest_station_fsac
+    transformation: var:DEST_STATION_FSAC::varchar
+    type: varchar
+  - name: dest_station_splc
+    transformation: var:DEST_STATION_SPLC::varchar
+    type: varchar
+  - name: dest_station_province_code
+    transformation: var:DEST_STATION_PROVINCE_CODE::varchar
+    type: varchar
+  - name: dest_station_postal_code
+    transformation: var:DEST_STATION_POSTAL_CODE::varchar
+    type: varchar
+  - name: dest_country_code3_gid
+    transformation: var:DEST_COUNTRY_CODE3_GID::varchar
+    type: varchar
+  - name: letter_of_credit_exp_date
+    transformation: nullif(var:LETTER_OF_CREDIT_EXP_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: letter_of_credit_issue_date
+    transformation: nullif(var:LETTER_OF_CREDIT_ISSUE_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: letter_of_credit_number
+    transformation: var:LETTER_OF_CREDIT_NUMBER::varchar
+    type: varchar
+  - name: vessel_code_qualifier
+    transformation: var:VESSEL_CODE_QUALIFIER::varchar
+    type: varchar
+  - name: vessel_code
+    transformation: var:VESSEL_CODE::varchar
+    type: varchar
+  - name: vessel_country_code3_gid
+    transformation: var:VESSEL_COUNTRY_CODE3_GID::varchar
+    type: varchar
+  - name: vessel_gid
+    transformation: var:VESSEL_GID::varchar
+    type: varchar
+  - name: ves_op_servprov_alias_qual_gid
+    transformation: var:VES_OP_SERVPROV_ALIAS_QUAL_GID::varchar
+    type: varchar
+  - name: ves_op_servprov_alias_value
+    transformation: var:VES_OP_SERVPROV_ALIAS_VALUE::varchar
+    type: varchar
+  - name: voyage_number
+    transformation: var:VOYAGE_NUMBER::varchar
+    type: varchar
+  - name: parent_invoice_gid
+    transformation: var:PARENT_INVOICE_GID::varchar
+    type: varchar
+  - name: date_received
+    transformation: nullif(var:DATE_RECEIVED::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: indicator
+    transformation: var:INDICATOR::varchar
+    type: varchar
+  - name: supply_country_code3_gid
+    transformation: var:SUPPLY_COUNTRY_CODE3_GID::varchar
+    type: varchar
+  - name: servprov_vat_reg_no_gid
+    transformation: var:SERVPROV_VAT_REG_NO_GID::varchar
+    type: varchar
+  - name: customer_vat_reg_no_gid
+    transformation: var:CUSTOMER_VAT_REG_NO_GID::varchar
+    type: varchar
+  - name: vat_exempt_value
+    transformation: var:VAT_EXEMPT_VALUE::varchar
+    type: varchar
+  - name: net_amt_due_with_tax
+    transformation: nullif(var:NET_AMT_DUE_WITH_TAX::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: net_amt_due_w_tax_currency_gid
+    transformation: var:NET_AMT_DUE_W_TAX_CURRENCY_GID::varchar
+    type: varchar
+  - name: net_amt_due_with_tax_base
+    transformation: nullif(var:NET_AMT_DUE_WITH_TAX_BASE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: is_pass_through
+    transformation: nullif(var:IS_PASS_THROUGH::varchar, '')::boolean
+    type: boolean
+  - name: consolidation_type
+    transformation: var:CONSOLIDATION_TYPE::varchar
+    type: varchar
+  - name: is_fixed_cost
+    transformation: nullif(var:IS_FIXED_COST::varchar, '')::boolean
+    type: boolean
+  - name: base_charge
+    transformation: nullif(var:BASE_CHARGE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: base_charge_currency_gid
+    transformation: var:BASE_CHARGE_CURRENCY_GID::varchar
+    type: varchar
+  - name: base_charge_base
+    transformation: nullif(var:BASE_CHARGE_BASE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: other_charge
+    transformation: nullif(var:OTHER_CHARGE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: other_charge_currency_gid
+    transformation: var:OTHER_CHARGE_CURRENCY_GID::varchar
+    type: varchar
+  - name: other_charge_base
+    transformation: nullif(var:OTHER_CHARGE_BASE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: is_credit_note
+    transformation: nullif(var:IS_CREDIT_NOTE::varchar, '')::boolean
+    type: boolean
+  - name: user_defined1_icon_gid
+    transformation: var:USER_DEFINED1_ICON_GID::varchar
+    type: varchar
+  - name: user_defined2_icon_gid
+    transformation: var:USER_DEFINED2_ICON_GID::varchar
+    type: varchar
+  - name: user_defined3_icon_gid
+    transformation: var:USER_DEFINED3_ICON_GID::varchar
+    type: varchar
+  - name: user_defined4_icon_gid
+    transformation: var:USER_DEFINED4_ICON_GID::varchar
+    type: varchar
+  - name: user_defined5_icon_gid
+    transformation: var:USER_DEFINED5_ICON_GID::varchar
+    type: varchar
+  - name: exchange_rate_date
+    transformation: nullif(var:EXCHANGE_RATE_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: exchange_rate_gid
+    transformation: var:EXCHANGE_RATE_GID::varchar
+    type: varchar
+  - name: servprov_gid
+    transformation: var:SERVPROV_GID::varchar
+    type: varchar
+  - name: sail_date
+    transformation: nullif(var:SAIL_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: sail_cutoff_date
+    transformation: nullif(var:SAIL_CUTOFF_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: rail_date
+    transformation: nullif(var:RAIL_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: is_hazardous
+    transformation: nullif(var:IS_HAZARDOUS::varchar,'')::boolean
+    type: boolean
+  - name: is_temperature_control
+    transformation: nullif(var:IS_TEMPERATURE_CONTROL::varchar,'')::boolean
+    type: boolean
+  - name: invoicing_process
+    transformation: var:INVOICING_PROCESS::varchar
+    type: varchar
+  - name: is_vat_analysis_fixed
+    transformation: nullif(var:IS_VAT_ANALYSIS_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: original_invoice_gid
+    transformation: var:ORIGINAL_INVOICE_GID::varchar
+    type: varchar
+  - name: discount_amt_fn
+    transformation: nullif(var:DISCOUNT_AMT_FN::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: discount_amt_fn_currency_gid
+    transformation: var:DISCOUNT_AMT_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: net_amount_due_fn
+    transformation: nullif(var:NET_AMOUNT_DUE_FN::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: net_amount_due_fn_currency_gid
+    transformation: var:NET_AMOUNT_DUE_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: net_amt_w_tax_fn
+    transformation: nullif(var:NET_AMT_W_TAX_FN::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: net_amt_w_tax_fn_currency_gid
+    transformation: var:NET_AMT_W_TAX_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: net_amt_w_tax_fn_1
+    transformation: nullif(var:NET_AMT_W_TAX_FN_1::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: base_charge_fn_currency_gid
+    transformation: var:BASE_CHARGE_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: net_amt_w_tax_fn_2
+    transformation: nullif(var:NET_AMT_W_TAX_FN_2::varchar,'')::number(38,4)
+    type: number(38,4)
+  - name: other_charge_fn_currency_gid
+    transformation: var:OTHER_CHARGE_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: gl_date
+    transformation: nullif(var:GL_DATE::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: marked_for_purge
+    transformation: var:MARKED_FOR_PURGE::varchar
+    type: varchar
+  - name: attribute1
+    transformation: var:ATTRIBUTE1::varchar
+    type: varchar
+  - name: attribute7
+    transformation: var:ATTRIBUTE7::varchar
+    type: varchar
+  - name: attribute15
+    transformation: var:ATTRIBUTE15::varchar
+    type: varchar
+  - name: attribute_date1
+    transformation: nullif(var:ATTRIBUTE_DATE1::varchar,'')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_invoice
+  stage: cfx_stage
+  table_name: dg_invoice
+  unique_id: invoice_gid
+dg_invoice_shipment:
+  columns:
+  - name: invoice_gid
+    transformation: var:INVOICE_GID::varchar
+    type: varchar
+  - name: sequence_no
+    transformation: nullif(var:SEQUENCE_NO::varchar, '')::number
+    type: number
+  - name: shipment_gid
+    transformation: var:SHIPMENT_GID::varchar
+    type: varchar
+  - name: s_ship_unit_gid
+    transformation: var:S_SHIP_UNIT_GID::varchar
+    type: varchar
+  - name: s_ship_unit_line_no
+    transformation: nullif(var:S_SHIP_UNIT_LINE_NO::varchar, '')::number
+    type: number
+  - name: tracking_number
+    transformation: nullif(var:TRACKING_NUMBER::varchar, '')::number
+    type: number
+  - name: lineitem_seq_no
+    transformation: nullif(var:LINEITEM_SEQ_NO::varchar, '')::number
+    type: number
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_shipment_invoice
+  stage: cfx_stage
+  table_name: dg_invoice_shipment
+  unique_id: invoice_gid
+dg_location:
+  columns:
+  - name: location_gid
+    transformation: nullif(var:LOCATION_GID::varchar, '')::varchar
+    type: varchar
+  - name: location_xid
+    transformation: nullif(var:LOCATION_XID::varchar, '')::varchar
+    type: varchar
+  - name: location_name
+    transformation: nullif(var:LOCATION_NAME::varchar, '')::varchar
+    type: varchar
+  - name: city
+    transformation: nullif(var:CITY::varchar, '')::varchar
+    type: varchar
+  - name: province
+    transformation: nullif(var:PROVINCE::varchar, '')::varchar
+    type: varchar
+  - name: province_code
+    transformation: nullif(var:PROVINCE_CODE::varchar, '')::varchar
+    type: varchar
+  - name: postal_code
+    transformation: nullif(var:POSTAL_CODE::varchar, '')::varchar
+    type: varchar
+  - name: country_code3_gid
+    transformation: nullif(var:COUNTRY_CODE3_GID::varchar, '')::varchar
+    type: varchar
+  - name: zone1
+    transformation: nullif(var:ZONE1::varchar, '')::varchar
+    type: varchar
+  - name: zone2
+    transformation: nullif(var:ZONE2::varchar, '')::varchar
+    type: varchar
+  - name: zone3
+    transformation: nullif(var:ZONE3::varchar, '')::varchar
+    type: varchar
+  - name: zone4
+    transformation: nullif(var:ZONE4::varchar, '')::varchar
+    type: varchar
+  - name: time_zone_gid
+    transformation: nullif(var:TIME_ZONE_GID::varchar, '')::varchar
+    type: varchar
+  - name: lat
+    transformation: nullif(var:LAT::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: lon
+    transformation: nullif(var:LON::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: sourcing_group_name
+    transformation: nullif(var:SOURCING_GROUP_NAME::varchar, '')::varchar
+    type: varchar
+  - name: delivery_group_name
+    transformation: nullif(var:DELIVERY_GROUP_NAME::varchar, '')::varchar
+    type: varchar
+  - name: region_gid
+    transformation: nullif(var:REGION_GID::varchar, '')::varchar
+    type: varchar
+  - name: servprov_profile_gid
+    transformation: nullif(var:SERVPROV_PROFILE_GID::varchar, '')::varchar
+    type: varchar
+  - name: location_group_gid
+    transformation: nullif(var:LOCATION_GROUP_GID::varchar, '')::varchar
+    type: varchar
+  - name: is_temporary
+    transformation: nullif(var:IS_TEMPORARY::varchar, '')::boolean
+    type: boolean
+  - name: is_make_appt_before_plan
+    transformation: nullif(var:IS_MAKE_APPT_BEFORE_PLAN::varchar, '')::boolean
+    type: boolean
+  - name: is_shipper_known
+    transformation: nullif(var:IS_SHIPPER_KNOWN::varchar, '')::boolean
+    type: boolean
+  - name: is_address_valid
+    transformation: nullif(var:IS_ADDRESS_VALID::varchar, '')::varchar
+    type: varchar
+  - name: rate_classification_gid
+    transformation: nullif(var:RATE_CLASSIFICATION_GID::varchar, '')::varchar
+    type: varchar
+  - name: equipment_group_profile_gid
+    transformation: nullif(var:EQUIPMENT_GROUP_PROFILE_GID::varchar, '')::varchar
+    type: varchar
+  - name: slot_time_interval
+    transformation: nullif(var:SLOT_TIME_INTERVAL::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: slot_time_interval_uom_code
+    transformation: nullif(var:SLOT_TIME_INTERVAL_UOM_CODE::varchar, '')::varchar
+    type: varchar
+  - name: slot_time_interval_base
+    transformation: nullif(var:SLOT_TIME_INTERVAL_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: is_ltl_splitable
+    transformation: nullif(var:IS_LTL_SPLITABLE::varchar, '')::boolean
+    type: boolean
+  - name: num_of_rows_in_yard
+    transformation: nullif(var:NUM_OF_ROWS_IN_YARD::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: num_of_slots_per_row_in_yard
+    transformation: nullif(var:NUM_OF_SLOTS_PER_ROW_IN_YARD::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: use_appointment_priority
+    transformation: nullif(var:USE_APPOINTMENT_PRIORITY::varchar, '')::varchar
+    type: varchar
+  - name: schedule_low_priority_appoint
+    transformation: nullif(var:SCHEDULE_LOW_PRIORITY_APPOINT::varchar, '')::varchar
+    type: varchar
+  - name: enforce_time_window_appoint
+    transformation: nullif(var:ENFORCE_TIME_WINDOW_APPOINT::varchar, '')::varchar
+    type: varchar
+  - name: schedule_infeasible_appoint
+    transformation: nullif(var:SCHEDULE_INFEASIBLE_APPOINT::varchar, '')::varchar
+    type: varchar
+  - name: county_qualifier
+    transformation: nullif(var:COUNTY_QUALIFIER::varchar, '')::varchar
+    type: varchar
+  - name: bb_max_cases_per_batch
+    transformation: nullif(var:BB_MAX_CASES_PER_BATCH::varchar, '')::varchar
+    type: varchar
+  - name: bb_is_new_store
+    transformation: nullif(var:BB_IS_NEW_STORE::varchar, '')::varchar
+    type: varchar
+  - name: bb_order_split_method
+    transformation: nullif(var:BB_ORDER_SPLIT_METHOD::varchar, '')::varchar
+    type: varchar
+  - name: exclude_from_route_execution
+    transformation: nullif(var:EXCLUDE_FROM_ROUTE_EXECUTION::varchar, '')::varchar
+    type: varchar
+  - name: appoint_display
+    transformation: nullif(var:APPOINT_DISPLAY::varchar, '')::varchar
+    type: varchar
+  - name: appoint_display_base
+    transformation: nullif(var:APPOINT_DISPLAY_BASE::varchar, '')::varchar
+    type: varchar
+  - name: appoint_display_uom_code
+    transformation: nullif(var:APPOINT_DISPLAY_UOM_CODE::varchar, '')::varchar
+    type: varchar
+  - name: appoint_display_start_time
+    transformation: nullif(var:APPOINT_DISPLAY_START_TIME::varchar, '')::varchar
+    type: varchar
+  - name: pickup_routing_sequence_gid
+    transformation: nullif(var:PICKUP_ROUTING_SEQUENCE_GID::varchar, '')::varchar
+    type: varchar
+  - name: dropoff_routing_sequence_gid
+    transformation: nullif(var:DROPOFF_ROUTING_SEQUENCE_GID::varchar, '')::varchar
+    type: varchar
+  - name: postal_splc_gid
+    transformation: nullif(var:POSTAL_SPLC_GID::varchar, '')::varchar
+    type: varchar
+  - name: rail_splc_gid
+    transformation: nullif(var:RAIL_SPLC_GID::varchar, '')::varchar
+    type: varchar
+  - name: rail_station_code_gid
+    transformation: nullif(var:RAIL_STATION_CODE_GID::varchar, '')::varchar
+    type: varchar
+  - name: erpc_gid
+    transformation: nullif(var:ERPC_GID::varchar, '')::varchar
+    type: varchar
+  - name: rail_junction_code_gid
+    transformation: nullif(var:RAIL_JUNCTION_CODE_GID::varchar, '')::varchar
+    type: varchar
+  - name: serving_servprov_profile_gid
+    transformation: nullif(var:SERVING_SERVPROV_PROFILE_GID::varchar, '')::varchar
+    type: varchar
+  - name: yard_row_labels
+    transformation: nullif(var:YARD_ROW_LABELS::varchar, '')::varchar
+    type: varchar
+  - name: yard_slot_labels
+    transformation: nullif(var:YARD_SLOT_LABELS::varchar, '')::varchar
+    type: varchar
+  - name: is_template
+    transformation: nullif(var:IS_TEMPLATE::varchar, '')::boolean
+    type: boolean
+  - name: description
+    transformation: nullif(var:DESCRIPTION::varchar, '')::varchar
+    type: varchar
+  - name: standing_appt_cutoff_window
+    transformation: nullif(var:STANDING_APPT_CUTOFF_WINDOW::varchar, '')::varchar
+    type: varchar
+  - name: allow_driver_rest
+    transformation: nullif(var:ALLOW_DRIVER_REST::varchar, '')::varchar
+    type: varchar
+  - name: appt_object_type
+    transformation: nullif(var:APPT_OBJECT_TYPE::varchar, '')::varchar
+    type: varchar
+  - name: appt_search_days
+    transformation: nullif(var:APPT_SEARCH_DAYS::varchar, '')::varchar
+    type: varchar
+  - name: appt_show_number_of_options
+    transformation: nullif(var:APPT_SHOW_NUMBER_OF_OPTIONS::varchar, '')::varchar
+    type: varchar
+  - name: appointment_activity_type
+    transformation: nullif(var:APPOINTMENT_ACTIVITY_TYPE::varchar, '')::varchar
+    type: varchar
+  - name: is_fixed_address
+    transformation: nullif(var:IS_FIXED_ADDRESS::varchar, '')::boolean
+    type: boolean
+  - name: primary_address_line_seq
+    transformation: nullif(var:PRIMARY_ADDRESS_LINE_SEQ::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: attribute1
+    transformation: nullif(var:ATTRIBUTE1::varchar, '')::varchar
+    type: varchar
+  - name: attribute2
+    transformation: nullif(var:ATTRIBUTE2::varchar, '')::varchar
+    type: varchar
+  - name: attribute3
+    transformation: nullif(var:ATTRIBUTE3::varchar, '')::varchar
+    type: varchar
+  - name: attribute4
+    transformation: nullif(var:ATTRIBUTE4::varchar, '')::varchar
+    type: varchar
+  - name: attribute5
+    transformation: nullif(var:ATTRIBUTE5::varchar, '')::varchar
+    type: varchar
+  - name: attribute6
+    transformation: nullif(var:ATTRIBUTE6::varchar, '')::varchar
+    type: varchar
+  - name: attribute7
+    transformation: nullif(var:ATTRIBUTE7::varchar, '')::varchar
+    type: varchar
+  - name: attribute8
+    transformation: nullif(var:ATTRIBUTE8::varchar, '')::varchar
+    type: varchar
+  - name: attribute9
+    transformation: nullif(var:ATTRIBUTE9::varchar, '')::varchar
+    type: varchar
+  - name: attribute10
+    transformation: nullif(var:ATTRIBUTE10::varchar, '')::varchar
+    type: varchar
+  - name: attribute11
+    transformation: nullif(var:ATTRIBUTE11::varchar, '')::varchar
+    type: varchar
+  - name: attribute12
+    transformation: nullif(var:ATTRIBUTE12::varchar, '')::varchar
+    type: varchar
+  - name: attribute13
+    transformation: nullif(var:ATTRIBUTE13::varchar, '')::varchar
+    type: varchar
+  - name: attribute14
+    transformation: nullif(var:ATTRIBUTE14::varchar, '')::varchar
+    type: varchar
+  - name: attribute15
+    transformation: nullif(var:ATTRIBUTE15::varchar, '')::varchar
+    type: varchar
+  - name: attribute16
+    transformation: nullif(var:ATTRIBUTE16::varchar, '')::varchar
+    type: varchar
+  - name: attribute17
+    transformation: nullif(var:ATTRIBUTE17::varchar, '')::varchar
+    type: varchar
+  - name: attribute18
+    transformation: nullif(var:ATTRIBUTE18::varchar, '')::varchar
+    type: varchar
+  - name: attribute19
+    transformation: nullif(var:ATTRIBUTE19::varchar, '')::varchar
+    type: varchar
+  - name: attribute20
+    transformation: nullif(var:ATTRIBUTE20::varchar, '')::varchar
+    type: varchar
+  - name: attribute_number1
+    transformation: nullif(var:ATTRIBUTE_NUMBER1::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number2
+    transformation: nullif(var:ATTRIBUTE_NUMBER2::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number3
+    transformation: nullif(var:ATTRIBUTE_NUMBER3::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number4
+    transformation: nullif(var:ATTRIBUTE_NUMBER4::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number5
+    transformation: nullif(var:ATTRIBUTE_NUMBER5::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number6
+    transformation: nullif(var:ATTRIBUTE_NUMBER6::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number7
+    transformation: nullif(var:ATTRIBUTE_NUMBER7::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number8
+    transformation: nullif(var:ATTRIBUTE_NUMBER8::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number9
+    transformation: nullif(var:ATTRIBUTE_NUMBER9::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number10
+    transformation: nullif(var:ATTRIBUTE_NUMBER10::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_date1
+    transformation: nullif(var:ATTRIBUTE_DATE1::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date2
+    transformation: nullif(var:ATTRIBUTE_DATE2::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date3
+    transformation: nullif(var:ATTRIBUTE_DATE3::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date4
+    transformation: nullif(var:ATTRIBUTE_DATE4::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date5
+    transformation: nullif(var:ATTRIBUTE_DATE5::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date6
+    transformation: nullif(var:ATTRIBUTE_DATE6::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date7
+    transformation: nullif(var:ATTRIBUTE_DATE7::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date8
+    transformation: nullif(var:ATTRIBUTE_DATE8::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date9
+    transformation: nullif(var:ATTRIBUTE_DATE9::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date10
+    transformation: nullif(var:ATTRIBUTE_DATE10::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: is_active
+    transformation: nullif(var:IS_ACTIVE::varchar,'')::boolean
+    type: boolean
+  - name: address_update_date
+    transformation: nullif(var:ADDRESS_UPDATE_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: domain_name
+    transformation: nullif(var:DOMAIN_NAME::varchar, '')::varchar
+    type: varchar
+  - name: insert_user
+    transformation: nullif(var:INSERT_USER::varchar, '')::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: nullif(var:UPDATE_USER::varchar, '')::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: location_profile_gid
+    transformation: nullif(var:LOCATION_PROFILE_GID::varchar, '')::varchar
+    type: varchar
+  file_name: dg_location
+  stage: cfx_stage
+  table_name: dg_location
+  unique_id: location_gid
+dg_shipment:
+  columns:
+  - name: shipment_gid
+    transformation: var:SHIPMENT_GID::varchar
+    type: varchar
+  - name: shipment_xid
+    transformation: var:SHIPMENT_XID::varchar
+    type: varchar
+  - name: shipment_name
+    transformation: var:SHIPMENT_NAME::varchar
+    type: varchar
+  - name: transport_mode_gid
+    transformation: var:TRANSPORT_MODE_GID::varchar
+    type: varchar
+  - name: orderowner
+    transformation: var:ORDEROWNER::varchar
+    type: varchar
+  - name: is_template
+    transformation: nullif(var:IS_TEMPLATE::varchar,'')::boolean
+    type: boolean
+  - name: is_primary
+    transformation: nullif(var:IS_PRIMARY::varchar,'')::boolean
+    type: boolean
+  - name: is_spot_costed
+    transformation: nullif(var:IS_SPOT_COSTED::varchar,'')::boolean
+    type: boolean
+  - name: is_credit_note
+    transformation: nullif(var:IS_CREDIT_NOTE::varchar,'')::boolean
+    type: boolean
+  - name: total_actual_cost
+    transformation: nullif(var:TOTAL_ACTUAL_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_actual_cost_base
+    transformation: nullif(var:TOTAL_ACTUAL_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_weighted_cost
+    transformation: nullif(var:TOTAL_WEIGHTED_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_weighted_cost_base
+    transformation: nullif(var:TOTAL_WEIGHTED_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: t_actual_cost_currency_gid
+    transformation: var:T_ACTUAL_COST_CURRENCY_GID::varchar
+    type: varchar
+  - name: t_weighted_cost_currency_gid
+    transformation: var:T_WEIGHTED_COST_CURRENCY_GID::varchar
+    type: varchar
+  - name: total_trans_cost
+    transformation: nullif(var:TOTAL_TRANS_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_trans_cost_currency_gid
+    transformation: var:TOTAL_TRANS_COST_CURRENCY_GID::varchar
+    type: varchar
+  - name: total_trans_cost_base
+    transformation: nullif(var:TOTAL_TRANS_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: loaded_distance
+    transformation: nullif(var:LOADED_DISTANCE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: loaded_distance_uom_code
+    transformation: var:LOADED_DISTANCE_UOM_CODE::varchar
+    type: varchar
+  - name: loaded_distance_base
+    transformation: nullif(var:LOADED_DISTANCE_BASE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: unloaded_distance
+    transformation: nullif(var:UNLOADED_DISTANCE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: unloaded_distance_uom_code
+    transformation: var:UNLOADED_DISTANCE_UOM_CODE::varchar
+    type: varchar
+  - name: unloaded_distance_base
+    transformation: nullif(var:UNLOADED_DISTANCE_BASE::varchar, '')::number(38,4)
+    type: number(38,4)
+  - name: source_location_gid
+    transformation: var:SOURCE_LOCATION_GID::varchar
+    type: varchar
+  - name: dest_location_gid
+    transformation: var:DEST_LOCATION_GID::varchar
+    type: varchar
+  - name: start_time
+    transformation: nullif(var:START_TIME::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: end_time
+    transformation: nullif(var:END_TIME::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: freight_terms
+    transformation: var:FREIGHT_TERMS::varchar
+    type: varchar
+  - name: parent_leg_gid
+    transformation: var:PARENT_LEG_GID::varchar
+    type: varchar
+  - name: voyage_gid
+    transformation: var:VOYAGE_GID::varchar
+    type: varchar
+  - name: servprov_gid
+    transformation: var:SERVPROV_GID::varchar
+    type: varchar
+  - name: rate_offering_gid
+    transformation: var:RATE_OFFERING_GID::varchar
+    type: varchar
+  - name: rate_geo_gid
+    transformation: var:RATE_GEO_GID::varchar
+    type: varchar
+  - name: original_shipment_gid
+    transformation: var:ORIGINAL_SHIPMENT_GID::varchar
+    type: varchar
+  - name: shipment_group_gid
+    transformation: var:SHIPMENT_GROUP_GID::varchar
+    type: varchar
+  - name: is_auto_merge_consolidate
+    transformation: nullif(var:IS_AUTO_MERGE_CONSOLIDATE::varchar,'')::boolean
+    type: boolean
+  - name: perspective
+    transformation: var:PERSPECTIVE::varchar
+    type: varchar
+  - name: total_weight
+    transformation: nullif(var:TOTAL_WEIGHT::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_weight_uom_code
+    transformation: var:TOTAL_WEIGHT_UOM_CODE::varchar
+    type: varchar
+  - name: total_weight_base
+    transformation: nullif(var:TOTAL_WEIGHT_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_volume
+    transformation: nullif(var:TOTAL_VOLUME::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_volume_uom_code
+    transformation: var:TOTAL_VOLUME_UOM_CODE::varchar
+    type: varchar
+  - name: total_volume_base
+    transformation: nullif(var:TOTAL_VOLUME_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_ship_unit_count
+    transformation: nullif(var:TOTAL_SHIP_UNIT_COUNT::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: total_packaging_unit_count
+    transformation: nullif(var:TOTAL_PACKAGING_UNIT_COUNT::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: total_item_package_count
+    transformation: nullif(var:TOTAL_ITEM_PACKAGE_COUNT::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: shipment_type_gid
+    transformation: var:SHIPMENT_TYPE_GID::varchar
+    type: varchar
+  - name: shipment_as_work
+    transformation: var:SHIPMENT_AS_WORK::varchar
+    type: varchar
+  - name: check_time_constraint
+    transformation: var:CHECK_TIME_CONSTRAINT::varchar
+    type: varchar
+  - name: check_cost_constraint
+    transformation: var:CHECK_COST_CONSTRAINT::varchar
+    type: varchar
+  - name: check_capacity_constraint
+    transformation: var:CHECK_CAPACITY_CONSTRAINT::varchar
+    type: varchar
+  - name: weigh_code
+    transformation: var:WEIGH_CODE::varchar
+    type: varchar
+  - name: rule_7
+    transformation: var:RULE_7::varchar
+    type: varchar
+  - name: shipment_released
+    transformation: var:SHIPMENT_RELEASED::varchar
+    type: varchar
+  - name: inco_term_gid
+    transformation: var:INCO_TERM_GID::varchar
+    type: varchar
+  - name: dim_weight
+    transformation: nullif(var:DIM_WEIGHT::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: dim_weight_uom_code
+    transformation: var:DIM_WEIGHT_UOM_CODE::varchar
+    type: varchar
+  - name: dim_weight_base
+    transformation: nullif(var:DIM_WEIGHT_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: planned_cost
+    transformation: nullif(var:PLANNED_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: planned_cost_base
+    transformation: nullif(var:PLANNED_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: planned_cost_currency_gid
+    transformation: var:PLANNED_COST_CURRENCY_GID::varchar
+    type: varchar
+  - name: term_location_text
+    transformation: var:TERM_LOCATION_TEXT::varchar
+    type: varchar
+  - name: is_hazardous
+    transformation: nullif(var:IS_HAZARDOUS::varchar,'')::boolean
+    type: boolean
+  - name: is_temperature_control
+    transformation: nullif(var:IS_TEMPERATURE_CONTROL::varchar,'')::boolean
+    type: boolean
+  - name: is_cost_fixed
+    transformation: nullif(var:IS_COST_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: is_service_time_fixed
+    transformation: nullif(var:IS_SERVICE_TIME_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: is_rate_geo_fixed
+    transformation: nullif(var:IS_RATE_GEO_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: is_rate_offering_fixed
+    transformation: nullif(var:IS_RATE_OFFERING_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: is_servprov_fixed
+    transformation: nullif(var:IS_SERVPROV_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: is_preload
+    transformation: nullif(var:IS_PRELOAD::varchar,'')::boolean
+    type: boolean
+  - name: is_fixed_tender_contact
+    transformation: nullif(var:IS_FIXED_TENDER_CONTACT::varchar,'')::boolean
+    type: boolean
+  - name: is_to_be_held
+    transformation: nullif(var:IS_TO_BE_HELD::varchar,'')::boolean
+    type: boolean
+  - name: is_preferred_carrier
+    transformation: nullif(var:IS_PREFERRED_CARRIER::varchar,'')::boolean
+    type: boolean
+  - name: is_equipment_fixed
+    transformation: nullif(var:IS_EQUIPMENT_FIXED::varchar,'')::boolean
+    type: boolean
+  - name: is_recalc_totals
+    transformation: nullif(var:IS_RECALC_TOTALS::varchar,'')::boolean
+    type: boolean
+  - name: has_appointments
+    transformation: var:HAS_APPOINTMENTS::varchar
+    type: varchar
+  - name: indicator
+    transformation: var:INDICATOR::varchar
+    type: varchar
+  - name: contact_gid
+    transformation: var:CONTACT_GID::varchar
+    type: varchar
+  - name: bulk_plan_gid
+    transformation: var:BULK_PLAN_GID::varchar
+    type: varchar
+  - name: total_num_reference_units
+    transformation: nullif(var:TOTAL_NUM_REFERENCE_UNITS::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: itinerary_gid
+    transformation: var:ITINERARY_GID::varchar
+    type: varchar
+  - name: feasibility_code_gid
+    transformation: var:FEASIBILITY_CODE_GID::varchar
+    type: varchar
+  - name: num_order_releases
+    transformation: nullif(var:NUM_ORDER_RELEASES::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: num_stops
+    transformation: nullif(var:NUM_STOPS::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: total_net_weight
+    transformation: nullif(var:TOTAL_NET_WEIGHT::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_net_weight_uom_code
+    transformation: var:TOTAL_NET_WEIGHT_UOM_CODE::varchar
+    type: varchar
+  - name: total_net_weight_base
+    transformation: nullif(var:TOTAL_NET_WEIGHT_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_net_volume
+    transformation: nullif(var:TOTAL_NET_VOLUME::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_net_volume_uom_code
+    transformation: var:TOTAL_NET_VOLUME_UOM_CODE::varchar
+    type: varchar
+  - name: total_net_volume_base
+    transformation: nullif(var:TOTAL_NET_VOLUME_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: earliest_start_time
+    transformation: nullif(var:EARLIEST_START_TIME::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: latest_start_time
+    transformation: nullif(var:LATEST_START_TIME::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: last_event_group_gid
+    transformation: var:LAST_EVENT_GROUP_GID::varchar
+    type: varchar
+  - name: repetition_schedule_gid
+    transformation: var:REPETITION_SCHEDULE_GID::varchar
+    type: varchar
+  - name: in_trailer_build
+    transformation: var:IN_TRAILER_BUILD::varchar
+    type: varchar
+  - name: first_equipment_group_gid
+    transformation: var:FIRST_EQUIPMENT_GROUP_GID::varchar
+    type: varchar
+  - name: user_defined1_icon_gid
+    transformation: var:USER_DEFINED1_ICON_GID::varchar
+    type: varchar
+  - name: user_defined2_icon_gid
+    transformation: var:USER_DEFINED2_ICON_GID::varchar
+    type: varchar
+  - name: user_defined3_icon_gid
+    transformation: var:USER_DEFINED3_ICON_GID::varchar
+    type: varchar
+  - name: source_location_override_gid
+    transformation: var:SOURCE_LOCATION_OVERRIDE_GID::varchar
+    type: varchar
+  - name: dest_location_override_gid
+    transformation: var:DEST_LOCATION_OVERRIDE_GID::varchar
+    type: varchar
+  - name: schedule_type
+    transformation: var:SCHEDULE_TYPE::varchar
+    type: varchar
+  - name: weight_utilization
+    transformation: nullif(var:WEIGHT_UTILIZATION::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: volume_utilization
+    transformation: nullif(var:VOLUME_UTILIZATION::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: equip_ref_unit_utilization
+    transformation: nullif(var:EQUIP_REF_UNIT_UTILIZATION::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: port_of_load_location_gid
+    transformation: var:PORT_OF_LOAD_LOCATION_GID::varchar
+    type: varchar
+  - name: port_of_dis_location_gid
+    transformation: var:PORT_OF_DIS_LOCATION_GID::varchar
+    type: varchar
+  - name: place_receipt_location_gid
+    transformation: var:PLACE_RECEIPT_LOCATION_GID::varchar
+    type: varchar
+  - name: place_deliver_location_gid
+    transformation: var:PLACE_DELIVER_LOCATION_GID::varchar
+    type: varchar
+  - name: is_cpcty_override_applicable
+    transformation: nullif(var:IS_CPCTY_OVERRIDE_APPLICABLE::varchar,'')::boolean
+    type: boolean
+  - name: planned_rate_offering_gid
+    transformation: var:PLANNED_RATE_OFFERING_GID::varchar
+    type: varchar
+  - name: planned_transport_mode_gid
+    transformation: var:PLANNED_TRANSPORT_MODE_GID::varchar
+    type: varchar
+  - name: planned_servprov_gid
+    transformation: var:PLANNED_SERVPROV_GID::varchar
+    type: varchar
+  - name: planned_rate_geo_gid
+    transformation: var:PLANNED_RATE_GEO_GID::varchar
+    type: varchar
+  - name: is_permanent
+    transformation: nullif(var:IS_PERMANENT::varchar,'')::boolean
+    type: boolean
+  - name: is_memo_bl
+    transformation: nullif(var:IS_MEMO_BL::varchar,'')::boolean
+    type: boolean
+  - name: duty_paid
+    transformation: var:DUTY_PAID::varchar
+    type: varchar
+  - name: exchange_rate_date
+    transformation: nullif(var:EXCHANGE_RATE_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: currency_gid
+    transformation: var:CURRENCY_GID::varchar
+    type: varchar
+  - name: exchange_rate_gid
+    transformation: var:EXCHANGE_RATE_GID::varchar
+    type: varchar
+  - name: tot_matched_invoice_cost
+    transformation: nullif(var:TOT_MATCHED_INVOICE_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: tot_matched_inv_cost_curr_gid
+    transformation: var:TOT_MATCHED_INV_COST_CURR_GID::varchar
+    type: varchar
+  - name: tot_matched_invoice_cost_base
+    transformation: nullif(var:TOT_MATCHED_INVOICE_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: original_invoice_cost
+    transformation: nullif(var:ORIGINAL_INVOICE_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: original_invoice_cost_curr_gid
+    transformation: var:ORIGINAL_INVOICE_COST_CURR_GID::varchar
+    type: varchar
+  - name: original_invoice_cost_base
+    transformation: nullif(var:ORIGINAL_INVOICE_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_approved_cost
+    transformation: nullif(var:TOTAL_APPROVED_COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_approved_cost_curr_gid
+    transformation: var:TOTAL_APPROVED_COST_CURR_GID::varchar
+    type: varchar
+  - name: total_approved_cost_base
+    transformation: nullif(var:TOTAL_APPROVED_COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: source_pier_location_gid
+    transformation: var:SOURCE_PIER_LOCATION_GID::varchar
+    type: varchar
+  - name: dest_pier_location_gid
+    transformation: var:DEST_PIER_LOCATION_GID::varchar
+    type: varchar
+  - name: primary_order_base_gid
+    transformation: var:PRIMARY_ORDER_BASE_GID::varchar
+    type: varchar
+  - name: total_declared_value
+    transformation: nullif(var:TOTAL_DECLARED_VALUE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_declared_value_gid
+    transformation: var:TOTAL_DECLARED_VALUE_GID::varchar
+    type: varchar
+  - name: total_declared_value_base
+    transformation: nullif(var:TOTAL_DECLARED_VALUE_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: is_profit_split
+    transformation: nullif(var:IS_PROFIT_SPLIT::varchar,'')::boolean
+    type: boolean
+  - name: is_advanced_charge
+    transformation: nullif(var:IS_ADVANCED_CHARGE::varchar,'')::boolean
+    type: boolean
+  - name: is_fixed_distance
+    transformation: nullif(var:IS_FIXED_DISTANCE::varchar,'')::boolean
+    type: boolean
+  - name: chargeable_weight
+    transformation: nullif(var:CHARGEABLE_WEIGHT::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: chargeable_weight_uom_code
+    transformation: var:CHARGEABLE_WEIGHT_UOM_CODE::varchar
+    type: varchar
+  - name: chargeable_weight_base
+    transformation: nullif(var:CHARGEABLE_WEIGHT_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_actual_c_fn
+    transformation: nullif(var:TOTAL_ACTUAL_C_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_actual_c_fn_currency_gid
+    transformation: var:TOTAL_ACTUAL_C_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: total_trans_c_fn
+    transformation: nullif(var:TOTAL_TRANS_C_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_trans_c_fn_currency_gid
+    transformation: var:TOTAL_TRANS_C_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: total_wt_cost_fn
+    transformation: nullif(var:TOTAL_WT_COST_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_wt_cost_fn_currency_gid
+    transformation: var:TOTAL_WT_COST_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: planned_cost_fn
+    transformation: nullif(var:PLANNED_COST_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: planned_cost_fn_currency_gid
+    transformation: var:PLANNED_COST_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: tot_match_inv_fn
+    transformation: nullif(var:TOT_MATCH_INV_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: tot_match_inv_fn_currency_gid
+    transformation: var:TOT_MATCH_INV_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: original_inv_c_fn
+    transformation: nullif(var:ORIGINAL_INV_C_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: original_inv_c_fn_currency_gid
+    transformation: var:ORIGINAL_INV_C_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: total_app_cost_fn
+    transformation: nullif(var:TOTAL_APP_COST_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: total_app_cost_fn_currency_gid
+    transformation: var:TOTAL_APP_COST_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: driver_gid
+    transformation: var:DRIVER_GID::varchar
+    type: varchar
+  - name: secondary_driver_gid
+    transformation: var:SECONDARY_DRIVER_GID::varchar
+    type: varchar
+  - name: power_unit_gid
+    transformation: var:POWER_UNIT_GID::varchar
+    type: varchar
+  - name: marked_for_purge
+    transformation: var:MARKED_FOR_PURGE::varchar
+    type: varchar
+  - name: prev_drop_inventory_processed
+    transformation: var:PREV_DROP_INVENTORY_PROCESSED::varchar
+    type: varchar
+  - name: pick_inventory_processed
+    transformation: var:PICK_INVENTORY_PROCESSED::varchar
+    type: varchar
+  - name: drop_inventory_processed
+    transformation: var:DROP_INVENTORY_PROCESSED::varchar
+    type: varchar
+  - name: dim_volume
+    transformation: nullif(var:DIM_VOLUME::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: dim_volume_uom_code
+    transformation: var:DIM_VOLUME_UOM_CODE::varchar
+    type: varchar
+  - name: dim_volume_base
+    transformation: nullif(var:DIM_VOLUME_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: chargeable_volume
+    transformation: nullif(var:CHARGEABLE_VOLUME::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: chargeable_volume_uom_code
+    transformation: var:CHARGEABLE_VOLUME_UOM_CODE::varchar
+    type: varchar
+  - name: chargeable_volume_base
+    transformation: nullif(var:CHARGEABLE_VOLUME_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: planning_parameter_set_gid
+    transformation: var:PLANNING_PARAMETER_SET_GID::varchar
+    type: varchar
+  - name: num_equipment_ordered
+    transformation: nullif(var:NUM_EQUIPMENT_ORDERED::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: offering_domain
+    transformation: var:OFFERING_DOMAIN::varchar
+    type: varchar
+  - name: recieving_domain
+    transformation: var:RECIEVING_DOMAIN::varchar
+    type: varchar
+  - name: attribute3
+    transformation: var:ATTRIBUTE3::varchar
+    type: varchar
+  - name: attribute4
+    transformation: var:ATTRIBUTE4::varchar
+    type: varchar
+  - name: attribute5
+    transformation: var:ATTRIBUTE5::varchar
+    type: varchar
+  - name: attribute6
+    transformation: var:ATTRIBUTE6::varchar
+    type: varchar
+  - name: attribute7
+    transformation: var:ATTRIBUTE7::varchar
+    type: varchar
+  - name: attribute8
+    transformation: var:ATTRIBUTE8::varchar
+    type: varchar
+  - name: attribute9
+    transformation: var:ATTRIBUTE9::varchar
+    type: varchar
+  - name: attribute10
+    transformation: var:ATTRIBUTE10::varchar
+    type: varchar
+  - name: attribute11
+    transformation: var:ATTRIBUTE11::varchar
+    type: varchar
+  - name: attribute12
+    transformation: var:ATTRIBUTE12::varchar
+    type: varchar
+  - name: attribute13
+    transformation: var:ATTRIBUTE13::varchar
+    type: varchar
+  - name: attribute14
+    transformation: var:ATTRIBUTE14::varchar
+    type: varchar
+  - name: attribute15
+    transformation: var:ATTRIBUTE15::varchar
+    type: varchar
+  - name: attribute16
+    transformation: var:ATTRIBUTE16::varchar
+    type: varchar
+  - name: attribute17
+    transformation: var:ATTRIBUTE17::varchar
+    type: varchar
+  - name: attribute18
+    transformation: var:ATTRIBUTE18::varchar
+    type: varchar
+  - name: attribute19
+    transformation: var:ATTRIBUTE19::varchar
+    type: varchar
+  - name: attribute20
+    transformation: var:ATTRIBUTE20::varchar
+    type: varchar
+  - name: attribute_number1
+    transformation: nullif(var:ATTRIBUTE_NUMBER1::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number2
+    transformation: nullif(var:ATTRIBUTE_NUMBER2::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number3
+    transformation: nullif(var:ATTRIBUTE_NUMBER3::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number4
+    transformation: nullif(var:ATTRIBUTE_NUMBER4::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number5
+    transformation: nullif(var:ATTRIBUTE_NUMBER5::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number6
+    transformation: nullif(var:ATTRIBUTE_NUMBER6::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number7
+    transformation: nullif(var:ATTRIBUTE_NUMBER7::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number8
+    transformation: nullif(var:ATTRIBUTE_NUMBER8::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number9
+    transformation: nullif(var:ATTRIBUTE_NUMBER9::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number10
+    transformation: nullif(var:ATTRIBUTE_NUMBER10::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_date1
+    transformation: nullif(var:ATTRIBUTE_DATE1::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date2
+    transformation: nullif(var:ATTRIBUTE_DATE2::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date3
+    transformation: nullif(var:ATTRIBUTE_DATE3::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date4
+    transformation: nullif(var:ATTRIBUTE_DATE4::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date5
+    transformation: nullif(var:ATTRIBUTE_DATE5::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date6
+    transformation: nullif(var:ATTRIBUTE_DATE6::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date7
+    transformation: nullif(var:ATTRIBUTE_DATE7::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date8
+    transformation: nullif(var:ATTRIBUTE_DATE8::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date9
+    transformation: nullif(var:ATTRIBUTE_DATE9::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date10
+    transformation: nullif(var:ATTRIBUTE_DATE10::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_currency1
+    transformation: nullif(var:ATTRIBUTE_CURRENCY1::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: attribute_currency1_gid
+    transformation: var:ATTRIBUTE_CURRENCY1_GID::varchar
+    type: varchar
+  - name: attribute_currency1_base
+    transformation: nullif(var:ATTRIBUTE_CURRENCY1_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: attribute_currency2
+    transformation: nullif(var:ATTRIBUTE_CURRENCY2::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: attribute_currency2_gid
+    transformation: var:ATTRIBUTE_CURRENCY2_GID::varchar
+    type: varchar
+  - name: attribute_currency2_base
+    transformation: nullif(var:ATTRIBUTE_CURRENCY2_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: attribute_currency3
+    transformation: nullif(var:ATTRIBUTE_CURRENCY3::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: attribute_currency3_gid
+    transformation: var:ATTRIBUTE_CURRENCY3_GID::varchar
+    type: varchar
+  - name: attribute_currency3_base
+    transformation: nullif(var:ATTRIBUTE_CURRENCY3_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_shipment_table
+  stage: cfx_stage
+  table_name: dg_shipment
+  unique_id: shipment_gid
+dg_shipment_cost:
+  columns:
+  - name: shipment_cost_seqno
+    transformation: nullif(var:SHIPMENT_COST_SEQNO::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: shipment_gid
+    transformation: var:SHIPMENT_GID::varchar
+    type: varchar
+  - name: cost_type
+    transformation: var:COST_TYPE::varchar
+    type: varchar
+  - name: cost
+    transformation: nullif(var:COST::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: cost_gid
+    transformation: var:COST_GID::varchar
+    type: varchar
+  - name: cost_base
+    transformation: nullif(var:COST_BASE::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: accessorial_code_gid
+    transformation: var:ACCESSORIAL_CODE_GID::varchar
+    type: varchar
+  - name: accessorial_cost_gid
+    transformation: var:ACCESSORIAL_COST_GID::varchar
+    type: varchar
+  - name: billable_indicator_gid
+    transformation: var:BILLABLE_INDICATOR_GID::varchar
+    type: varchar
+  - name: rate_geo_cost_group_gid
+    transformation: var:RATE_GEO_COST_GROUP_GID::varchar
+    type: varchar
+  - name: rate_geo_cost_seq
+    transformation: nullif(var:RATE_GEO_COST_SEQ::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: special_service_gid
+    transformation: var:SPECIAL_SERVICE_GID::varchar
+    type: varchar
+  - name: is_cost_fixed
+    transformation: nullif(var:IS_COST_FIXED::varchar, '')::boolean
+    type: boolean
+  - name: process_as_flow_thru
+    transformation: var:PROCESS_AS_FLOW_THRU::varchar
+    type: varchar
+  - name: adjustment_reason_gid
+    transformation: var:ADJUSTMENT_REASON_GID::varchar
+    type: varchar
+  - name: general_ledger_gid
+    transformation: var:GENERAL_LEDGER_GID::varchar
+    type: varchar
+  - name: payment_method_code_gid
+    transformation: var:PAYMENT_METHOD_CODE_GID::varchar
+    type: varchar
+  - name: exchange_rate_date
+    transformation: nullif(var:EXCHANGE_RATE_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: exchange_rate_gid
+    transformation: var:EXCHANGE_RATE_GID::varchar
+    type: varchar
+  - name: cost_fn
+    transformation: nullif(var:COST_FN::varchar, '')::number(38,6)
+    type: number(38,6)
+  - name: cost_fn_currency_gid
+    transformation: var:COST_FN_CURRENCY_GID::varchar
+    type: varchar
+  - name: s_ship_unit_gid
+    transformation: var:S_SHIP_UNIT_GID::varchar
+    type: varchar
+  - name: s_ship_unit_line_no
+    transformation: nullif(var:S_SHIP_UNIT_LINE_NO::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: is_weighted
+    transformation: nullif(var:IS_WEIGHTED::varchar, '')::boolean
+    type: boolean
+  - name: cost_category_gid
+    transformation: var:COST_CATEGORY_GID::varchar
+    type: varchar
+  - name: tracking_number
+    transformation: nullif(var:TRACKING_NUMBER::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_shipment_cost
+  stage: cfx_stage
+  table_name: dg_shipment_cost
+  unique_id: shipment_cost_seqno
+dg_shipment_status:
+  columns:
+  - name: shipment_gid
+    transformation: var:SHIPMENT_GID::varchar
+    type: varchar
+  - name: status_type_gid
+    transformation: var:STATUS_TYPE_GID::varchar
+    type: varchar
+  - name: status_value_gid
+    transformation: var:STATUS_VALUE_GID::varchar
+    type: varchar
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: dg_shipment_status
+  stage: cfx_stage
+  table_name: dg_shipment_status
+  unique_id: shipment_gid
+dg_shipment_stop:
+  columns:
+  - name: shipment_gid
+    transformation: var:SHIPMENT_GID::varchar
+    type: varchar
+  - name: stop_num
+    transformation: nullif(var:STOP_NUM::varchar, '')::number(38,0)
+    type: number(38,0)
+  - name: location_gid
+    transformation: var:LOCATION_GID::varchar
+    type: varchar
+  - name: location_role_gid
+    transformation: var:LOCATION_ROLE_GID::varchar
+    type: varchar
+  - name: planned_arrival
+    transformation: nullif(var:PLANNED_ARRIVAL::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: estimated_arrival
+    transformation: nullif(var:ESTIMATED_ARRIVAL::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: is_fixed_arrival
+    transformation: var:IS_FIXED_ARRIVAL::boolean
+    type: boolean
+  - name: actual_arrival
+    transformation: nullif(var:ACTUAL_ARRIVAL::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: planned_departure
+    transformation: nullif(var:PLANNED_DEPARTURE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: estimated_departure
+    transformation: nullif(var:ESTIMATED_DEPARTURE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: is_fixed_departure
+    transformation: var:IS_FIXED_DEPARTURE::boolean
+    type: boolean
+  - name: actual_departure
+    transformation: nullif(var:ACTUAL_DEPARTURE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: wait_time
+    transformation: nullif(var:WAIT_TIME::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: wait_time_uom_code
+    transformation: var:WAIT_TIME_UOM_CODE::varchar
+    type: varchar
+  - name: wait_time_base
+    transformation: nullif(var:WAIT_TIME_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: rest_time
+    transformation: nullif(var:REST_TIME::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: rest_time_uom_code
+    transformation: var:REST_TIME_UOM_CODE::varchar
+    type: varchar
+  - name: rest_time_base
+    transformation: nullif(var:REST_TIME_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: drive_time
+    transformation: nullif(var:DRIVE_TIME::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: drive_time_uom_code
+    transformation: var:DRIVE_TIME_UOM_CODE::varchar
+    type: varchar
+  - name: drive_time_base
+    transformation: nullif(var:DRIVE_TIME_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: dist_from_prev_stop
+    transformation: nullif(var:DIST_FROM_PREV_STOP::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: dist_from_prev_stop_uom_code
+    transformation: var:DIST_FROM_PREV_STOP_UOM_CODE::varchar
+    type: varchar
+  - name: dist_from_prev_stop_base
+    transformation: nullif(var:DIST_FROM_PREV_STOP_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: activity_time
+    transformation: nullif(var:ACTIVITY_TIME::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: activity_time_uom_code
+    transformation: var:ACTIVITY_TIME_UOM_CODE::varchar
+    type: varchar
+  - name: activity_time_base
+    transformation: nullif(var:ACTIVITY_TIME_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: is_permanent
+    transformation: var:IS_PERMANENT::boolean
+    type: boolean
+  - name: is_depot
+    transformation: var:IS_DEPOT::boolean
+    type: boolean
+  - name: appointment_pickup
+    transformation: var:APPOINTMENT_PICKUP::varchar
+    type: varchar
+  - name: appointment_delivery
+    transformation: var:APPOINTMENT_DELIVERY::varchar
+    type: varchar
+  - name: accessorial_time
+    transformation: nullif(var:ACCESSORIAL_TIME::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: accessorial_time_uom_code
+    transformation: var:ACCESSORIAL_TIME_UOM_CODE::varchar
+    type: varchar
+  - name: accessorial_time_base
+    transformation: nullif(var:ACCESSORIAL_TIME_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: parent_location_gid
+    transformation: var:PARENT_LOCATION_GID::varchar
+    type: varchar
+  - name: location_override_gid
+    transformation: var:LOCATION_OVERRIDE_GID::varchar
+    type: varchar
+  - name: stop_requirement_type
+    transformation: var:STOP_REQUIREMENT_TYPE::varchar
+    type: varchar
+  - name: rate_service_gid
+    transformation: var:RATE_SERVICE_GID::varchar
+    type: varchar
+  - name: arbitrary_type
+    transformation: var:ARBITRARY_TYPE::varchar
+    type: varchar
+  - name: is_fixed_distance
+    transformation: var:IS_FIXED_DISTANCE::boolean
+    type: boolean
+  - name: ext_seq_no
+    transformation: nullif(var:EXT_SEQ_NO::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: rush_hour_time
+    transformation: nullif(var:RUSH_HOUR_TIME::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: rush_hour_time_uom_code
+    transformation: var:RUSH_HOUR_TIME_UOM_CODE::varchar
+    type: varchar
+  - name: rush_hour_time_base
+    transformation: nullif(var:RUSH_HOUR_TIME_BASE::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: voyage_gid
+    transformation: var:VOYAGE_GID::varchar
+    type: varchar
+  - name: is_mother_vessel
+    transformation: var:IS_MOTHER_VESSEL::boolean
+    type: boolean
+  - name: flight_instance_id
+    transformation: var:FLIGHT_INSTANCE_ID::varchar
+    type: varchar
+  - name: repetition_schedule_gid
+    transformation: var:REPETITION_SCHEDULE_GID::varchar
+    type: varchar
+  - name: stop_type
+    transformation: var:STOP_TYPE::varchar
+    type: varchar
+  - name: slack_variance
+    transformation: var:SLACK_VARIANCE::varchar
+    type: varchar
+  - name: driver_non_payable
+    transformation: var:DRIVER_NON_PAYABLE::varchar
+    type: varchar
+  - name: repetition_sched_stop_number
+    transformation: nullif(var:REPETITION_SCHED_STOP_NUMBER::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: distance_type
+    transformation: var:DISTANCE_TYPE::varchar
+    type: varchar
+  - name: attribute1
+    transformation: var:ATTRIBUTE1::varchar
+    type: varchar
+  - name: attribute2
+    transformation: var:ATTRIBUTE2::varchar
+    type: varchar
+  - name: attribute3
+    transformation: var:ATTRIBUTE3::varchar
+    type: varchar
+  - name: attribute4
+    transformation: var:ATTRIBUTE4::varchar
+    type: varchar
+  - name: attribute5
+    transformation: var:ATTRIBUTE5::varchar
+    type: varchar
+  - name: attribute6
+    transformation: var:ATTRIBUTE6::varchar
+    type: varchar
+  - name: attribute7
+    transformation: var:ATTRIBUTE7::varchar
+    type: varchar
+  - name: attribute8
+    transformation: var:ATTRIBUTE8::varchar
+    type: varchar
+  - name: attribute9
+    transformation: var:ATTRIBUTE9::varchar
+    type: varchar
+  - name: attribute10
+    transformation: var:ATTRIBUTE10::varchar
+    type: varchar
+  - name: attribute11
+    transformation: var:ATTRIBUTE11::varchar
+    type: varchar
+  - name: attribute12
+    transformation: var:ATTRIBUTE12::varchar
+    type: varchar
+  - name: attribute13
+    transformation: var:ATTRIBUTE13::varchar
+    type: varchar
+  - name: attribute14
+    transformation: var:ATTRIBUTE14::varchar
+    type: varchar
+  - name: attribute15
+    transformation: var:ATTRIBUTE15::varchar
+    type: varchar
+  - name: attribute16
+    transformation: var:ATTRIBUTE16::varchar
+    type: varchar
+  - name: attribute17
+    transformation: var:ATTRIBUTE17::varchar
+    type: varchar
+  - name: attribute18
+    transformation: var:ATTRIBUTE18::varchar
+    type: varchar
+  - name: attribute19
+    transformation: var:ATTRIBUTE19::varchar
+    type: varchar
+  - name: attribute20
+    transformation: var:ATTRIBUTE20::varchar
+    type: varchar
+  - name: attribute_number1
+    transformation: nullif(var:ATTRIBUTE_NUMBER1::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number2
+    transformation: nullif(var:ATTRIBUTE_NUMBER2::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number3
+    transformation: nullif(var:ATTRIBUTE_NUMBER3::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number4
+    transformation: nullif(var:ATTRIBUTE_NUMBER4::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number5
+    transformation: nullif(var:ATTRIBUTE_NUMBER5::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number6
+    transformation: nullif(var:ATTRIBUTE_NUMBER6::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number7
+    transformation: nullif(var:ATTRIBUTE_NUMBER7::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number8
+    transformation: nullif(var:ATTRIBUTE_NUMBER8::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number9
+    transformation: nullif(var:ATTRIBUTE_NUMBER9::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_number10
+    transformation: nullif(var:ATTRIBUTE_NUMBER10::varchar, '')::number(38,2)
+    type: number(38,2)
+  - name: attribute_date1
+    transformation: nullif(var:ATTRIBUTE_DATE1::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date2
+    transformation: nullif(var:ATTRIBUTE_DATE2::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date3
+    transformation: nullif(var:ATTRIBUTE_DATE3::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date4
+    transformation: nullif(var:ATTRIBUTE_DATE4::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date5
+    transformation: nullif(var:ATTRIBUTE_DATE5::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date6
+    transformation: nullif(var:ATTRIBUTE_DATE6::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date7
+    transformation: nullif(var:ATTRIBUTE_DATE7::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date8
+    transformation: nullif(var:ATTRIBUTE_DATE8::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date9
+    transformation: nullif(var:ATTRIBUTE_DATE9::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: attribute_date10
+    transformation: nullif(var:ATTRIBUTE_DATE10::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: appointment_window_start
+    transformation: nullif(var:APPOINTMENT_WINDOW_START::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: appointment_window_end
+    transformation: nullif(var:APPOINTMENT_WINDOW_END::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: domain_name
+    transformation: var:DOMAIN_NAME::varchar
+    type: varchar
+  - name: insert_user
+    transformation: var:INSERT_USER::varchar
+    type: varchar
+  - name: insert_date
+    transformation: nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: update_user
+    transformation: var:UPDATE_USER::varchar
+    type: varchar
+  - name: update_date
+    transformation: coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar,
+      ''))::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: rate_distance_gid
+    transformation: var:RATE_DISTANCE_GID::varchar
+    type: varchar
+  - name: route_code_gid
+    transformation: var:ROUTE_CODE_GID::varchar
+    type: varchar
+  file_name: dg_shipment_stop
+  stage: cfx_stage
+  table_name: dg_shipment_stop
+  unique_id: shipment_gid

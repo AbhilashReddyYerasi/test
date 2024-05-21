@@ -1,0 +1,71 @@
+name: Pull request (Migrations) 
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "migrations/**"
+
+jobs:
+  validate-raw:
+    name: "Validate Migrations (RAW)"
+    runs-on: ubuntu-latest
+    environment: dev
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.DEV_SNOWFLAKE_ACCOUNT }}.${{ secrets.DEV_SNOWFLAKE_REGION }}
+      SNOWFLAKE_USER: ${{ secrets.DEV_SNOWFLAKE_USER }}
+      SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
+      SNOWFLAKE_WAREHOUSE: ${{ vars.SNOWFLAKE_WAREHOUSE }}
+      SNOWFLAKE_DATABASE: ${{ vars.SNOWFLAKE_DATABASE }}
+      SNOWFLAKE_PRIVATE_KEY: ${{ secrets.DEV_SNOWFLAKE_PRIVATE_KEY }}
+      SNOWFLAKE_PRIVATE_KEY_PATH: "/tmp/rsa.p8"
+      PYTHON_VERSION: "3.10"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Add snowflake key as file
+        run: echo "${{ env.SNOWFLAKE_PRIVATE_KEY }}" > $SNOWFLAKE_PRIVATE_KEY_PATH
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: pip install -r requirements.txt
+
+      - name: Get changed migration files
+        id: changed_migrations
+        uses: tj-actions/changed-files@v40
+        with:
+          # Avoid using single or double quotes for multiline patterns
+          files: |
+             migrations/**/V*__*.sql
+             migrations/**/V*__*.sql.jinja
+
+      - name: Check for changed migrations
+        if: steps.changed_migrations.outputs.modified_files_count > 0 || steps.changed_migrations.outputs.deleted_files_count > 0 || steps.changed_migrations.outputs.renamed_files_count > 0
+        run: |
+          for file in ${{ steps.changed_migrations.outputs.modified_files }}; do
+            echo "❌ $file was modified"
+          done
+          for file in ${{ steps.changed_migrations.outputs.renamed_files }}; do
+            echo "❌ $file was renamed"
+          done
+          for file in ${{ steps.changed_migrations.outputs.deleted_files }}; do
+            echo "❌ $file was deleted"
+          done
+        # exit 1
+
+      - name: Check migration versions
+        run: python -m scripts.cli validate-migrations raw/
+        working-directory: migrations
+
+      - name: Lint SQL
+        run: sqlfluff lint migrations/
+        working-directory: migrations/raw
+
+      - name: Apply migrations (dry-run)
+        run: schemachange -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WAREHOUSE -d $SNOWFLAKE_DATABASE -c $SNOWFLAKE_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --dry-run
+        working-directory: migrations/raw

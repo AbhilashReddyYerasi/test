@@ -1,0 +1,25 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "shipper_credit_terms",
+    "cms_stage",
+    "ShipperCreditTerms"
+  ) -%}
+    id varchar,
+    credit_term varchar(100),
+    credit_term_value number(18,0),
+    oracle_ar varchar(100),
+    is_default boolean,
+    is_due_date_calculate_from_invoice_date boolean,
+    is_due_date_eofm boolean,
+    tenant_id varchar,
+    tenant_country_id varchar,
+    is_deleted boolean,
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    created_by varchar,
+    created_at timestamp_tz(9),
+    master_countries_country_time_zone varchar
+{%- endcall %}

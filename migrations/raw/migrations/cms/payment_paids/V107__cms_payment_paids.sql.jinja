@@ -1,0 +1,26 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "payment_paids",
+    "cms_stage",
+    "PaymentPaids"
+  ) -%}
+    id varchar(16777216),
+    carrier_invoice_id varchar(16777216),
+    po_id varchar(16777216),
+    bank_transaction_id varchar(16777216),
+    paid_date timestamp_tz(9),
+    amount_paid number(16,2),
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    etag varchar(16777216),
+    status varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

@@ -1,0 +1,35 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{#
+Creates a merge task for {table_name}, given the {columns}.
+The query assums that the source contains the following mandatoy columns:
+- updated_date
+
+The output tabel will also contain:
+- load_ts
+#}
+{% macro create_pricing_merge_task(
+    output_schema,
+    load_schema,
+    table_name,
+    columns
+) -%}
+
+{% set all_columns = columns + [
+    ("load_ts", "convert_timezone('UTC',CURRENT_TIMESTAMP)::timestamp_tz")
+] %}
+
+{% call create_merge_task(load_schema, table_name) -%}
+
+insert into {{ output_schema }}.{{ table_name }} (
+    {% for name, _ in all_columns -%}
+            {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%})
+select
+        {% for name, source in all_columns -%}
+            {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+from {{ load_schema }}.load_{{ table_name }}_stream
+{%- endcall %}
+
+{%- endmacro %}

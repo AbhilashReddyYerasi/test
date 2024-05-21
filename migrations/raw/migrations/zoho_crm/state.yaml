@@ -1,0 +1,867 @@
+accounts:
+  columns:
+  - name: id
+    transformation: var:Id::number
+    type: number
+  - name: owner
+    transformation: var:Owner::number
+    type: number
+  - name: account_name
+    transformation: var:Account_Name::varchar
+    type: varchar
+  - name: phone
+    transformation: var:Phone::varchar
+    type: varchar
+  - name: website
+    transformation: var:Website::varchar
+    type: varchar
+  - name: account_type
+    transformation: var:Account_Type::varchar
+    type: varchar
+  - name: industry
+    transformation: var:Industry::varchar
+    type: varchar
+  - name: employees
+    transformation: var:Employees::varchar
+    type: varchar
+  - name: annual_revenue
+    transformation: var:Annual_Revenue::varchar
+    type: varchar
+  - name: created_by
+    transformation: var:Created_By::number
+    type: number
+  - name: modified_by
+    transformation: var:Modified_By::number
+    type: number
+  - name: created_time
+    transformation: var:Created_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: modified_time
+    transformation: var:Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: last_activity_time
+    transformation: var:Last_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: description
+    transformation: var:Description::varchar
+    type: varchar
+  - name: user_modified_time
+    transformation: var:User_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_related_activity_time
+    transformation: var:System_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: user_related_activity_time
+    transformation: var:User_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_modified_time
+    transformation: var:System_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: internal_external
+    transformation: var:Internal_External::varchar
+    type: varchar
+  file_name: accounts
+  stage: zoho_crm_stage
+  table_name: accounts
+  unique_id: id
+contacts:
+  columns:
+  - name: id
+    transformation: var:Id::number
+    type: number
+  - name: owner
+    transformation: var:Owner::number
+    type: number
+  - name: lead_source
+    transformation: var:Lead_Source::varchar
+    type: varchar
+  - name: first_name
+    transformation: var:First_Name::varchar
+    type: varchar
+  - name: last_name
+    transformation: var:Last_Name::varchar
+    type: varchar
+  - name: full_name
+    transformation: var:Full_Name::varchar
+    type: varchar
+  - name: account_name
+    transformation: var:Account_Name::number
+    type: number
+  - name: email
+    transformation: var:Email::varchar
+    type: varchar
+  - name: campaign_source
+    transformation: var:Campaign_Source::varchar
+    type: varchar
+  - name: title
+    transformation: var:Title::varchar
+    type: varchar
+  - name: department
+    transformation: var:Department::varchar
+    type: varchar
+  - name: phone
+    transformation: var:Phone::varchar
+    type: varchar
+  - name: mobile
+    transformation: var:Mobile::varchar
+    type: varchar
+  - name: date_of_birth
+    transformation: var:Date_of_Birth::date
+    type: date
+  - name: assistant
+    transformation: var:Assistant::number
+    type: number
+  - name: asst_phone
+    transformation: var:Asst_Phone::varchar
+    type: varchar
+  - name: email_opt_out
+    transformation: var:Email_Opt_Out::boolean
+    type: boolean
+  - name: created_by
+    transformation: var:Created_By::number
+    type: number
+  - name: modified_by
+    transformation: var:Modified_By::number
+    type: number
+  - name: created_time
+    transformation: var:Created_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: modified_time
+    transformation: var:Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: salutation
+    transformation: var:Salutation::varchar
+    type: varchar
+  - name: secondary_email
+    transformation: var:Secondary_Email::varchar
+    type: varchar
+  - name: last_activity_time
+    transformation: var:Last_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: description
+    transformation: var:Description::varchar
+    type: varchar
+  - name: last_action
+    transformation: var:LAST_ACTION::varchar
+    type: varchar
+  - name: last_sent_time
+    transformation: var:LAST_SENT_TIME::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: last_action_time
+    transformation: var:LAST_ACTION_TIME::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: reporting_to
+    transformation: var:Reporting_To::varchar
+    type: varchar
+  - name: user_modified_time
+    transformation: var:User_Modified_Time::varchar
+    type: varchar
+  - name: system_related_activity_time
+    transformation: var:System_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: user_related_activity_time
+    transformation: var:User_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_modified_time
+    transformation: var:System_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: linked_in
+    transformation: var:Linked_In::varchar
+    type: varchar
+  - name: company
+    transformation: var:Company::varchar
+    type: varchar
+  - name: personal_information
+    transformation: var:Personal_Information::varchar
+    type: varchar
+  - name: latest_update
+    transformation: var:Latest_Update::varchar
+    type: varchar
+  - name: funnel
+    transformation: var:Funnel::varchar
+    type: varchar
+  - name: industry
+    transformation: var:Industry::varchar
+    type: varchar
+  - name: convert_to_lead
+    transformation: var:Convert_to_Lead::boolean
+    type: boolean
+  - name: nps_score
+    transformation: var:NPS_Score::number
+    type: number
+  - name: account_manager
+    transformation: var:Account_Manager::varchar
+    type: varchar
+  - name: nps_recommend
+    transformation: var:NPS_Recommend::number
+    type: number
+  - name: nps_total
+    transformation: var:NPS_TOTAL::float
+    type: float
+  - name: cross_border_eu
+    transformation: var:Cross_Border_EU::boolean
+    type: boolean
+  - name: active
+    transformation: var:Active::boolean
+    type: boolean
+  file_name: contacts
+  stage: zoho_crm_stage
+  table_name: contacts
+  unique_id: id
+deals:
+  columns:
+  - name: id
+    transformation: var:Id::number
+    type: number
+  - name: owner
+    transformation: var:Owner::number
+    type: number
+  - name: amount
+    transformation: var:Amount::number
+    type: number
+  - name: deal_name
+    transformation: var:Deal_Name::varchar
+    type: varchar
+  - name: closing_date
+    transformation: var:Closing_Date::date
+    type: date
+  - name: account_name
+    transformation: var:Account_Name::number
+    type: number
+  - name: stage
+    transformation: var:Stage::varchar
+    type: varchar
+  - name: type
+    transformation: var:Type::varchar
+    type: varchar
+  - name: probability
+    transformation: var:Probability::number
+    type: number
+  - name: expected_revenue
+    transformation: var:Expected_Revenue::number
+    type: number
+  - name: next_step
+    transformation: var:Next_Step::varchar
+    type: varchar
+  - name: lead_source
+    transformation: var:Lead_Source::varchar
+    type: varchar
+  - name: campaign_source
+    transformation: var:Campaign_Source::varchar
+    type: varchar
+  - name: contact_name
+    transformation: var:Contact_Name::number
+    type: number
+  - name: created_by
+    transformation: var:Created_By::number
+    type: number
+  - name: modified_by
+    transformation: var:Modified_By::number
+    type: number
+  - name: created_time
+    transformation: var:Created_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: modified_time
+    transformation: var:Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: last_activity_time
+    transformation: var:Last_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: lead_conversion_time
+    transformation: var:Lead_Conversion_Time::number
+    type: number
+  - name: sales_cycle_duration
+    transformation: var:Sales_Cycle_Duration::number
+    type: number
+  - name: overall_sales_duration
+    transformation: var:Overall_Sales_Duration::number
+    type: number
+  - name: description
+    transformation: var:Description::varchar
+    type: varchar
+  - name: user_modified_time
+    transformation: var:User_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_related_activity_time
+    transformation: var:System_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: user_related_activity_time
+    transformation: var:User_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_modified_time
+    transformation: var:System_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: pipeline
+    transformation: var:Pipeline::varchar
+    type: varchar
+  - name: forecast_category
+    transformation: var:Forecast_Category__s::varchar
+    type: varchar
+  - name: reason_for_loss
+    transformation: var:Reason_For_Loss__s::varchar
+    type: varchar
+  - name: route_profile
+    transformation: var:Route_Profile::varchar
+    type: varchar
+  - name: live_loading_info
+    transformation: var:Live_Loading_Info::varchar
+    type: varchar
+  - name: pod_requirement
+    transformation: var:POD_Requirement::varchar
+    type: varchar
+  - name: product_description
+    transformation: var:Product_Description::varchar
+    type: varchar
+  - name: driver_load_unload_required
+    transformation: var:Driver_load_unload_required::varchar
+    type: varchar
+  - name: operational_days
+    transformation: var:Operational_Days::varchar
+    type: varchar
+  - name: load_build
+    transformation: var:Load_Build::varchar
+    type: varchar
+  - name: planning_lead_time_minimum
+    transformation: var:Planning_Lead_Time_minimum::varchar
+    type: varchar
+  - name: prefered_rating_mechanism
+    transformation: var:Prefered_Rating_Mechanism::varchar
+    type: varchar
+  - name: standards_deviations
+    transformation: var:Standards_Deviations::varchar
+    type: varchar
+  - name: vehicle_type
+    transformation: var:Vehicle_Type::varchar
+    type: varchar
+  - name: expected_margin
+    transformation: var:Expected_Margin::float
+    type: float
+  - name: haulier_procurement_plan
+    transformation: var:Haulier_Procurement_Plan::varchar
+    type: varchar
+  - name: vehicle_additionals
+    transformation: var:Vehicle_Additionals::varchar
+    type: varchar
+  - name: annual_loads
+    transformation: var:Annual_Loads::number
+    type: number
+  - name: annual_gp
+    transformation: var:Annual_GP::float
+    type: float
+  - name: site_management_phone
+    transformation: var:Site_Management_Phone::varchar
+    type: varchar
+  - name: collection_delivery_windows
+    transformation: var:Collection_Delivery_Windows::varchar
+    type: varchar
+  - name: escalation_phone
+    transformation: var:Escalation_Phone::varchar
+    type: varchar
+  - name: additional_charges
+    transformation: var:Additional_Charges::varchar
+    type: varchar
+  - name: escalation_email
+    transformation: var:Escalation_Email::varchar
+    type: varchar
+  - name: upload_method
+    transformation: var:Upload_Method::varchar
+    type: varchar
+  - name: volume_profile
+    transformation: var:Volume_Profile::varchar
+    type: varchar
+  - name: daily_operations_email_1
+    transformation: var:Daily_Operations_Email_1::varchar
+    type: varchar
+  - name: key_locations
+    transformation: var:Key_Locations::varchar
+    type: varchar
+  - name: additional_notes
+    transformation: var:Additional_Notes::varchar
+    type: varchar
+  - name: commercial_folder
+    transformation: var:Commercial_Folder::varchar
+    type: varchar
+  - name: daily_operations_email_2
+    transformation: var:Daily_Operations_Email_2::varchar
+    type: varchar
+  - name: customer_insights
+    transformation: var:Customer_Insights::varchar
+    type: varchar
+  - name: daily_operations_phone
+    transformation: var:Daily_Operations_Phone_1::varchar
+    type: varchar
+  - name: site_management_email
+    transformation: var:Site_Management_Email::varchar
+    type: varchar
+  - name: pricing_file
+    transformation: var:Pricing_File::varchar
+    type: varchar
+  - name: daily_operations_phone_2
+    transformation: var:Daily_Operations_Phone_2::varchar
+    type: varchar
+  - name: go_live_year
+    transformation: var:Go_Live_Year::number
+    type: number
+  - name: in_year_gp
+    transformation: var:In_Year_GP::float
+    type: float
+  - name: in_year_revenue
+    transformation: var:In_Year_Revenue::float
+    type: float
+  - name: dsc_bd_owner
+    transformation: var:DSC_BD_Owner::varchar
+    type: varchar
+  - name: dsc_solutions_design_owner
+    transformation: var:DSC_Solutions_Design_Owner::varchar
+    type: varchar
+  - name: funnel
+    transformation: var:Funnel::varchar
+    type: varchar
+  - name: opportunity_type
+    transformation: var:Opportunity_Type::varchar
+    type: varchar
+  - name: opportunity_lead
+    transformation: var:Opportunity_Lead::varchar
+    type: varchar
+  - name: commercials
+    transformation: var:Commercials::varchar
+    type: varchar
+  - name: goods_profile
+    transformation: var:Goods_Profile::varchar
+    type: varchar
+  - name: contractuals
+    transformation: var:Contractuals::varchar
+    type: varchar
+  - name: operational_process
+    transformation: var:Operational_Process::varchar
+    type: varchar
+  - name: region_geography
+    transformation: var:Region_Geography::varchar
+    type: varchar
+  - name: vehicle_profile
+    transformation: var:Vehicle_Profile::varchar
+    type: varchar
+  - name: all_detail
+    transformation: var:All_Detail_fields_complete::boolean
+    type: boolean
+  - name: haulier_solution_confirmed
+    transformation: var:Haulier_Solution_Confirmed::boolean
+    type: boolean
+  - name: contract_overview_shared
+    transformation: var:Contract_Overview_Shared::boolean
+    type: boolean
+  - name: hauliers_prepped
+    transformation: var:Hauliers_Prepped::boolean
+    type: boolean
+  - name: project_created
+    transformation: var:Project_Created::boolean
+    type: boolean
+  - name: user_training
+    transformation: var:User_Training_completed::boolean
+    type: boolean
+  - name: finance_team_informed
+    transformation: var:Finance_Team_Informed::boolean
+    type: boolean
+  - name: mock_shift_completed
+    transformation: var:Mock_Shift_Completed::boolean
+    type: boolean
+  - name: ops_team_briefed
+    transformation: var:Ops_Team_Briefed::boolean
+    type: boolean
+  - name: account_owner
+    transformation: var:Account_Owner::varchar
+    type: varchar
+  - name: product_owner
+    transformation: var:Product_Owner_if_req::varchar
+    type: varchar
+  - name: authority_persue
+    transformation: var:Authority_to_Persue::boolean
+    type: boolean
+  - name: golden_transaction_booked
+    transformation: var:Golden_Transaction_Booked::boolean
+    type: boolean
+  - name: project_id
+    transformation: var:Project_ID::varchar
+    type: varchar
+  - name: in_year_loads
+    transformation: var:In_Year_Loads::float
+    type: float
+  - name: latest_update
+    transformation: var:Latest_Update::varchar
+    type: varchar
+  - name: year_5_weighting
+    transformation: var:Year_5_Weighting::float
+    type: float
+  - name: year_1_weighting
+    transformation: var:Year_1_Weighting::float
+    type: float
+  - name: year_2_weighting
+    transformation: var:Year_2_Weighting::float
+    type: float
+  - name: year_3_weighting
+    transformation: var:Year_3_Weighting::float
+    type: float
+  - name: year_4_weighting
+    transformation: var:Year_4_Weighting::float
+    type: float
+  - name: year_1_gp
+    transformation: var:Year_1_GP::float
+    type: float
+  - name: agp_per_year
+    transformation: var:AGP_per_year::float
+    type: float
+  - name: year_2_gp
+    transformation: var:Year_2_GP::float
+    type: float
+  - name: year_3_gp
+    transformation: var:Year_3_GP::float
+    type: float
+  - name: year_4_gp
+    transformation: var:Year_4_GP::float
+    type: float
+  - name: year_5_gp
+    transformation: var:Year_5_GP::float
+    type: float
+  - name: payment_terms
+    transformation: var:Payment_Terms::varchar
+    type: varchar
+  - name: exclusivity
+    transformation: var:Exclusivity::varchar
+    type: varchar
+  - name: gain_share_mechanism
+    transformation: var:Gain_Share_Mechanism::varchar
+    type: varchar
+  - name: commercial_terms_commentary
+    transformation: var:Commercial_Terms_Commentary::varchar
+    type: varchar
+  - name: insurance_terms
+    transformation: var:Insurance_Terms::varchar
+    type: varchar
+  - name: kpis
+    transformation: var:KPIs::varchar
+    type: varchar
+  - name: total_gp
+    transformation: var:Total_GP::float
+    type: float
+  - name: contract_length_1_years
+    transformation: var:Contract_Length_1_years::float
+    type: float
+  - name: d_b_business_risk
+    transformation: var:D_B_Business_Risk::varchar
+    type: varchar
+  - name: monthly_gp
+    transformation: var:Monthly_GP::float
+    type: float
+  - name: bca_completed_if_req
+    transformation: var:BCA_Completed_if_req::boolean
+    type: boolean
+  - name: avg_revenue_per_shipment
+    transformation: var:Avg_Revenue_per_Shipment::float
+    type: float
+  - name: formula_field_1
+    transformation: var:Formula_Field_1::float
+    type: float
+  - name: total_loads
+    transformation: var:Total_Loads::float
+    type: float
+  - name: avg_gp_month
+    transformation: var:Avg_GP_month::float
+    type: float
+  - name: avg_loads_p_month
+    transformation: var:Avg_loads_p_month::float
+    type: float
+  - name: avg_rev_p_month
+    transformation: var:Avg_Rev_p_month::float
+    type: float
+  - name: avg_loads_month
+    transformation: var:Avg_Loads_month::float
+    type: float
+  - name: next_year_gp_applicable_to_sale
+    transformation: var:Next_Year_GP_Applicable_to_sale::float
+    type: float
+  - name: short_term_exlcude_next_year_applicable
+    transformation: var:Short_Term_exlcude_next_year_applicable::boolean
+    type: boolean
+  - name: rates_uploaded_to_cms
+    transformation: var:Rates_Uploaded_to_CMS::boolean
+    type: boolean
+  - name: cross_border_eu
+    transformation: var:Cross_Border_EU::boolean
+    type: boolean
+  - name: dsc_salesforce_id
+    transformation: var:DSC_Salesforce_iD::varchar
+    type: varchar
+  - name: applicable_to_growth
+    transformation: var:Applicable_to_Growth::boolean
+    type: boolean
+  - name: dhl_external
+    transformation: var:DHL_External::varchar
+    type: varchar
+  - name: reason_for_loss_detail
+    transformation: var:Reason_for_Loss_detail::varchar
+    type: varchar
+  - name: date_of_loss
+    transformation: var:Date_Of_Loss::date
+    type: date
+  file_name: deals
+  stage: zoho_crm_stage
+  table_name: deals
+  unique_id: id
+forecasting:
+  columns:
+  - name: id
+    transformation: var:Id::number
+    type: number
+  - name: owner
+    transformation: var:Owner::number
+    type: number
+  - name: created_by
+    transformation: var:Created_By::number
+    type: number
+  - name: modified_by
+    transformation: var:Modified_By::number
+    type: number
+  - name: created_time
+    transformation: var:Created_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: modified_time
+    transformation: var:Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: deal_id
+    transformation: var:Parent_Id::number
+    type: number
+  - name: month
+    transformation: var:Month::date
+    type: date
+  - name: loads
+    transformation: var:Loads::number
+    type: number
+  - name: revenue
+    transformation: var:Revenue::number
+    type: number
+  - name: gp
+    transformation: var:GP::number
+    type: number
+  - name: gp_weighted
+    transformation: var:GP_Weighted::number
+    type: number
+  file_name: forecasting
+  stage: zoho_crm_stage
+  table_name: forecasting
+  unique_id: id
+leads:
+  columns:
+  - name: id
+    transformation: var:Id::number
+    type: number
+  - name: owner
+    transformation: var:Owner::number
+    type: number
+  - name: company
+    transformation: var:Company::varchar
+    type: varchar
+  - name: first_name
+    transformation: var:First_Name::varchar
+    type: varchar
+  - name: last_name
+    transformation: var:Last_Name::varchar
+    type: varchar
+  - name: full_name
+    transformation: var:Full_Name::varchar
+    type: varchar
+  - name: email
+    transformation: var:Email::varchar
+    type: varchar
+  - name: phone
+    transformation: var:Phone::varchar
+    type: varchar
+  - name: mobile
+    transformation: var:Mobile::varchar
+    type: varchar
+  - name: website
+    transformation: var:Website::varchar
+    type: varchar
+  - name: lead_source
+    transformation: var:Lead_Source::varchar
+    type: varchar
+  - name: lead_status
+    transformation: var:Lead_Status::varchar
+    type: varchar
+  - name: industry
+    transformation: var:Industry::varchar
+    type: varchar
+  - name: no_of_employees
+    transformation: var:No_of_Employees::number
+    type: number
+  - name: annual_revenue
+    transformation: var:Annual_Revenue::number
+    type: number
+  - name: campaign_source
+    transformation: var:Campaign_Source::varchar
+    type: varchar
+  - name: email_opt_out
+    transformation: var:Email_Opt_Out::boolean
+    type: boolean
+  - name: created_by
+    transformation: var:Created_By::number
+    type: number
+  - name: modified_by
+    transformation: var:Modified_By::number
+    type: number
+  - name: created_time
+    transformation: var:Created_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: modified_time
+    transformation: var:Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: last_activity_time
+    transformation: var:Last_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: description
+    transformation: var:Description::varchar
+    type: varchar
+  - name: user_modified_time
+    transformation: var:User_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_related_activity_time
+    transformation: var:System_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: user_related_activity_time
+    transformation: var:User_Related_Activity_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: system_modified_time
+    transformation: var:System_Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: unsubscribed_mode
+    transformation: var:Unsubscribed_Mode::varchar
+    type: varchar
+  - name: unsubscribed_time
+    transformation: var:Unsubscribed_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: gp_opportunity_size
+    transformation: var:GP_Opportunity_Size::number
+    type: number
+  - name: revenue_opportunity_size
+    transformation: var:Revenue_Opportunity_Size::number
+    type: number
+  - name: scope_of_opportunity
+    transformation: var:Scope_of_Opportunity::varchar
+    type: varchar
+  - name: latest_update_action
+    transformation: var:Latest_Update_Action::varchar
+    type: varchar
+  - name: funnel
+    transformation: var:Funnel::varchar
+    type: varchar
+  - name: contact_name
+    transformation: var:Contact_Name::number
+    type: number
+  - name: lead_company
+    transformation: var:Lead_Company::varchar
+    type: varchar
+  - name: contact_title
+    transformation: var:Contact_Title::varchar
+    type: varchar
+  - name: contact_email
+    transformation: var:Contact_Email::varchar
+    type: varchar
+  - name: contact_phone
+    transformation: var:Contact_Phone::varchar
+    type: varchar
+  - name: strategies
+    transformation: var:Strategies::varchar
+    type: varchar
+  - name: issues
+    transformation: var:Issues::varchar
+    type: varchar
+  - name: weaknesses
+    transformation: var:Weaknesses::varchar
+    type: varchar
+  - name: strengths
+    transformation: var:Strengths::varchar
+    type: varchar
+  - name: threats
+    transformation: var:Threats::varchar
+    type: varchar
+  - name: opportunities
+    transformation: var:Opportunities::varchar
+    type: varchar
+  - name: profile
+    transformation: var:Profile::varchar
+    type: varchar
+  - name: objectives
+    transformation: var:Objectives::varchar
+    type: varchar
+  - name: decision_maker
+    transformation: var:Decision_Maker::number
+    type: number
+  - name: gatekeeper
+    transformation: var:Gatekeeper::number
+    type: number
+  - name: coach
+    transformation: var:Coach::varchar
+    type: varchar
+  - name: d_b_business_risk
+    transformation: var:D_B_Business_Risk::varchar
+    type: varchar
+  - name: account
+    transformation: var:Account::number
+    type: number
+  - name: request_atp
+    transformation: var:Request_ATP::boolean
+    type: boolean
+  - name: atp_win_plan
+    transformation: var:ATP_Win_Plan::varchar
+    type: varchar
+  - name: cross_border_eu
+    transformation: var:Cross_Border_EU::boolean
+    type: boolean
+  file_name: leads
+  stage: zoho_crm_stage
+  table_name: leads
+  unique_id: id
+users:
+  columns:
+  - name: id
+    transformation: var:Id::number
+    type: number
+  - name: first_name
+    transformation: var:first_name::varchar
+    type: varchar
+  - name: last_name
+    transformation: var:last_name::varchar
+    type: varchar
+  - name: email
+    transformation: var:email::varchar
+    type: varchar
+  - name: alias
+    transformation: var:alias::varchar
+    type: varchar
+  - name: phone
+    transformation: var:phone::varchar
+    type: varchar
+  - name: mobile
+    transformation: var:mobile::varchar
+    type: varchar
+  - name: created_by
+    transformation: var:created_by::number
+    type: number
+  - name: modified_by
+    transformation: var:Modified_By::number
+    type: number
+  - name: created_time
+    transformation: var:created_time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: modified_time
+    transformation: var:Modified_Time::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: status
+    transformation: var:status::varchar
+    type: varchar
+  - name: full_name
+    transformation: var:full_name::varchar
+    type: varchar
+  file_name: users
+  stage: zoho_crm_stage
+  table_name: users
+  unique_id: id

@@ -1,0 +1,22 @@
+create or replace table {{ pricing_schema }}.sell_rates (
+    origin varchar,
+    destination varchar,
+    sell number(38, 2),
+    created timestamp_tz(9),
+    load_ts timestamp_tz(9)
+);
+
+create or replace table {{ load_pricing_schema }}.load_sell_rates (
+        origin varchar,
+        destination varchar,
+        sell varchar,
+        created varchar
+);
+
+create or replace stream {{ load_pricing_schema }}.load_sell_rates_stream on table {{ load_pricing_schema }}.load_sell_rates; -- noqa
+
+create or replace pipe {{ load_pricing_schema }}.sell_rates_pipe
+  auto_ingest = true
+  integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION' -- noqa
+  as copy into {{ load_pricing_schema }}.load_sell_rates from @{{ load_pricing_schema }}.pricing_stage pattern = 'SELLRATES_.*';

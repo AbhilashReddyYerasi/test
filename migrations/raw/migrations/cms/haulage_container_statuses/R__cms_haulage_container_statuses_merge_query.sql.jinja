@@ -1,0 +1,38 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "haulage_container_statuses",
+        [
+        ('id', "var:Id::varchar"),
+        ('haulage_container_id', "var:HaulageContainerId::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('transport_route_id', "var:TransportRouteId::varchar"),
+        ('transport_location_id', "var:TransportLocationId::varchar"),
+        ('status', "var:Status::varchar"),
+        ('data', "var:Data::varchar"),
+        ('remarks', "var:Remarks::varchar"),
+        ('vehicle_trailer_no', "var:VehicleTrailerNo::varchar"),
+        ('driver_name', "var:DriverName::varchar"),
+        ('vehicle_reg_no', "var:VehicleRegNo::varchar"),
+        ('order_col', "var:Order::varchar"),
+        ('completed_at', convert_to_mastercountry_tz("var:CompletedAt")),
+        ('inserted_at', convert_to_mastercountry_tz("var:InsertedAt")),
+        ('inserted_by', "var:InsertedBy::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('inserted_source', "var:InsertedSource::varchar"),
+        ('timestamp_updated_at', convert_to_mastercountry_tz("var:TimeStampUpdatedAt")),
+        ('timestamp_updated_by', "var:TimeStampUpdatedBy::varchar"),
+        ('timestamp_updated_src', "var:TimeStampUpdatedSrc::varchar"),
+        ('device_id', "var:DeviceId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

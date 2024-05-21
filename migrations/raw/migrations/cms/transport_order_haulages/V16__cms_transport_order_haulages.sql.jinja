@@ -1,0 +1,33 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "transport_order_haulages",
+    "cms_stage",
+    "TransportOrderHaulages"
+  ) -%}
+    id varchar(16777216),
+    transport_order_id varchar(16777216),
+    haulage_container_id varchar(16777216),
+    haulage_order_id varchar(16777216),
+    haulage_type varchar(16777216),
+    trip_type varchar(16777216),
+    container_status varchar(16777216),
+    container_short_code varchar(16777216),
+    container_number varchar(16777216),
+    seal_no varchar(16777216),
+    cutoff_transport_location_id varchar(16777216),
+    is_pending_rfc boolean,
+    rfc_date timestamp_tz(9),
+    is_ready_for_collection boolean,
+    is_planned_container_cut_off boolean,
+    is_container_cut_off boolean,
+    delivered_date timestamp_tz(9),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

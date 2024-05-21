@@ -1,0 +1,25 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "fail_log_reason_codes",
+        [
+        ('id', "var:Id::varchar"),
+        ('reason_code', "var:ReasonCode::number(38,0)"),
+        ('primary_reason_code', "var:PrimaryReasonCode::varchar"),
+        ('secondary_reason_code', "var:SecondaryReasonCode::varchar"),
+        ('description', "var:Description::varchar"),
+        ('is_critical', "var:IsCritical::boolean"),
+        ('sort_order', "var:SortOrder::number(38,0)"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

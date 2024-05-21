@@ -1,0 +1,24 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_vrn_settings",
+        [
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('id', "var:Id::varchar"),
+        ('pin_type', "var:PinType::varchar"),
+        ('pin_code', "var:PinCode::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('pin_format', "var:PinFormat::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

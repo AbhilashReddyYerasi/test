@@ -1,0 +1,27 @@
+create schema {{ oracle_schema }};
+create schema {{ load_oracle_schema }};
+
+create or replace file format {{ load_oracle_schema }}.{{ oracle_schema }}_csv
+  type = csv
+  compression = auto
+  record_delimiter = '\n'
+  field_delimiter = ','
+  date_format = auto
+  time_format = auto
+  escape = none
+  escape_unenclosed_field = '\\'
+  field_optionally_enclosed_by = '"'
+  empty_field_as_null = true
+  timestamp_format = 'MM/DD/YYYY HH24:MI'
+  error_on_column_count_mismatch = false
+  encoding = utf8
+  skip_header = 1;
+
+create or replace stage {{ load_oracle_schema }}.{{ oracle_schema }}_stage
+  {%- if is_prod %}
+  url = 'azure://sadhdpdataprod.blob.core.windows.net/oracle'
+  {% else %}
+  url = 'azure://sadhdpdatadev.blob.core.windows.net/oracle'
+  {% endif -%}
+  storage_integration = az_storage_integration
+  file_format = {{ load_oracle_schema }}.{{ oracle_schema }}_csv;

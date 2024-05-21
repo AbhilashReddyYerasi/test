@@ -1,0 +1,31 @@
+{#
+Required change(s):
+- id column type to be changed from number(38,0) to varchar
+
+As this table doesn't hold any data yet, we recreate it
+instead of altering it to preserve the original order of columns.
+#}
+
+create or replace table {{ cms_audit_schema }}.shipment_cost_audit_trails (
+    id varchar,
+    "version" number(38, 0),
+    "current" boolean,
+    job_file_id varchar,
+    transport_order_id varchar,
+    transport_route_id varchar,
+    shipment_number varchar,
+    job_file number(38, 0),
+    shipper_costs number(38, 0),
+    carrier_costs number(38, 0),
+    trigger_by_entity_type varchar,
+    tenant_id varchar,
+    tenant_country_id varchar,
+    inserted_by varchar,
+    inserted_at timestamp_tz(9),
+    created_by varchar,
+    created_at timestamp_tz(9),
+    after_save_entities varchar,
+    before_save_entities varchar,
+    master_countries_country_time_zone varchar,
+    load_ts timestamp_tz(9)
+);

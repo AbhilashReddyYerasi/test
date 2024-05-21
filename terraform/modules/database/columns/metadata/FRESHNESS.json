@@ -1,0 +1,6 @@
+[
+    { "name" : "TABLE_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "SCHEMA_NAME", "type" : "VARCHAR(16777216)" },
+    { "name" : "CURRENTLY_USED", "type" : "NUMBER(38,0)" },
+    { "name" : "FRESHNESS_MIN", "type" : "NUMBER(38,0)" }
+]

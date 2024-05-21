@@ -1,0 +1,14 @@
+{% if not is_prod %}
+use role accountadmin;
+grant imported privileges on database prod_raw to role shareadmin;
+grant imported privileges on database prod_raw to role transformer;
+grant imported privileges on database prod_raw to role developer;
+grant role shareadmin to role loader;
+{% endif %}
+
+{% if is_prod %}
+use role accountadmin;
+grant usage on database raw to share prod_raw_share;
+grant usage on all schemas in database raw to share prod_raw_share;
+grant select on all tables in database raw to share prod_raw_share;
+{% endif %}

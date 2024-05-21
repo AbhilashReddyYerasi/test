@@ -1,0 +1,23 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "account_holders",
+    "cms_stage",
+    "AccountHolders"
+  ) -%}
+    id varchar(16777216),
+    tenant_id varchar(16777216),
+    name varchar(16777216),
+    manager varchar(16777216),
+    branch varchar(16777216),
+    is_active boolean,
+    is_deleted boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

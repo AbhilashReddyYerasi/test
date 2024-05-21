@@ -1,0 +1,85 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{% set columns = [
+    ("master_country_id", "var:MasterCountryId::varchar"),
+    ("country_name", "var:CountryName::varchar"),
+    ("country_code", "var:CountryCode::varchar"),
+    ("country_flag", "var:CountryFlag::varchar"),
+    ("currency_code", "var:CurrencyCode::varchar"),
+    ("currency_locale", "var:CurrencyLocale::varchar"),
+    ("date_format", "var:DateFormat::varchar"),
+    ("time_format", "var:TimeFormat::varchar"),
+    ("time_zone", "var:TimeZone::varchar"),
+    ("state_province_mapping", "var:StateProvinceMapping::varchar"),
+    ("city_district_mapping", "var:CityDistrictMapping::varchar"),
+    ("created_by", "var:CreatedBy::varchar"),
+    ("created_at", "CONVERT_TIMEZONE(COALESCE(var:CountryTimeZone::varchar,'UTC'), CONCAT(var:CreatedAt::varchar, ' 0000')::timestamp_tz)::timestamp_tz"),
+    ("updated_by", "var:UpdatedBy::varchar"),
+    ("updated_at", "CONVERT_TIMEZONE(COALESCE(var:CountryTimeZone::varchar,'UTC'), CONCAT(var:UpdatedAt::varchar, ' 0000')::timestamp_tz)::timestamp_tz"),
+    ("is_deleted", "var:IsDeleted::boolean"),
+    ("is_active", "var:IsActive::boolean"),
+    ("datetime_locale", "var:DateTimeLocale::varchar"),
+    ("distance_measurement", "var:DistanceMeasurement::varchar"),
+    ("signup_url", "var:SignupURL::varchar"),
+    ("country_time_zone", "var:CountryTimeZone::varchar"),
+    ("is_display_address_visible", "var:IsDisplayAddressVisible::boolean"),
+    ("country_mapping", "var:CountryMapping::varchar"),
+    ("postal_code_mapping", "var:PostalCodeMapping::varchar"),
+    ("gstin", "var:GstIN::boolean"),
+    ("shipper_report_access", "var:ShipperReportAccess::boolean"),
+    ("has_crossing", "var:HasCrossing::boolean"),
+    ("carrier_container_haulage_transport_access", "var:CarrierContainerHaulageTransportAccess::boolean"),
+    ("carrier_normal_transport_access", "var:CarrierNormalTransportAccess::boolean"),
+    ("carrier_traction_transport_access", "var:CarrierTractionTransportAccess::boolean"),
+    ("is_epod_generation_enabled", "var:IsEPODGenerationEnabled::boolean"),
+    ("max_truck_speed", "var:MaxTruckSpeed::number(18,10)"),
+    ("load_ts", "CONVERT_TIMEZONE('UTC',CURRENT_TIMESTAMP)::timestamp_tz")
+] %}
+
+{% set table_name = 'master_countries' %}
+
+{% call create_merge_task(load_cms_schema, table_name) -%}
+merge into {{ cms_schema }}.{{ table_name }} as t
+    using (
+        select
+            {% for name, transform in columns %}
+            {{ transform }} as {{ name }}{% if not loop.last %},{% endif %}
+            {% endfor %}
+        from (
+            select
+                var,
+                row_number() over (partition by var:MasterCountryId::varchar
+                    order by greatest(
+                            coalesce(
+                                var:CreatedAt::timestamp_ntz,
+                                var:UpdatedAt::timestamp_ntz
+                            ),
+                            coalesce(
+                                var:UpdatedAt::timestamp_ntz,
+                                var:CreatedAt::timestamp_ntz
+                            )
+                        ) desc nulls last)
+                as rn
+            from {{ load_cms_schema }}.load_{{ table_name }}_stream
+            ) where rn = 1
+        ) as s
+        on t.master_country_id = s.master_country_id
+    when matched and not (
+        {% for name, _ in columns -%}
+            equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+        {% endfor -%}
+    ) and s.updated_at > t.updated_at
+    then update set
+        {% for name, _ in columns -%}
+            t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    when not matched then insert (
+        {% for name, _ in columns -%}
+            {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    ) values (
+        {% for name, _ in columns -%}
+            s.{{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    )
+{%- endcall %}

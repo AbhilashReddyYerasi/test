@@ -1,0 +1,38 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "address_books",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_project_id', "var:ShipperProjectId::varchar"),
+        ('shipper_id', "var:ShipperId::varchar"),
+        ('location_name', "var:LocationName::varchar"),
+        ('address', "var:Address::varchar"),
+        ('additional_address', "var:AdditionalAddress::varchar"),
+        ('location_type', "var:LocationType::varchar"),
+        ('places_id', "var:PlacesId::varchar"),
+        ('latitude', "var:Latitude::number(18,6)"),
+        ('longitude', "var:Longitude::number(18,6)"),
+        ('country', "var:Country::varchar"),
+        ('state_province', "var:StateProvince::varchar"),
+        ('city_district', "var:CityDistrict::varchar"),
+        ('contact_name', "var:ContactName::varchar"),
+        ('contact_phone', "var:ContactPhone::varchar"),
+        ('contact_email', "var:ContactEmail::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('postal_code', "var:PostalCode::varchar"),
+        ('display_address', "var:DisplayAddress::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('is_default', "var:IsDefault::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

@@ -1,0 +1,6 @@
+[
+    { "name": "DATE_REFERENCE", "type": "VARCHAR(16777216)" },
+    { "name": "LANE_AREA", "type": "VARCHAR(16777216)" },
+    { "name": "TARGET_BUY_RATE", "type": "VARCHAR(16777216)" },
+    { "name": "TARGET_TYPE", "type": "VARCHAR(16777216)" }
+]

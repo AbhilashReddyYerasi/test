@@ -1,0 +1,23 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "currency_exchange_rates",
+        [
+        ('id', "var:Id::varchar"),
+        ('date_time', convert_to_mastercountry_tz("var:DateTime")),
+        ('rate_type', "var:RateType::varchar"),
+        ('rate', "var:Rate::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('from_currency_code', "var:FromCurrencyCode::varchar"),
+        ('from_currency_name', "var:FromCurrencyName::varchar"),
+        ('to_currency_code', "var:ToCurrencyCode::varchar"),
+        ('to_currency_name', "var:ToCurrencyName::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

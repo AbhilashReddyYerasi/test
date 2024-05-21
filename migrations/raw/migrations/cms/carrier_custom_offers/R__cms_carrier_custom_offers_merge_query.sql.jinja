@@ -1,0 +1,26 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_custom_offers",
+        [
+        ('id', "var:Id::varchar"),
+        ('offer_id', "var:OfferId::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('amount', "var:Amount::number(18,2)"),
+        ('is_custom_bonded_truck', "var:IsCustomBondedTruck::boolean"),
+        ('is_accepted', "var:IsAccepted::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

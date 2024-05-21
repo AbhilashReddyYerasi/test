@@ -1,0 +1,38 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_invoices",
+    "cms_stage",
+    "CarrierInvoices"
+  ) -%}
+    id varchar(16777216),
+    po_id varchar(16777216),
+    ezy_billing_link varchar(16777216),
+    ezy_billing_date timestamp_tz(9),
+    carrier_invoice_date timestamp_tz(9),
+    carrier_invoice_number varchar(16777216),
+    is_dispute boolean,
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    etag varchar(16777216),
+    carrier_invoice_received_date timestamp_tz(9),
+    carrier_invoice_received_type varchar(16777216),
+    integration_amount number(18,2),
+    integration_date timestamp_tz(9),
+    integration_detail varchar(16777216),
+    integration_ref varchar(16777216),
+    integration_sent boolean,
+    carrier_reference_number varchar(16777216),
+    is_resend_integration boolean,
+    resend_integration_by varchar(16777216),
+    resend_integration_date timestamp_tz(9),
+    resend_integration_counter number(38,0),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

@@ -1,0 +1,31 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "pac_requests",
+    "cms_stage",
+    "PACRequests"
+  ) -%}
+    id varchar(16777216),
+    ref_num varchar(16777216),
+    issuer_rfc varchar(16777216),
+    receiver_rfc varchar(16777216),
+    xml_file varchar(16777216),
+    pdf_file varchar(16777216),
+    request_at timestamp_tz(9),
+    request_by varchar(16777216),
+    profile_user_id varchar(16777216),
+    is_request_valid boolean,
+    is_request_success boolean,
+    cfdi_type varchar(16777216),
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    cfdi_process_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

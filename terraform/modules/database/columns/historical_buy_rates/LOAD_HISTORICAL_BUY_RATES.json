@@ -1,0 +1,5 @@
+[
+    { "name": "LANE_AREA", "type": "VARCHAR(16777216)" },
+    { "name": "RATE_CARD", "type": "VARCHAR(16777216)" },
+    { "name": "MONTH_REF", "type": "VARCHAR(16777216)" }
+]

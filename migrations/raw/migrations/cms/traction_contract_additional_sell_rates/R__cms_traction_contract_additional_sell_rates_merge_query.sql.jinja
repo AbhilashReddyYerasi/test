@@ -1,0 +1,26 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "traction_contract_additional_sell_rates",
+        [
+        ('id', "var:Id::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('contract_id', "var:ContractId::varchar"),
+        ('product_id', "var:ProductId::varchar"),
+        ('product_display_name', "var:ProductDisplayName::varchar"),
+        ('sell_rate', "var:SellRate::number(18,2)"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

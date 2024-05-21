@@ -1,0 +1,39 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_locations_ext",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_location_id', "var:TransportLocationId::varchar"),
+        ('pta_earliest', convert_to_mastercountry_tz("var:PTAEarliest")),
+        ('pta_latest', convert_to_mastercountry_tz("var:PTALatest")),
+        ('pta_updated_at', convert_to_mastercountry_tz("var:PTAUpdatedAt")),
+        ('pta_updated_by', "var:PTAUpdatedBy::varchar"),
+        ('pta_updated_by_name', "var:PTAUpdatedByName::varchar"),
+        ('eta', convert_to_mastercountry_tz("var:ETA")),
+        ('eta_updated_at', convert_to_mastercountry_tz("var:ETAUpdatedAt")),
+        ('eta_updated_by', "var:ETAUpdatedBy::varchar"),
+        ('eta_updated_by_name', "var:ETAUpdatedByName::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('eta_latest', convert_to_mastercountry_tz("var:ETALatest")),
+        ('gps_last_received', convert_to_mastercountry_tz("var:GPSLastReceived")),
+        ('ots_computed_at', convert_to_mastercountry_tz("var:OTSComputedAt")),
+        ('on_time_eta', convert_to_mastercountry_tz("var:OnTimeETA")),
+        ('on_time_status', "var:OnTimeStatus::varchar"),
+        ('arrived_latitude', "var:ArrivedLatitude::number(18,6)"),
+        ('arrived_longitude', "var:ArrivedLongitude::number(18,6)"),
+        ('arrived_zone', "var:ArrivedZone::varchar"),
+        ('completed_latitude', "var:CompletedLatitude::number(18,6)"),
+        ('completed_longitude', "var:CompletedLongitude::number(18,6)"),
+        ('completed_zone', "var:CompletedZone::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

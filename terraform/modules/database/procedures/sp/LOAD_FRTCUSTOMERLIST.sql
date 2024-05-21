@@ -1,0 +1,61 @@
+BEGIN
+    BEGIN TRANSACTION;
+        DELETE FROM RAW.SP.FRTCUSTOMERLIST; 
+        
+        INSERT INTO RAW.SP.FRTCUSTOMERLIST (
+            ID,
+            CONTENTTYPEID,
+            CONTENTTYPE,
+            RU,
+            MODIFIED,
+            CREATED,
+            CREATEDBYID,
+            MODIFIEDBYID,
+            OWSHIDDENVERSION,
+            VERSION,
+            PATH,
+            COMPLIANCEASSETID,
+            MU,
+            CU,
+            SA,
+            RUCONVERTED,
+            MUCONVERTED,
+            CUCONVERTED,
+            SACONVERTED,
+            BUSINESSUNIT,
+            CUSTOMERTYPEVALUE,
+            "COMMENT",
+            CUSTOMER,
+            SPECIALCASESHIPPERSVALUE,
+            LOAD_TS
+        ) 
+            SELECT
+                VAR:Id::NUMBER,
+                VAR:ContentTypeID::VARCHAR,
+                VAR:ContentType::VARCHAR,
+                VAR:RU::VARCHAR,
+                VAR:Modified::TIMESTAMP_NTZ,
+                VAR:Created::TIMESTAMP_NTZ,
+                VAR:CreatedById::NUMBER,
+                VAR:ModifiedById::NUMBER,
+                VAR:Owshiddenversion::NUMBER,
+                VAR:Version::VARCHAR,
+                VAR:Path::VARCHAR,
+                VAR:ComplianceAssetId::VARCHAR,
+                VAR:MU::VARCHAR,
+                VAR:CU::VARCHAR,
+                VAR:SA::VARCHAR,
+                VAR:RUConverted::VARCHAR,
+                VAR:MUConverted::NUMBER,
+                VAR:CUConverted::NUMBER,
+                VAR:SAConverted::NUMBER,
+                VAR:BusinessUnit::VARCHAR,
+                VAR:CustomerTypeValue::VARCHAR,
+                VAR:"Comment"::VARCHAR,
+                VAR:Customer::VARCHAR,
+                VAR:SpecialCaseShippersValue::VARCHAR,
+                SYSDATE()
+            FROM 
+                RAW.SP.LOAD_FRTCUSTOMERLIST_STREAM;
+    COMMIT;
+END

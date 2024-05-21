@@ -1,0 +1,41 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cfx_schema,
+    load_cfx_schema,
+    "dg_shipment_cost",
+    "cfx_stage",
+    "DG_SHIPMENT_COST"
+  ) -%}
+    shipment_cost_seqno number(38,0),
+    shipment_gid varchar,
+    cost_type varchar,
+    cost number(38,6),
+    cost_gid varchar,
+    cost_base number(38,6),
+    accessorial_code_gid varchar,
+    accessorial_cost_gid varchar,
+    billable_indicator_gid varchar,
+    rate_geo_cost_group_gid varchar,
+    rate_geo_cost_seq number(38,0),
+    special_service_gid varchar,
+    is_cost_fixed boolean,
+    process_as_flow_thru varchar,
+    adjustment_reason_gid varchar,
+    general_ledger_gid varchar,
+    payment_method_code_gid varchar,
+    exchange_rate_date timestamp_tz(9),
+    exchange_rate_gid varchar,
+    cost_fn number(38,6),
+    cost_fn_currency_gid varchar,
+    s_ship_unit_gid varchar,
+    s_ship_unit_line_no number(38,0),
+    is_weighted boolean,
+    cost_category_gid varchar,
+    tracking_number number(38,0),
+    domain_name varchar,
+    insert_user varchar,
+    insert_date timestamp_tz(9),
+    update_user varchar,
+    update_date timestamp_tz(9)
+    {%- endcall %}

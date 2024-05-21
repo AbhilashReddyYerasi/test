@@ -1,0 +1,40 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "contracts",
+    "cms_stage",
+    "Contracts"
+  ) -%}
+    id varchar(16777216),
+    shipper_id varchar(16777216),
+    shipper_display_id varchar(16777216),
+    shipper_name varchar(16777216),
+    shipper_project_id varchar(16777216),
+    shipper_project_name varchar(16777216),
+    transport_category varchar(16777216),
+    valid_from timestamp_tz(9),
+    valid_to timestamp_tz(9),
+    is_active boolean,
+    vehicle_size_id varchar(16777216),
+    vehicle_size_name varchar(16777216),
+    vehicle_buildup_id varchar(16777216),
+    vehicle_buildup_name varchar(16777216),
+    sell_rate_type varchar(16777216),
+    sell_rate varchar(16777216),
+    is_bonded boolean,
+    bonded_sell_rate varchar(16777216),
+    is_additional_drop boolean,
+    additional_drop_sell_rate varchar(16777216),
+    origin_names varchar(16777216),
+    destination_names varchar(16777216),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

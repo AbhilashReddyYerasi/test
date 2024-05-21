@@ -1,0 +1,25 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_credit_terms",
+        [
+        ('id', "var:Id::varchar"),
+        ('credit_term', "var:CreditTerm::varchar"),
+        ('credit_term_value', "var:CreditTermValue::number(18,0)"),
+        ('oracle_ar', "var:OracleAR::varchar"),
+        ('is_default', "var:IsDefault::boolean"),
+        ('is_due_date_calculate_from_invoice_date', "var:IsDueDateCalculateFromInvoiceDate::boolean"),
+        ('is_due_date_eofm', "var:IsDueDateEOFM::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

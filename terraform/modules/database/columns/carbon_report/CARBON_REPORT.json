@@ -1,0 +1,22 @@
+[
+    { "name": "SHIPMENT_NUMBER", "type": "VARCHAR(16777216)" },
+    { "name": "TOTAL_IMPACT_CLIMATE_CHANGE", "type": "NUMBER(38,8)" },
+    { "name": "IS_EXCLUDED", "type" : "BOOLEAN" },
+    { "name": "SHIPMENT_WEIGHT", "type": "NUMBER(38,2)" },
+    { "name": "TOTAL_TRAVELLED_DISTANCE_KM", "type": "NUMBER(38,2)" },
+    { "name": "ROAD_TRAVELLED_DISTANCE_KM", "type": "NUMBER(38,2)" },
+    { "name": "SEA_TRAVELLED_DISTANCE_KM", "type": "NUMBER(38,2)" },
+    { "name": "TRUCK_VEHICLE_TYPE", "type": "VARCHAR(16777216)" },
+    { "name": "FERRY_VEHICLE_TYPE", "type": "VARCHAR(16777216)" },
+    { "name": "FUEL_CONSUMPTION", "type": "NUMBER(38,8)" },
+    { "name": "LOAD_FACTOR", "type": "NUMBER(38,8)" },
+    { "name": "FUEL_CONVERSION_FACTOR", "type": "NUMBER(38,2)" },
+    { "name": "TRUCK_FUEL_TYPE", "type": "VARCHAR(16777216)" },
+    { "name": "ENERGY_CONVERSION_FACTOR", "type": "NUMBER(38,2)" },
+    { "name": "TRUCK_MAX_CAPACITY", "type": "NUMBER(38,0)" },
+    { "name": "TRUCK_MIN_CAPACITY", "type": "NUMBER(38,0)" },
+    { "name": "LOAD_TS", "type": "TIMESTAMP_NTZ(9)" }
+]
+
+
+																

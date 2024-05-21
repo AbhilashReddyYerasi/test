@@ -1,0 +1,26 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "traction_contract_additional_sell_rates",
+    "cms_stage",
+    "TractionContractAdditionalSellRates"
+  ) -%}
+    id varchar,
+    tenant_id varchar,
+    tenant_country_id varchar,
+    contract_id varchar,
+    product_id varchar,
+    product_display_name varchar,
+    sell_rate number(18,2),
+    is_active boolean,
+    is_deleted boolean,
+    created_by varchar,
+    created_at timestamp_tz(9),
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    currency_code varchar(50),
+    currency_code_id varchar,
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

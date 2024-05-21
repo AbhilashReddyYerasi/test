@@ -1,0 +1,37 @@
+{% from 'macros/cfx.j2' import create_cfx_merge_task -%}
+
+{{ create_cfx_merge_task(
+        cfx_schema,
+        load_cfx_schema,
+        "dg_deleted_invoice",
+        [
+        ('audit_trail_gid', "var:AUDIT_TRAIL_GID::varchar"),
+        ('audit_trail_xid', "var:AUDIT_TRAIL_XID::varchar"),
+        ('notify_subject_gid', "var:NOTIFY_SUBJECT_GID::varchar"),
+        ('notify_function_gid', "var:NOTIFY_FUNCTION_GID::varchar"),
+        ('gl_user_gid', "var:GL_USER_GID::varchar"),
+        ('audit_time', "nullif(var:AUDIT_TIME::varchar,'')::timestamp_tz(9)"),
+        ('app_action_gid', "var:APP_ACTION_GID::varchar"),
+        ('app_action_parameters', "var:APP_ACTION_PARAMETERS::varchar"),
+        ('bs_quick_code_gid', "var:BS_QUICK_CODE_GID::varchar"),
+        ('bs_responsible_party_gid', "var:BS_RESPONSIBLE_PARTY_GID::varchar"),
+        ('bs_status_group_gid', "var:BS_STATUS_GROUP_GID::varchar"),
+        ('bs_status_code_gid', "var:BS_STATUS_CODE_GID::varchar"),
+        ('bs_reason_group_gid', "var:BS_REASON_GROUP_GID::varchar"),
+        ('bs_reason_code_gid', "var:BS_REASON_CODE_GID::varchar"),
+        ('bs_reason_comment', "var:BS_REASON_COMMENT::varchar"),
+        ('transactional_event_gid', "var:TRANSACTIONAL_EVENT_GID::varchar"),
+        ('audit_object_type_gid', "var:AUDIT_OBJECT_TYPE_GID::varchar"),
+        ('object_gid', "var:OBJECT_GID::varchar"),
+        ('reason_required_type', "var:REASON_REQUIRED_TYPE::varchar"),
+        ('reason_source', "var:REASON_SOURCE::varchar"),
+        ('marked_for_purge', "var:MARKED_FOR_PURGE::varchar"),
+        ('domain_name', "var:DOMAIN_NAME::varchar"),
+        ('insert_user', "var:INSERT_USER::varchar"),
+        ('insert_date', "nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)"),
+        ('update_user', "var:UPDATE_USER::varchar"),
+        ('update_date', "coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar, ''))::timestamp_tz(9)"),
+        ],
+        ('audit_trail_gid', "var:AUDIT_TRAIL_GID::varchar")
+    )
+}}

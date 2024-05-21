@@ -1,0 +1,32 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_live_rate_offer_costs",
+        [
+        ('id', "var:Id::varchar"),
+        ('carrier_live_rate_offer_id', "var:CarrierLiveRateOfferId::varchar"),
+        ('product_id', "var:ProductId::varchar"),
+        ('product_name', "var:ProductName::varchar"),
+        ('product_display_name', "var:ProductDisplayName::varchar"),
+        ('product_category', "var:ProductCategory::varchar"),
+        ('product_category_id', "var:ProductCategoryId::varchar"),
+        ('cost_type', "var:CostType::varchar"),
+        ('quantity', "var:Quantity::number(38,0)"),
+        ('is_benchmark', "var:IsBenchmark::boolean"),
+        ('sell_rate', "var:SellRate::number(18,2)"),
+        ('buy_rate', "var:BuyRate::number(18,2)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

@@ -1,0 +1,25 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_route_haulages",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_route_id', "var:TransportRouteId::varchar"),
+        ('haulage_container_id', "var:HaulageContainerId::varchar"),
+        ('haulage_order_id', "var:HaulageOrderId::varchar"),
+        ('haulage_type', "var:HaulageType::varchar"),
+        ('trip_type', "var:TripType::varchar"),
+        ('container_short_code', "var:ContainerShortCode::varchar"),
+        ('container_number', "var:ContainerNumber::varchar"),
+        ('seal_no', "var:SealNo::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

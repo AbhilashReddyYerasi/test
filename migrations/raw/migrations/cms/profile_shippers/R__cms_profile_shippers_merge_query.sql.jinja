@@ -1,0 +1,32 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "profile_shippers",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_id', "var:ShipperId::varchar"),
+        ('shipper_user_display_id', "var:ShipperUserDisplayID::varchar"),
+        ('first_name', "var:FirstName::varchar"),
+        ('last_name', "var:LastName::varchar"),
+        ('phone_number', "var:PhoneNumber::varchar"),
+        ('email', "var:Email::varchar"),
+        ('profile_image', "var:ProfileImage::varchar"),
+        ('auth_id', "var:AuthId::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_admin', "var:IsAdmin::boolean"),
+        ('is_shipper_client_user', "var:IsShipperClientUser::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('profile_logo', "var:ProfileLogo::varchar"),
+        ('is_locked', "var:IsLocked::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

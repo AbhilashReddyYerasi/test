@@ -1,0 +1,12 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "product_product_taxes",
+    "cms_stage",
+    "ProductAndProductTaxes"
+  ) -%}
+    product_id varchar(16777216),
+    product_tax_id varchar(16777216)
+{%- endcall %}

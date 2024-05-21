@@ -1,0 +1,37 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_api_auths",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_id', "var:ShipperId::varchar"),
+        ('project_id', "var:ProjectId::varchar"),
+        ('is_booking', "var:IsBooking::boolean"),
+        ('booking_scopes', "var:BookingScopes::varchar"),
+        ('is_shipment', "var:IsShipment::boolean"),
+        ('shipment_scopes', "var:ShipmentScopes::varchar"),
+        ('is_webhook', "var:IsWebHook::boolean"),
+        ('webhook_scopes', "var:WebHookScopes::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('issue_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:IssueAt::int, 6)")),
+        ('access_token', "var:AccessToken::varchar"),
+        ('start_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:StartAt::int, 6)")),
+        ('expire_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:ExpireAt::int, 6)")),
+        ('name', "var:Name::varchar"),
+        ('description', "var:Description::varchar"),
+        ('allow_client_ips', "var:AllowClientIPs::varchar"),
+        ('is_abuse', "var:IsAbuse::boolean"),
+        ('rate_limit', "var:RateLimit::number(38,2)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:UpdatedAt::int, 6)")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("to_timestamp_ntz(var:CreatedAt::int, 6)")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

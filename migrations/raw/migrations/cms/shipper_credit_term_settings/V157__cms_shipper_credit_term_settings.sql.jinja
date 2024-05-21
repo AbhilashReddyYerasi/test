@@ -1,0 +1,20 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "shipper_credit_term_settings",
+    "cms_stage",
+    "ShipperCreditTermSettings"
+  ) -%}
+    id varchar,
+    is_centralised boolean,
+    tenant_id varchar,
+    tenant_country_id varchar,
+    is_deleted boolean,
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    created_by varchar,
+    created_at timestamp_tz(9),
+    master_countries_country_time_zone varchar
+{%- endcall %}

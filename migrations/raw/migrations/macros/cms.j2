@@ -1,0 +1,87 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{#
+Converts the given column to the local timezone specified in the master_countries table.
+Works in conjunction with create_cms_merge_task().
+#}
+{% macro convert_to_mastercountry_tz(column) -%}
+convert_timezone(coalesce(mc.country_time_zone,'UTC'), concat({{ column }}::varchar, ' 0000')::timestamp_tz)::timestamp_tz
+{%- endmacro %}
+
+{#
+Creates a merge task for {table_name}, given the {columns}.
+The query assums that the source contains the following mandatoy columns:
+- updated_at
+- tenant_country_id
+
+The output tabel will also contain:
+- master_countries_country_time_zone
+- load_ts
+#}
+{% macro create_cms_merge_task(
+    output_schema,
+    load_schema,
+    table_name,
+    columns,
+    unique_id
+) -%}
+
+{% set unique_id = unique_id | default(('id', "var:Id::varchar")) %}
+{% set unique_id_raw = unique_id[1] %}
+{% set unique_id_final = unique_id[0] %}
+
+{% set all_columns = columns + [
+    ("master_countries_country_time_zone", "coalesce(mc.country_time_zone,'UTC')"),
+    ("load_ts", "convert_timezone('UTC',CURRENT_TIMESTAMP)::timestamp_tz")
+] %}
+
+{% call create_merge_task(load_schema, table_name) -%}
+
+merge into {{ output_schema }}.{{ table_name }} as t
+    using (
+        select
+            {% for name, source in all_columns -%}
+                {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+            {% endfor -%}
+        from (
+            select
+                var,
+                row_number() over (partition by {{ unique_id_raw }}
+                    order by greatest(
+                            coalesce(
+                                var:CreatedAt::timestamp_ntz,
+                                var:UpdatedAt::timestamp_ntz
+                            ),
+                            coalesce(
+                                var:UpdatedAt::timestamp_ntz,
+                                var:CreatedAt::timestamp_ntz
+                            )
+                        ) desc nulls last)
+                as rn
+            from {{ load_schema }}.load_{{ table_name }}_stream
+            ) as sub 
+            left join {{ output_schema }}.master_countries mc on mc.master_country_id = sub.var:TenantCountryId::varchar
+            where rn = 1
+        ) as S
+        on t.{{ unique_id_final }} = s.{{ unique_id_final }}
+    when matched and not(
+        {% for name, _ in all_columns if name not in ['load_ts'] -%}
+            equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+        {% endfor -%}
+    ) and s.updated_at > t.updated_at
+    then update set
+        {% for name, _ in all_columns -%}
+            t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    when not matched then insert (
+        {% for name, _ in all_columns -%}
+            {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    ) values (
+        {% for name, _ in all_columns -%}
+            s.{{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    )
+{%- endcall %}
+
+{%- endmacro %}

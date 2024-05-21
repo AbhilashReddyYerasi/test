@@ -1,0 +1,73 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{% set table_name = "dg_invoice_shipment" %}
+
+{% set columns = [
+        ('invoice_gid', "var:INVOICE_GID::varchar"),
+        ('sequence_no', "nullif(var:SEQUENCE_NO::varchar, '')::number"),
+        ('shipment_gid', "var:SHIPMENT_GID::varchar"),
+        ('s_ship_unit_gid', "var:S_SHIP_UNIT_GID::varchar"),
+        ('s_ship_unit_line_no', "nullif(var:S_SHIP_UNIT_LINE_NO::varchar, '')::number"),
+        ('tracking_number', "nullif(var:TRACKING_NUMBER::varchar, '')::number"),
+        ('lineitem_seq_no', "nullif(var:LINEITEM_SEQ_NO::varchar, '')::number"),
+        ('domain_name', "var:DOMAIN_NAME::varchar"),
+        ('insert_user', "var:INSERT_USER::varchar"),
+        ('insert_date', "nullif(var:INSERT_DATE::varchar, '')::timestamp_tz(9)"),
+        ('update_user', "var:UPDATE_USER::varchar"),
+        ('update_date', "coalesce(nullif(var:UPDATE_DATE::varchar, ''), nullif(var:INSERT_DATE::varchar, ''))::timestamp_tz(9)"),
+        ("load_ts", "convert_timezone('UTC',current_timestamp)::timestamp_tz")
+        ]
+%}
+
+{% call create_merge_task(load_cfx_schema, table_name) -%}
+merge into {{ cfx_schema }}.{{ table_name }} as t
+using(
+    with transformed_{{ table_name }} as (
+            select
+                {% for name, source in columns -%}
+                    {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+                {% endfor -%}
+            from {{load_cfx_schema}}.load_{{ table_name }}_stream
+        )
+    select * from (
+            select
+                *,
+                row_number() over (partition by invoice_gid,sequence_no
+                    order by greatest(
+                            coalesce(
+                                insert_date,
+                                update_date
+                            ),
+                            coalesce(
+                                update_date,
+                                insert_date
+                            )
+                        ) desc nulls last)
+                as rn
+            from transformed_{{ table_name }}
+        ) where rn = 1
+) as s
+ON (
+    t.invoice_gid = s.invoice_gid
+        and t.sequence_no = s.sequence_no
+) 
+when matched and not (
+    {% for name, _ in columns -%}
+        equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+    {% endfor -%}
+) and s.update_date > t.update_date
+then update set
+    {% for name, _ in columns -%}
+        t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+when not matched then insert (
+    {% for name, _ in columns -%}
+        {{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+) 
+values (
+    {% for name, _ in columns -%}
+        s.{{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+)
+{%- endcall %}

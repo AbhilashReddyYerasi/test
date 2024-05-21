@@ -1,0 +1,31 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "pac_requests",
+        [
+        ('id', "var:Id::varchar"),
+        ('ref_num', "var:RefNum::varchar"),
+        ('issuer_rfc', "var:IssuerRFC::varchar"),
+        ('receiver_rfc', "var:ReceiverRFC::varchar"),
+        ('xml_file', "var:XmlFile::varchar"),
+        ('pdf_file', "var:PdfFile::varchar"),
+        ('request_at', convert_to_mastercountry_tz("var:RequestAt")),
+        ('request_by', "var:RequestBy::varchar"),
+        ('profile_user_id', "var:ProfileUserId::varchar"),
+        ('is_request_valid', "var:IsRequestValid::boolean"),
+        ('is_request_success', "var:IsRequestSuccess::boolean"),
+        ('cfdi_type', "var:CFDIType::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('cfdi_process_id', "var:CFDIProcessId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

@@ -1,0 +1,22 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cfx_schema,
+    load_cfx_schema,
+    "dg_invoice_shipment",
+    "cfx_stage",
+    "DG_SHIPMENT_INVOICE"
+  ) -%}
+    invoice_gid varchar,
+    sequence_no number,
+    shipment_gid varchar,
+    s_ship_unit_gid varchar,
+    s_ship_unit_line_no number,
+    tracking_number number,
+    lineitem_seq_no number,
+    domain_name varchar,
+    insert_user varchar,
+    insert_date timestamp_tz(9),
+    update_user varchar,
+    update_date timestamp_tz(9)
+    {%- endcall %}

@@ -1,0 +1,4 @@
+[
+    { "name": "PROJECT_NAME", "type": "VARCHAR(16777216)" },
+    { "name": "RATE_TYPE", "type": "VARCHAR(16777216)" }
+]

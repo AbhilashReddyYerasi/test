@@ -1,0 +1,17 @@
+{% set required_columns=["tenant_country_id", "updated_at"] %}
+{% set id_column = (columns | find_column(column_name=unique_id)) %}
+
+{% raw %}{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}{% endraw %}
+
+{% raw %}{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,{% endraw %}
+        "{{ table_name }}",
+        [
+        {% for c in (columns | mandatory_columns(columns=required_columns)) -%}
+            ('{{ c["name"] | escape_keywords }}', {{ c['transformation'] | unwrap_macros }}),
+        {% endfor -%}
+        ],
+        ('{{ id_column["name"] | escape_keywords }}', "{{ id_column['transformation'] }}")
+    )
+{% raw %}}}{% endraw %}

@@ -1,0 +1,26 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "payment_paids",
+        [
+        ('id', "var:Id::varchar"),
+        ('carrier_invoice_id', "var:CarrierInvoiceId::varchar"),
+        ('po_id', "var:POId::varchar"),
+        ('bank_transaction_id', "var:BankTransactionId::varchar"),
+        ('paid_date', convert_to_mastercountry_tz("var:PaidDate")),
+        ('amount_paid', "var:AmountPaid::number(16,2)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('etag', "var:ETag::varchar"),
+        ('status', "var:Status::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

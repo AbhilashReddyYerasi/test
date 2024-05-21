@@ -1,0 +1,69 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{% set table_name = 'users' %}
+{% set unique_id = 'id' %}
+
+{% set columns = [
+    ("id", "var:Id::number"),
+    ("first_name", "var:first_name::varchar"),
+    ("last_name", "var:last_name::varchar"),
+    ("email", "var:email::varchar"),
+    ("alias", "var:alias::varchar"),
+    ("phone", "var:phone::varchar"),
+    ("mobile", "var:mobile::varchar"),
+    ("created_by", "var:created_by::number"),
+    ("modified_by", "var:Modified_By::number"),
+    ("created_time", "var:created_time::timestamp_tz(9)"),
+    ("modified_time", "var:Modified_Time::timestamp_tz(9)"),
+    ("status", "var:status::varchar"),
+    ("full_name", "var:full_name::varchar"),
+    ("load_ts", "convert_timezone('UTC',CURRENT_TIMESTAMP)::timestamp_tz")
+] %}
+
+{% call create_merge_task(load_zoho_crm_schema, table_name) -%}
+merge into {{ zoho_crm_schema }}.{{ table_name }} as t
+using (
+    with
+    parsed_data as (
+        select
+            {%- for name, source in columns %}
+            {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+            {%- endfor %}
+        from {{ load_zoho_crm_schema }}.load_{{ table_name }}_stream
+    ),
+    latest_data as (
+        select
+            *,
+            row_number() over (
+                partition by {{ unique_id }}
+                order by greatest(
+                    coalesce(created_time, modified_time),
+                    coalesce(modified_time, created_time)
+                ) desc nulls last
+            ) as rn
+        from parsed_data
+    )
+    select *
+    from latest_data
+    where rn=1
+) as s
+on t.{{ unique_id }} = s.{{ unique_id }}
+when matched and not(
+    {%- for name, _ in columns if name not in ['load_ts'] %}
+    equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+    {%- endfor %}
+) and s.modified_time > t.modified_time
+then update set
+    {%- for name, _ in columns %}
+    t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+    {%- endfor %}
+when not matched then insert (
+    {%- for name, _ in columns %}
+    {{ name }}{% if not loop.last %},{% endif %}
+    {%- endfor %}
+) values (
+    {%- for name, _ in columns%}
+    s.{{ name }}{% if not loop.last %},{% endif %}
+    {%- endfor %}
+)
+{%- endcall %}

@@ -1,0 +1,27 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "sell_rate_margin_setting_projects",
+    "cms_stage",
+    "SellRateMarginSettingProjects"
+  ) -%}
+    id varchar,
+    margin_setting_id varchar,
+    project_id varchar,
+    company_name varchar,
+    transport_category varchar,
+    is_contract boolean,
+    is_market_place boolean,
+    is_auto_calculate_sell_rate boolean,
+    tenant_id varchar,
+    tenant_country_id varchar,
+    is_active boolean,
+    is_deleted boolean,
+    created_by varchar,
+    created_at timestamp_tz(9),
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    master_countries_country_time_zone varchar
+{%- endcall %}

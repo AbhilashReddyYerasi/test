@@ -1,0 +1,15 @@
+create schema {{ zoho_crm_schema }};
+create schema {{ load_zoho_crm_schema }};
+
+create or replace file format {{ load_zoho_crm_schema }}.{{ zoho_crm_schema }}_parquet
+  type = parquet
+  compression = snappy;
+
+create or replace stage {{ load_zoho_crm_schema }}.{{ zoho_crm_schema }}_stage
+  {%- if is_prod %}
+  url = 'azure://sadhdpdataprod.blob.core.windows.net/zoho-crm'
+  {% else %}
+  url = 'azure://sadhdpdatadev.blob.core.windows.net/zoho-crm'
+  {% endif -%}
+  storage_integration = az_storage_integration
+  file_format = {{ load_zoho_crm_schema }}.{{ zoho_crm_schema }}_parquet;

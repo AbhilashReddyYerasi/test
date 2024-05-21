@@ -1,0 +1,35 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "vehicle_logins",
+        [
+        ('id', "var:Id::varchar"),
+        ('vehicle_reg_no', "var:VehicleRegNo::varchar"),
+        ('last_login_device_id', "var:LastLoginDeviceId::varchar"),
+        ('is_logged_in', "var:IsLoggedIn::boolean"),
+        ('is_forced_logout', "var:IsForcedLogout::boolean"),
+        ('device_name', "var:DeviceName::varchar"),
+        ('device_model', "var:DeviceModel::varchar"),
+        ('device_platform', "var:DevicePlatform::varchar"),
+        ('device_os', "var:DeviceOS::varchar"),
+        ('company_name', "var:CompanyName::varchar"),
+        ('latitude', "var:Latitude::number(18,6)"),
+        ('longitude', "var:Longitude::number(18,6)"),
+        ('last_logout_at', convert_to_mastercountry_tz("var:LastLogOutAt")),
+        ('last_login_at', convert_to_mastercountry_tz("var:LastLoginAt")),
+        ('login_expires_at', convert_to_mastercountry_tz("var:LoginExpiresAt")),
+        ('carrier_truck_id', "var:CarrierTruckId::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

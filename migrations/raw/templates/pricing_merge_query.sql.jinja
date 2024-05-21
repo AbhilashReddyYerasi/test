@@ -1,0 +1,13 @@
+{% raw %}{% from 'macros/pricing.j2' import create_pricing_merge_task -%}{% endraw %}
+
+{% raw %}{{ create_pricing_merge_task(
+        pricing_schema,
+        load_pricing_schema,{% endraw %}
+        "{{ table_name }}",
+        [
+        {% for c in (columns | mandatory_columns(columns=required_columns)) -%}
+            ('{{ c["name"] | escape_keywords }}', {{ c['transformation'] | unwrap_macros }}),
+        {% endfor -%}
+        ]
+    )
+{% raw %}}}{% endraw %}

@@ -1,0 +1,35 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_tasks",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_location_id', "var:TransportLocationId::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('type', "var:Type::varchar"),
+        ('"order"', "var:Order::number(38,0)"),
+        ('title', "var:Title::varchar"),
+        ('button_text', "var:ButtonText::varchar"),
+        ('popup_dialog', "var:PopUpDialog::boolean"),
+        ('popup_desc', "var:PopUpDesc::varchar"),
+        ('popup_title', "var:PopUpTitle::varchar"),
+        ('popup_action', "var:PopUpAction::number(38,0)"),
+        ('skippable', "var:Skippable::boolean"),
+        ('data', "var:Data::varchar"),
+        ('completed', convert_to_mastercountry_tz("var:Completed")),
+        ('insert_status', "var:InsertStatus::varchar"),
+        ('is_en_route_task', "var:IsEnRouteTask::boolean"),
+        ('is_arrived_task', "var:IsArrivedTask::boolean"),
+        ('is_completed_task', "var:IsCompletedTask::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

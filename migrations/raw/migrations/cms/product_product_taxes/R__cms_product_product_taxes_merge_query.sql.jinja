@@ -1,0 +1,44 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+{% from 'macros/cms.j2' import convert_to_mastercountry_tz -%}
+
+{% set table_name = "product_product_taxes" %}
+
+{% set columns = [
+    ("product_id", "var:ProductId::varchar"),
+    ("product_tax_id", "var:ProductTaxId::varchar"),
+    ("load_ts", "convert_timezone('UTC',current_timestamp)::timestamp_tz")
+] %}
+
+{% call create_merge_task(load_cms_schema, table_name) -%}
+merge into {{ cms_schema }}.{{ table_name }} as t
+using(
+    select distinct
+        {% for name, source in columns -%}
+            {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    from {{ load_cms_schema }}.load_{{ table_name }}_stream
+) as s
+ON (
+    t.product_id=s.product_id
+    and t.product_tax_id = s.product_tax_id
+) 
+when matched and not (
+    {% for name, _ in columns -%}
+        equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+    {% endfor -%}
+)
+then update set
+    {% for name, _ in columns -%}
+        t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+when not matched then insert (
+    {% for name, _ in columns -%}
+        {{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+) 
+values (
+    {% for name, _ in columns -%}
+        s.{{ name }}{% if not loop.last %},{% endif %}
+    {% endfor -%}
+)
+{%- endcall %}

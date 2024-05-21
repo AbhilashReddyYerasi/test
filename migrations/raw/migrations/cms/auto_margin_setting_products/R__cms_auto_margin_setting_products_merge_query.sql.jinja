@@ -1,0 +1,25 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "auto_margin_setting_products",
+        [
+        ('id', "var:Id::varchar"),
+        ('margin_setting_info_id', "var:MarginSettingInfoId::varchar"),
+        ('product_id', "var:ProductId::varchar"),
+        ('urgency_banding', "var:UrgencyBanding::varchar"),
+        ('round_type', "var:RoundType::number(18,0)"),
+        ('round_to_nearest', "var:RoundToNearest::number(18,2)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

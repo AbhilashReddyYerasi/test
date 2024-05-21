@@ -1,0 +1,29 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "traction_contract_buy_rates",
+    "cms_stage",
+    "TractionContractBuyRates"
+  ) -%}
+    id varchar(16777216),
+    contract_id varchar(16777216),
+    tenant_id varchar(16777216),
+    carrier_id varchar(16777216),
+    carrier_display_id varchar(16777216),
+    carrier_company_name varchar(16777216),
+    dispatcher_id varchar(16777216),
+    dispatcher_first_name varchar(16777216),
+    dispatcher_last_name varchar(16777216),
+    dispatcher_display_id varchar(16777216),
+    buy_rate_type varchar(16777216),
+    buy_rate varchar(16777216),
+    is_deleted boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

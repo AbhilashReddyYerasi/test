@@ -1,0 +1,24 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "cargo_discrepancy_reason_codes",
+    "cms_stage",
+    "CargoDiscrepancyReasonCodes"
+  ) -%}
+    id varchar(16777216),
+    name varchar(16777216),
+    display_name varchar(16777216),
+    description varchar(16777216),
+    is_active boolean,
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    sort_order number(38,0),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

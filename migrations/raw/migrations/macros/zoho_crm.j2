@@ -1,0 +1,84 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{#
+Creates a merge task for {table_name}, given the {columns}.
+The query assums that the source contains the following columns,
+which will be automatically be added to the output and don't need to be specified in {columns}:
+- updated_by
+- updated_at
+- created_by
+- created_at
+- tenant_country_id
+
+The output tabel will also contain:
+- master_countries_country_time_zone
+- load_ts
+#}
+{% macro create_zoho_crm_merge_task(
+    output_schema,
+    load_schema,
+    table_name,
+    columns,
+    unique_id
+) -%}
+
+{% set unique_id = unique_id | default(('id', "var:Id::varchar")) %}
+{% set unique_id_raw = unique_id[1] %}
+{% set unique_id_final = unique_id[0] %}
+
+
+{% call create_merge_task(load_schema, table_name) -%}
+merge into {{ output_schema }}.{{ table_name }} as c
+using (
+    with 
+    parsed_data as (
+        select
+            {% for name, source in columns -%}
+                {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+            {% endfor -%}
+        from {{ load_schema }}.load_{{ table_name }}_stream
+    ),
+    new_state as (
+        select *, hash(*) as _hash from parsed_data
+    ),
+    old_state as (
+        select * from {{ output_schema }}.{{ table_name }} where _is_active = true
+    ),
+    diff as (
+      select coalesce(old.{{ unique_id_final }}, new.{{ unique_id_final }}) as dml_unique_id,
+      old.{{ unique_id_final }} is null as is_insert,
+      new.{{ unique_id_final }} is null as is_delete,
+      (old.{{ unique_id_final }} is not null and new.{{ unique_id_final }} is not null and old._hash <> new._hash) as is_update,
+      new.*
+      from new_state new full outer join old_state old on old.{{ unique_id_final }} = new.{{ unique_id_final }}
+    ),
+    db_changes as (
+      select *, 'insert' as dml from diff where is_insert = true or is_update = true
+      union
+      select *, 'delete' as dml from diff where is_delete = true or is_update = true
+    )
+  select * from db_changes
+) as s
+on c.{{ unique_id_final }} = s.dml_unique_id and s.dml = 'delete'
+when matched and c._is_active
+then update set c._valid_to = coalesce(s.modified_time, s.created_time), c._is_active = false
+when not matched and s.dml = 'insert' then insert (
+    {% for name, _ in columns -%}
+        {{ name }},
+    {% endfor -%}
+    _hash,
+    _valid_from,
+    _valid_to,
+    _is_active
+) values (
+    {% for name, _ in columns -%}
+        s.{{ name }},
+    {% endfor -%}
+    s._hash,
+    coalesce(s.modified_time, s.created_time),
+    null,
+    true
+)
+{%- endcall %}
+
+{%- endmacro %}

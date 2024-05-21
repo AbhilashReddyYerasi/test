@@ -1,0 +1,42 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_ratings",
+    "cms_stage",
+    "CarrierRatings"
+  ) -%}
+    id varchar(16777216),
+    job_file_id varchar(16777216),
+    carrier_rating_requirement varchar(16777216),
+    evaluation_status varchar(16777216),
+    carrier_rating_is_closed boolean,
+    average_rating number(16,2),
+    on_time_pickup_rate number(16,2),
+    on_time_delivery_rate number(16,2),
+    driver_behaviour_rate number(16,2),
+    communication_rate number(16,2),
+    app_usage_rate number(16,2),
+    truck_quality_rate number(16,2),
+    on_time_pickup_comment varchar(16777216),
+    on_time_delivery_comment varchar(16777216),
+    driver_behavior_comment varchar(16777216),
+    communication_comment varchar(16777216),
+    app_usage_comment varchar(16777216),
+    truck_quality_comment varchar(16777216),
+    issue_1 varchar(16777216),
+    issue_2 varchar(16777216),
+    issue_3 varchar(16777216),
+    comment varchar(16777216),
+    rating_completed_at timestamp_tz(9),
+    rated_by varchar(16777216),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

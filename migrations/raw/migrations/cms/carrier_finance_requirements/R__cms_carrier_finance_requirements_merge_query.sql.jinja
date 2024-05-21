@@ -1,0 +1,30 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_finance_requirements",
+        [
+        ('id', "var:Id::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('requirement_title', "var:RequirementTitle::varchar"),
+        ('expiry_date', convert_to_mastercountry_tz("var:ExpiryDate")),
+        ('reference_value_1', "var:ReferenceValue1::varchar"),
+        ('reference_value_2', "var:ReferenceValue2::varchar"),
+        ('is_mandatory', "var:IsMandatory::boolean"),
+        ('is_active', "var:IsActive::boolean"),
+        ('carrier_finance_detail_id', "var:CarrierFinanceDetailId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('document_category', "var:DocumentCategory::varchar"),
+        ('shipment_document_type_id', "var:ShipmentDocumentTypeId::varchar"),
+        ('description', "var:Description::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

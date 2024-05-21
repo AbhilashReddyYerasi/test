@@ -1,0 +1,36 @@
+buy_rates:
+  columns:
+  - name: origin
+    transformation: ORIGIN::varchar
+    type: varchar
+  - name: destination
+    transformation: DESTINATION::varchar
+    type: varchar
+  - name: buy
+    transformation: BUY::number(38,2)
+    type: number(38,2)
+  - name: created
+    transformation: to_timestamp(CREATED::varchar, 'DD/MM/YYYY HH24:MI')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: buyrates
+  stage: pricing_stage
+  table_name: buy_rates
+  unique_id: origin
+sell_rates:
+  columns:
+  - name: origin
+    transformation: ORIGIN::varchar
+    type: varchar
+  - name: destination
+    transformation: DESTINATION::varchar
+    type: varchar
+  - name: sell
+    transformation: SELL::number(38,2)
+    type: number(38,2)
+  - name: created
+    transformation: to_timestamp(CREATED::varchar, 'DD/MM/YYYY HH24:MI')::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: sellrates
+  stage: pricing_stage
+  table_name: sell_rates
+  unique_id: origin

@@ -1,0 +1,15 @@
+create schema {{ streaming_schema }};
+create schema {{ load_streaming_schema }};
+
+create or replace file format {{ load_streaming_schema }}.{{ streaming_schema }}_avro
+  type = parquet
+  compression = snappy;
+
+create or replace stage {{ load_streaming_schema }}.{{ streaming_schema }}_stage
+  {%- if is_prod %}
+  url = 'azure://sadhdpdataprod.blob.core.windows.net/event-hub-shipper-data'
+  {% else %}
+  url = 'azure://sadhdpdatadev.blob.core.windows.net/event-hub-shipper-data'
+  {% endif -%}
+  storage_integration = az_storage_integration
+  file_format = {{ load_streaming_schema }}.{{ streaming_schema }}_avro;

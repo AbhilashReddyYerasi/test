@@ -1,0 +1,35 @@
+{% from 'macros/cms_audit.j2' import create_cms_audit_merge_task -%}
+{% from 'macros/cms.j2' import convert_to_mastercountry_tz -%}
+
+{{ create_cms_audit_merge_task(
+        cms_audit_schema,
+        load_cms_audit_schema,
+        "shipment_audit_trails",
+        [
+        ('id', "var:Id::varchar"),
+        ('version_no', "var:Version::number(38,0)"),
+        ('is_current', "var:Current::boolean"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('shipment_number', "var:ShipmentNumber::varchar"),
+        ('transport_order', "var:TransportOrder::number(38,0)"),
+        ('transport_routes', "var:TransportRoutes::number(38,0)"),
+        ('transport_locations', "var:TransportLocations::number(38,0)"),
+        ('transport_loads', "var:TransportLoads::number(38,0)"),
+        ('transport_documents', "var:TransportDocuments::number(38,0)"),
+        ('transport_references', "var:TransportReferences::number(38,0)"),
+        ('transport_requirement', "var:TransportRequirement::number(38,0)"),
+        ('transport_custom_requirements', "var:TransportCustomRequirements::number(38,0)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('trigger_by_entity_type', "var:TriggerByEntityType::varchar"),
+        ('inserted_by', "var:InsertedBy::varchar"),
+        ('inserted_at', convert_to_mastercountry_tz("var:InsertedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('after_save_entities', "var:AfterSaveEntities::varchar"),
+        ('before_save_entities', "var:BeforeSaveEntities::varchar"),
+        ],
+        ('id', "var:Id::varchar"),
+        cms_schema
+    )
+}}

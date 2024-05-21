@@ -1,0 +1,26 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "cfdi_audit_trails",
+    "cms_stage",
+    "CFDIAuditTrails"
+  ) -%}
+    id varchar(16777216),
+    cfdi_process_id varchar(16777216),
+    event_at timestamp_tz(9),
+    event_by varchar(16777216),
+    event_module varchar(16777216),
+    event_type varchar(16777216),
+    event_desc varchar(16777216),
+    status varchar(16777216),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

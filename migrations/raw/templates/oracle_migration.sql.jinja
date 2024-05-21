@@ -1,0 +1,13 @@
+{% raw %}{% from 'macros/shared_v1.j2' import create_table_and_stream_file_type_csv -%}{% endraw %}
+
+{% raw %}{% call create_table_and_stream_file_type_csv(
+    oracle_schema,
+    load_oracle_schema,{% endraw %}
+    "{{ table_name }}",
+    "{{ stage }}",
+    "{{ file_name }}"
+{% raw %}  ) -%}{% endraw %}
+    {% for c in columns -%}
+    {{ c["name"] | escape_keywords }} {{ c["type"] }}{{ "," if not loop.last }}
+    {% endfor -%}
+{% raw %}{%- endcall %}{% endraw %}

@@ -1,0 +1,37 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "shipper_api_auths",
+    "cms_stage",
+    "ShipperApiAuths"
+  ) -%}
+    id varchar(16777216),
+    shipper_id varchar(16777216),
+    project_id varchar(16777216),
+    is_booking boolean,
+    booking_scopes varchar(16777216),
+    is_shipment boolean,
+    shipment_scopes varchar(16777216),
+    is_webhook boolean,
+    webhook_scopes varchar(16777216),
+    is_active boolean,
+    issue_at timestamp_tz(9),
+    access_token varchar(16777216),
+    start_at timestamp_tz(9),
+    expire_at timestamp_tz(9),
+    name varchar(16777216),
+    description varchar(16777216),
+    allow_client_ips varchar(16777216),
+    is_abuse boolean,
+    rate_limit number(38,0),
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

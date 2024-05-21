@@ -1,0 +1,26 @@
+{% from 'macros/cms_audit.j2' import create_cms_audit_merge_task -%}
+{% from 'macros/cms.j2' import convert_to_mastercountry_tz -%}
+
+{{ create_cms_audit_merge_task(
+        cms_audit_schema,
+        load_cms_audit_schema,
+        "offer_item_action_histories",
+        [
+        ('id', "var:Id::varchar"),
+        ('offer_history_id', "var:OfferHistoryId::varchar"),
+        ('offer_item_history_id', "var:OfferItemHistoryId::varchar"),
+        ('action_type', "var:ActionType::varchar"),
+        ('trigger_from', "var:TriggerFrom::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('carrier_company_name', "var:CarrierCompanyName::varchar"),
+        ('carrier_user_id', "var:CarrierUserId::varchar"),
+        ('carrier_user_name', "var:CarrierUserName::varchar"),
+        ('reference_ids', "var:ReferenceIds::varchar"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar"),
+        cms_schema
+    )
+}}

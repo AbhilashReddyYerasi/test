@@ -1,0 +1,32 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "product_tax",
+        [
+        ('id', "var:Id::varchar"),
+        ('name', "var:Name::varchar"),
+        ('display_name', "var:DisplayName::varchar"),
+        ('description', "var:Description::varchar"),
+        ('gl_code', "var:GLCode::varchar"),
+        ('tax_rate', "var:TaxRate::number(18,2)"),
+        ('is_tax_exclusive', "var:IsTaxExclusive::boolean"),
+        ('is_active', "var:IsActive::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('ewt_rate', "var:EWTRate::number(18,2)"),
+        ('ap_mapping_code', "var:APMappingCode::varchar"),
+        ('ar_mapping_code', "var:ARMappingCode::varchar"),
+        ('is_tax_residence', "var:IsTaxResidence::boolean"),
+        ('tax_code', "var:TaxCode::varchar"),
+        ('is_domestic', "var:IsDomestic::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

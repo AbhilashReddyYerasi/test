@@ -1,0 +1,26 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_custom_offers",
+    "cms_stage",
+    "CarrierCustomOffers"
+  ) -%}
+    id varchar,
+    offer_id varchar,
+    carrier_id varchar,
+    amount number(18,2),
+    is_custom_bonded_truck boolean,
+    is_accepted boolean,
+    is_deleted boolean,
+    created_by varchar,
+    created_at timestamp_tz(9),
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    tenant_id varchar,
+    tenant_country_id varchar,
+    currency_code varchar(50),
+    currency_code_id varchar,
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

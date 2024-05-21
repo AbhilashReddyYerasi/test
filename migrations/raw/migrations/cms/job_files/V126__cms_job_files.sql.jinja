@@ -1,0 +1,6 @@
+alter table {{ cms_schema }}.job_files
+add column
+    sell_rate_currency_code varchar(16777216),
+    sell_rate_currency_code_id varchar(16777216),
+    buy_rate_currency_code varchar(50),
+    buy_rate_currency_code_id varchar;

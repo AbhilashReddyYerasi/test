@@ -1,0 +1,38 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_users",
+        [
+        ('id', "var:Id::varchar"),
+        ('carrier_company_id', "var:CarrierCompanyId::varchar"),
+        ('carrier_user_display_id', "var:CarrierUserDisplayID::varchar"),
+        ('first_name', "var:FirstName::varchar"),
+        ('last_name', "var:LastName::varchar"),
+        ('email', "var:Email::varchar"),
+        ('phone_number', "var:PhoneNumber::varchar"),
+        ('identity_card_number', "var:IdentityCardNumber::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('login_type', "var:LoginType::varchar"),
+        ('login_email', "var:LoginEmail::varchar"),
+        ('login', "var:Login::varchar"),
+        ('auth_id', "var:AuthId::varchar"),
+        ('profile_image', "var:ProfileImage::varchar"),
+        ('is_dispatcher', "var:IsDispatcher::boolean"),
+        ('is_driver', "var:IsDriver::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('is_admin', "var:IsAdmin::boolean"),
+        ('device_id', "var:DeviceId::varchar"),
+        ('is_virtual_driver', "var:IsVirtualDriver::boolean"),
+        ('is_locked', "var:IsLocked::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

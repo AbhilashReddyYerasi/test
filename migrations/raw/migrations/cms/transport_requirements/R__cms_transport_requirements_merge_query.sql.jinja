@@ -1,0 +1,43 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_requirements",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('transport_route_id', "var:TransportRouteId::varchar"),
+        ('vehicle_size', "var:VehicleSize::varchar"),
+        ('vehicle_buildup', "var:VehicleBuildUp::varchar"),
+        ('is_contract', "var:IsContract::boolean"),
+        ('manpower', "var:Manpower::number(38,0)"),
+        ('is_lift_jack', "var:IsLiftJack::boolean"),
+        ('is_pallet_jack', "var:IsPalletJack::boolean"),
+        ('is_bonded', "var:IsBonded::boolean"),
+        ('special_requirements', "var:SpecialRequirements::varchar"),
+        ('cargo_description', "var:CargoDescription::varchar"),
+        ('cargo_value', "var:CargoValue::varchar"),
+        ('is_insurance', "var:IsInsurance::boolean"),
+        ('insurance_cost', "var:InsuranceCost::number(18,2)"),
+        ('insurance_under_writer', "var:InsuranceUnderWriter::varchar"),
+        ('is_dr_pod_returned', "var:IsDR_PODReturned::boolean"),
+        ('is_dr_customs_form_returned', "var:IsDR_CustomsFormReturned::boolean"),
+        ('is_dr_invoice_returned', "var:IsDR_InvoiceReturned::boolean"),
+        ('is_dr_packing_list_returned', "var:IsDR_PackingListReturned::boolean"),
+        ('is_dr_airway_bill_returned', "var:IsDR_AirwayBillReturned::boolean"),
+        ('is_sms_shipment_departed', "var:IsSMS_ShipmentDeparted::boolean"),
+        ('is_sms_shipment_arrived', "var:IsSMS_ShipmentArrived::boolean"),
+        ('is_sms_shipment_completed', "var:IsSMS_ShipmentCompleted::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('insurance_policy_number', "var:InsurancePolicyNumber::varchar"),
+        ('is_ignore_mandatory_accreditation', "var:IsIgnoreMandatoryAccreditation::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

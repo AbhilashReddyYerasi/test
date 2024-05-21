@@ -1,0 +1,33 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "rate_changes_history",
+        [
+        ('id', "var:Id::varchar"),
+        ('contract_type', "var:ContractType::varchar"),
+        ('status', "var:Status::varchar"),
+        ('contract_id', "var:ContractId::varchar"),
+        ('rate_change_entity', "var:RateChangeEntity::varchar"),
+        ('previous_rate', "var:PreviousRate::number(38,2)"),
+        ('updated_rate', "var:UpdatedRate::number(38,2)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('is_active', "var:IsActive::boolean"),
+        ('rate_change_at', convert_to_mastercountry_tz("var:RateChangeAt")),
+        ('rate_change_by', "var:RateChangeBy::varchar"),
+        ('entity_id', "var:EntityId::varchar"),
+        ('previous_additional_drop_rate', "var:PreviousAdditionalDropRate::varchar"),
+        ('previous_bonded_rate', "var:PreviousBondedRate::varchar"),
+        ('updated_additional_drop_rate', "var:UpdatedAdditionalDropRate::varchar"),
+        ('updated_bonded_rate', "var:UpdatedBondedRate::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

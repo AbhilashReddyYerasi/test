@@ -1,0 +1,33 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_offers",
+    "cms_stage",
+    "CarrierOffers"
+  ) -%}
+    id varchar(16777216),
+    offer_id varchar(16777216),
+    carrier_id varchar(16777216),
+    amount number(18,2),
+    rate_id varchar(16777216),
+    is_custom_bonded_truck boolean,
+    is_deleted boolean,
+    is_active boolean,
+    is_contract boolean,
+    incentive number(18,2),
+    is_excluded boolean,
+    carrier_live_offer_window_end timestamp_tz(9),
+    carrier_live_offer_window_start timestamp_tz(9),
+    carrier_live_rate_offer_id varchar(16777216),
+    is_carrier_live_offer boolean,
+    is_cra boolean,
+    offer_remarks varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

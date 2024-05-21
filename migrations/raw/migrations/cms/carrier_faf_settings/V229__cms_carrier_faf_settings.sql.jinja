@@ -1,0 +1,32 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_faf_settings",
+    "cms_stage",
+    "CarrierFAFSettings"
+  ) -%}
+    id varchar,
+    faf_formula_id varchar,
+    faf_formula_name varchar,
+    faf_formula_display_name varchar,
+    faf_formula_is_active varchar,
+    shipper_project_id varchar,
+    shipper_project_name varchar,
+    carrier_id varchar,
+    transport_category varchar,
+    formula_value varchar,
+    is_active boolean,
+    valid_from timestamp_tz(9),
+    valid_to timestamp_tz(9),
+    updated_by_name varchar,
+    is_deleted boolean,
+    created_by varchar,
+    created_at timestamp_tz(9),
+    updated_by varchar,
+    updated_at timestamp_tz(9),
+    tenant_id varchar,
+    tenant_country_id varchar,
+    master_countries_country_time_zone varchar
+{%- endcall %}

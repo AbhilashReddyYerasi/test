@@ -1,0 +1,36 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_orders_ext",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('job_file_status', "var:JobFileStatus::varchar"),
+        ('is_pta_issue', "var:IsPtaIssue::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('pod_status', "var:PODStatus::varchar"),
+        ('pod_status_delivered', "var:PODStatus_Delivered::number(38,0)"),
+        ('pod_status_pending', "var:PODStatus_Pending::number(38,0)"),
+        ('pod_status_received', "var:PODStatus_Received::number(38,0)"),
+        ('pod_status_validated', "var:PODStatus_Validated::number(38,0)"),
+        ('booking_ref', "var:BookingRef::varchar"),
+        ('last_amendment_at', convert_to_mastercountry_tz("var:LastAmendmentAt")),
+        ('is_pending_cancellation', "var:IsPendingCancellation::boolean"),
+        ('cancellation_note', "var:CancellationNote::varchar"),
+        ('cancellation_reason_code', "var:CancellationReasonCode::number(38,10)"),
+        ('epod_status', "var:EPODStatus::varchar"),
+        ('epod_status_delivered', "var:EPODStatus_Delivered::number(38,0)"),
+        ('epod_status_pending', "var:EPODStatus_Pending::number(38,0)"),
+        ('epod_status_received', "var:EPODStatus_Received::number(38,0)"),
+        ('epod_status_validated', "var:EPODStatus_Validated::number(38,0)"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

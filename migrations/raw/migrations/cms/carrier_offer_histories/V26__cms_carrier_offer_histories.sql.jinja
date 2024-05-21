@@ -1,0 +1,29 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_offer_histories",
+    "cms_stage",
+    "CarrierOfferHistories"
+  ) -%}
+    id varchar(16777216),
+    transport_order_id varchar(16777216),
+    transport_route_id varchar(16777216),
+    shipment_number varchar(16777216),
+    offer_type varchar(16777216),
+    offer_status varchar(16777216),
+    offer_event_at timestamp_tz(9),
+    offer_event_by varchar(16777216),
+    carrier_id varchar(16777216),
+    carrier_display_id varchar(16777216),
+    carrier_company_name varchar(16777216),
+    decline_reason varchar(16777216),
+    is_deleted boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

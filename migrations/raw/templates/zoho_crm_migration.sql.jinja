@@ -1,0 +1,13 @@
+{% raw %}{% from 'macros/shared_v1.j2' import create_scd2_table_and_stream -%}{% endraw %}
+
+{% raw %}{% call create_scd2_table_and_stream(
+    zoho_crm_schema,
+    load_zoho_crm_schema,{% endraw %}
+    "{{ table_name }}",
+    "{{ stage }}",
+    "{{ file_name }}"
+{% raw %}  ) -%}{% endraw %}
+    {% for c in columns -%}
+    {{ c["name"] | escape_keywords }} {{ c["type"] }}{% if not loop.last %},{% endif %}
+    {% endfor %}
+{% raw %}{%- endcall %}{% endraw %}

@@ -1,0 +1,57 @@
+BEGIN
+    BEGIN TRANSACTION;
+        DELETE FROM RAW.SP.AUXCARRIERFAILURELOG;
+
+        INSERT INTO RAW.SP.AUXCARRIERFAILURELOG (
+            ID,
+            CONTENTTYPEID,
+            CONTENTTYPE,
+            SHIPMENTREF,
+            MODIFIED,
+            CREATED,
+            CREATEDBYID,
+            MODIFIEDBYID,
+            OWSHIDDENVERSION,
+            VERSION,
+            PATH,
+            COMPLIANCEASSETID,
+            NOTIFICATIONDATETIME,
+            CARRIERNAME,
+            COMMENTS,
+            PRIMARYREASON,
+            SECONDARYREASON,
+            RAISEDBY,
+            IMPACT,
+            LOAD_TS,
+            DELIVERYDATE,
+            ACTUALFAILUREVALUE,
+            COLORTAG
+        ) 
+            SELECT
+                VAR:Id::NUMBER,
+                VAR:ContentTypeID::VARCHAR,
+                VAR:ContentType::VARCHAR,
+                VAR:ShipmentRef::VARCHAR,
+                VAR:Modified::TIMESTAMP_NTZ,
+                VAR:Created::TIMESTAMP_NTZ,
+                VAR:CreatedById::NUMBER,
+                VAR:ModifiedById::NUMBER,
+                VAR:Owshiddenversion::NUMBER,
+                VAR:Version::VARCHAR,
+                VAR:Path::VARCHAR,
+                VAR:ComplianceAssetId::VARCHAR,
+                VAR:NotificationDateTime::TIMESTAMP_NTZ,
+                VAR:CarrierName::VARCHAR,
+                VAR:Comments::VARCHAR,
+                VAR:PrimaryReason::VARCHAR,
+                VAR:SecondaryReason::VARCHAR,
+                VAR:RaisedBy::VARCHAR,
+                VAR:Impact::VARCHAR,
+                SYSDATE(),
+                VAR:DeliveryDate::DATE,
+                VAR:ActualFailureValue::VARCHAR,
+                VAR:ColorTag::VARCHAR
+            FROM 
+                RAW.SP.LOAD_AUXCARRIERFAILURELOG_STREAM;
+    COMMIT;
+END

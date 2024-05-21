@@ -1,0 +1,25 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "fail_log_reason_codes",
+    "cms_stage",
+    "FailLogReasonCodes"
+  ) -%}
+    id varchar(16777216),
+    reason_code number(38,0),
+    primary_reason_code varchar(16777216),
+    secondary_reason_code varchar(16777216),
+    description varchar(16777216),
+    is_critical boolean,
+    sort_order number(38,0),
+    is_active boolean,
+    is_deleted boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

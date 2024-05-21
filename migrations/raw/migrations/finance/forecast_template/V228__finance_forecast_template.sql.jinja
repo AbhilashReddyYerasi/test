@@ -1,0 +1,19 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream_file_type_csv -%}
+
+{% call create_table_and_stream_file_type_csv(
+    finance_schema,
+    load_finance_schema,
+    "forecast_template",
+    "finance_stage",
+    "ForecastTemplate"
+  ) -%}
+    customer varchar,
+    year number(38,0),
+    period varchar,
+    yearmonth varchar,
+    loads number(38,0),
+    gp number(38,2),
+    avgprofitperload number(38,2),
+    revenue number(38,2),
+    avgrevperload number(38,2)
+    {%- endcall %}

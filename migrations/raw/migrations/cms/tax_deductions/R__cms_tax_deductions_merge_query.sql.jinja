@@ -1,0 +1,31 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "tax_deductions",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('shipment_number', "var:ShipmentNumber::varchar"),
+        ('carrier_id', "var:CarrierId::varchar"),
+        ('carrier_cost_id', "var:CarrierCostId::varchar"),
+        ('cost_amount', "var:CostAmount::number(16,2)"),
+        ('tax_rate', "var:TaxRate::number(16,2)"),
+        ('tax_amount', "var:TaxAmount::number(16,2)"),
+        ('purchase_order_id', "var:PurchaseOrderId::varchar"),
+        ('purchase_order_number', "var:PurchaseOrderNumber::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('tax_deduction_type', "var:TaxDeductionType::varchar"),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

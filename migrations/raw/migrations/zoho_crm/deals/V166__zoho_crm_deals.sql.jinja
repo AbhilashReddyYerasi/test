@@ -1,0 +1,19 @@
+alter table {{ zoho_crm_schema }}.deals
+drop column
+    currency,
+    exchange_rate,
+    layout,
+    score,
+    positive_score,
+    negative_score,
+    positive_touch_point_score,
+    touch_point_score,
+    negative_touch_point_score,
+    tag,
+    record_image,
+    last_action,
+    last_sent_time,
+    last_action_time,
+    territory,
+    change_log_time,
+    locked;

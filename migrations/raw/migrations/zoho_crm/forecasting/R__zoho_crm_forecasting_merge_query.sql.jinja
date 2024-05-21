@@ -1,0 +1,23 @@
+{% from 'macros/zoho_crm.j2' import create_zoho_crm_merge_task -%}
+
+{{ create_zoho_crm_merge_task(
+        zoho_crm_schema,
+        load_zoho_crm_schema,
+        "forecasting",
+        [
+        ('id', "var:Id::number"),
+        ('owner', "var:Owner::number"),
+        ('created_by', "var:Created_By::number"),
+        ('modified_by', "var:Modified_By::number"),
+        ('created_time', "var:Created_Time::timestamp_tz(9)"),
+        ('modified_time', "var:Modified_Time::timestamp_tz(9)"),
+        ('deal_id', "var:Parent_Id::number"),
+        ('month', "var:Month::date"),
+        ('loads', "var:Loads::number"),
+        ('revenue', "var:Revenue::number"),
+        ('gp', "var:GP::number"),
+        ('gp_weighted', "var:GP_Weighted::number"),
+        ],
+        ('id', "var:Id::number")
+    )
+}}

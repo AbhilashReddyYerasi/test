@@ -1,0 +1,29 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "invoice_integrations",
+        [
+        ('id', "var:Id::varchar"),
+        ('invoice_id', "var:InvoiceId::varchar"),
+        ('integration_sent', "var:IntegrationSent::boolean"),
+        ('integration_date', convert_to_mastercountry_tz("var:IntegrationDate")),
+        ('integration_amount', "var:IntegrationAmount::number(18,2)"),
+        ('integration_ref', "var:IntegrationRef::varchar"),
+        ('integration_dest', "var:IntegrationDest::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('is_resend_integration', "var:IsResendIntegration::boolean"),
+        ('resend_integration_by', "var:ResendIntegrationBy::varchar"),
+        ('resend_integration_counter', "var:ResendIntegrationCounter::number(18,0)"),
+        ('resend_integration_date', convert_to_mastercountry_tz("var:ResendIntegrationDate")),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

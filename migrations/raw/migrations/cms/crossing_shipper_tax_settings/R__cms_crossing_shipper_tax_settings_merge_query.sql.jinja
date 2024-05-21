@@ -1,0 +1,26 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "crossing_shipper_tax_settings",
+        [
+        ('id', "var:Id::varchar"),
+        ('origin_border_zone_id', "var:OriginBorderZoneId::varchar"),
+        ('origin_border_zone_name', "var:OriginBorderZoneName::varchar"),
+        ('destination_border_zone_id', "var:DestinationBorderZoneId::varchar"),
+        ('destination_border_zone_name', "var:DestinationBorderZoneName::varchar"),
+        ('is_tax_residence', "var:IsTaxResidence::boolean"),
+        ('tax_code', "var:TaxCode::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('is_active', "var:IsActive::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

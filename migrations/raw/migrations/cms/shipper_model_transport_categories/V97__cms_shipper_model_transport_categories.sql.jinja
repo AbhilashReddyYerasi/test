@@ -1,0 +1,20 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "shipper_model_transport_categories",
+    "cms_stage",
+    "ShipperModelTransportCategories"
+  ) -%}
+    id varchar(16777216),
+    transport_category varchar(16777216),
+    project_commission_cost_id varchar(16777216),
+    shipper_project_job_file_event_task_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

@@ -1,0 +1,33 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_audit_schema,
+    load_cms_audit_schema,
+    "shipment_audit_trails",
+    "cms_audit_stage",
+    "shipment_audit_trails"
+  ) -%}
+    id number(38,0),
+    version number(38,0),
+    "current" boolean,
+    transport_order_id varchar,
+    shipment_number varchar,
+    transport_order number(38,0),
+    transport_routes number(38,0),
+    transport_locations number(38,0),
+    transport_loads number(38,0),
+    transport_documents number(38,0),
+    transport_references number(38,0),
+    transport_requirement number(38,0),
+    transport_custom_requirements number(38,0),
+    tenant_id varchar,
+    tenant_country_id varchar,
+    trigger_by_entity_type varchar,
+    inserted_by varchar,
+    inserted_at timestamp_tz(9),
+    created_by varchar,
+    created_at timestamp_tz(9),
+    after_save_entities varchar,
+    before_save_entities varchar,
+    master_countries_country_time_zone varchar
+{%- endcall %}

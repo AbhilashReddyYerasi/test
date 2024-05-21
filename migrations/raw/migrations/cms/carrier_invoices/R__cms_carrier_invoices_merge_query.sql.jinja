@@ -1,0 +1,40 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_invoices",
+        [
+        ('id', "var:Id::varchar"),
+        ('po_id', "var:POId::varchar"),
+        ('ezy_billing_link', "var:EzybillingLink::varchar"),
+        ('ezy_billing_date', convert_to_mastercountry_tz("var:EzybillingDate")),
+        ('carrier_invoice_date', convert_to_mastercountry_tz("var:CarrierInvoiceDate")),
+        ('carrier_invoice_number', "var:CarrierInvoiceNumber::varchar"),
+        ('is_dispute', "var:IsDispute::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('etag', "var:ETag::varchar"),
+        ('carrier_invoice_received_date', convert_to_mastercountry_tz("var:CarrierInvoiceReceivedDate")),
+        ('carrier_invoice_received_type', "var:CarrierInvoiceReceivedType::varchar"),
+        ('integration_amount', "var:IntegrationAmount::number(18,2)"),
+        ('integration_date', convert_to_mastercountry_tz("var:IntegrationDate")),
+        ('integration_detail', "var:IntegrationDetail::varchar"),
+        ('integration_ref', "var:IntegrationRef::varchar"),
+        ('integration_sent', "var:IntegrationSent::boolean"),
+        ('carrier_reference_number', "var:CarrierReferenceNumber::varchar"),
+        ('is_resend_integration', "var:IsResendIntegration::boolean"),
+        ('resend_integration_by', "var:ResendIntegrationBy::varchar"),
+        ('resend_integration_date', convert_to_mastercountry_tz("var:ResendIntegrationDate")),
+        ('resend_integration_counter', "var:ResendIntegrationCounter::number(38,0)"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('currency_code', "var:CurrencyCode::varchar"),
+        ('currency_code_id', "var:CurrencyCodeId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

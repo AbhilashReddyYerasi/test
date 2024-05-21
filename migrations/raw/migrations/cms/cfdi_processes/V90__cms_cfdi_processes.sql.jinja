@@ -1,0 +1,42 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "cfdi_processes",
+    "cms_stage",
+    "CFDIProcesses"
+  ) -%}
+    id varchar(16777216),
+    carrier_id varchar(16777216),
+    carrier_display_id varchar(16777216),
+    carrier_company_name varchar(16777216),
+    purchase_order_id varchar(16777216),
+    status varchar(16777216),
+    cfdi_type varchar(16777216),
+    carrier_invoice_number varchar(16777216),
+    standard_code varchar(16777216),
+    invoice_received_date varchar(16777216),
+    digital_stamp varchar(16777216),
+    pac_validation_status varchar(16777216),
+    settlement_status varchar(16777216),
+    is_revision boolean,
+    revision_date timestamp_tz(9),
+    revision_type varchar(16777216),
+    revision_reason varchar(16777216),
+    is_closed boolean,
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    transport_order_id varchar(16777216),
+    is_blacklist boolean,
+    ap_sent_amount number(32,2),
+    ap_sent_date timestamp_tz(9),
+    is_api_ntegration_sent boolean,
+    invoice_date varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

@@ -1,0 +1,6 @@
+create or replace pipe {{ load_cms_audit_schema }}.shipment_audit_trails_pipe
+    auto_ingest = true
+    integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
+    error_integration = 'AZ_ERROR_INTEGRATION'  -- noqa
+as copy into {{ load_cms_audit_schema }}.load_shipment_audit_trails
+from @{{ load_cms_audit_schema }}.cms_audit_stage pattern = 'hist_ShipmentAuditTrails_.*';

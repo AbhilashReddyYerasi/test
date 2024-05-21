@@ -1,0 +1,28 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "project_notification_settings",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_project_id', "var:ShipperProjectId::varchar"),
+        ('type', "var:Type::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('recipients', "var:Recipients::varchar"),
+        ('shipper_group_ids', "var:ShipperGroupIds::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('notification_category', "var:NotificationCategory::varchar"),
+        ('email_subject', "var:EmailSubject::varchar"),
+        ('is_custom_email_subject', "var:IsCustomEmailSubject::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

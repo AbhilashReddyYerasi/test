@@ -1,0 +1,19 @@
+{% set required_columns=["id"] %}
+{% set id_column = (columns | find_column(column_name=unique_id)) %}
+
+{% raw %}{% from 'macros/cms_audit.j2' import create_cms_audit_merge_task -%}{% endraw %}
+{% raw %}{% from 'macros/cms.j2' import convert_to_mastercountry_tz -%}{% endraw %}
+
+{% raw %}{{ create_cms_audit_merge_task(
+        cms_audit_schema,
+        load_cms_audit_schema,{% endraw %}
+        "{{ table_name }}",
+        [
+        {% for c in (columns | mandatory_columns(columns=required_columns)) -%}
+            ('{{ c["name"] | escape_keywords }}', {{ c['transformation'] | unwrap_macros }}),
+        {% endfor -%}
+        ],
+        ('{{ id_column["name"] | escape_keywords }}', "{{ id_column['transformation'] }}"),
+        cms_schema
+    )
+{% raw %}}}{% endraw %}

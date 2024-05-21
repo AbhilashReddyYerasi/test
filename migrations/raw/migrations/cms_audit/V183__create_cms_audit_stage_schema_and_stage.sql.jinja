@@ -1,0 +1,15 @@
+create schema {{ cms_audit_schema }};
+create schema {{ load_cms_audit_schema }};
+
+create or replace file format {{ load_cms_audit_schema }}.{{ cms_audit_schema }}_parquet
+  type = parquet
+  compression = snappy;
+
+create or replace stage {{ load_cms_audit_schema }}.{{ cms_audit_schema }}_stage
+  {%- if is_prod %}
+  url = 'azure://sadhdpdataprod.blob.core.windows.net/cms'
+  {% else %}
+  url = 'azure://sadhdpdatadev.blob.core.windows.net/cms'
+  {% endif -%}
+  storage_integration = az_storage_integration
+  file_format = {{ load_cms_audit_schema }}.{{ cms_audit_schema }}_parquet;

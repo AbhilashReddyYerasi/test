@@ -1,0 +1,81 @@
+cdr_log:
+  columns:
+  - name: historyid
+    transformation: HISTORYID::varchar
+    type: varchar
+  - name: callid
+    transformation: CALLID::varchar
+    type: varchar
+  - name: duration
+    transformation: DURATION::varchar
+    type: varchar
+  - name: time_start
+    transformation: TIME_START::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: time_answered
+    transformation: TIME_ANSWERED::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: time_end
+    transformation: TIME_END::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: reason_terminated
+    transformation: REASON_TERMINATED::varchar
+    type: varchar
+  - name: from_num
+    transformation: FROM_NUM::varchar
+    type: varchar
+  - name: to_num
+    transformation: TO_NUM::varchar
+    type: varchar
+  - name: from_dn
+    transformation: FROM_DN::varchar
+    type: varchar
+  - name: to_dn
+    transformation: TO_DN::varchar
+    type: varchar
+  - name: dial_num
+    transformation: DIAL_NUM::varchar
+    type: varchar
+  - name: reason_changed
+    transformation: REASON_CHANGED::varchar
+    type: varchar
+  - name: final_num
+    transformation: FINAL_NUM::varchar
+    type: varchar
+  - name: final_dn
+    transformation: FINAL_DN::varchar
+    type: varchar
+  - name: bill_code
+    transformation: BILL_CODE::varchar
+    type: varchar
+  - name: bill_rate
+    transformation: BILL_RATE::varchar
+    type: varchar
+  - name: bill_cost
+    transformation: BILL_COST::number(38,2)
+    type: number(38,2)
+  - name: bill_name
+    transformation: BILL_NAME::varchar
+    type: varchar
+  - name: chain
+    transformation: CHAIN::varchar
+    type: varchar
+  - name: from_displayname
+    transformation: FROM_DISPLAYNAME::varchar
+    type: varchar
+  - name: to_displayname
+    transformation: TO_DISPLAYNAME::varchar
+    type: varchar
+  - name: final_displayname
+    transformation: FINAL_DISPLAYNAME::varchar
+    type: varchar
+  - name: load_insert_ts
+    transformation: LOAD_INSERT_TS::timestamp_tz(9)
+    type: timestamp_tz(9)
+  - name: load_update_ts
+    transformation: LOAD_UPDATE_TS::timestamp_tz(9)
+    type: timestamp_tz(9)
+  file_name: cdr_log
+  stage: call_3cx_stage
+  table_name: cdr_log
+  unique_id: historyid

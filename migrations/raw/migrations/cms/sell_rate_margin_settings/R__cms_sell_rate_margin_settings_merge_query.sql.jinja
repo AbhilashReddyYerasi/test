@@ -1,0 +1,23 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "sell_rate_margin_settings",
+        [
+        ('id', "var:Id::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ('name', "var:Name::varchar"),
+        ('description', "var:Description::varchar"),
+        ('is_carrier_accepted_assignned', "var:IsCarrierAcceptedAssignned::boolean"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

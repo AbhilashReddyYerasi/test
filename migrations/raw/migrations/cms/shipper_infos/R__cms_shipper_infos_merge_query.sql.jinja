@@ -1,0 +1,27 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_infos",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_name', "var:ShipperName::varchar"),
+        ('shipper_display_id', "var:ShipperDisplayID::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_container_haulage', "var:IsContainerHaulage::boolean"),
+        ('logo', "var:Logo::varchar"),
+        ('is_carrier_allocation_rules', "var:IsCarrierAllocationRules::boolean"),
+        ('is_simplified_excel_upload_enabled', "var:IsSimplifiedExcelUploadEnabled::boolean"),
+        ('unique_references', "var:UniqueReferences::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

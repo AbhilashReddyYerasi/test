@@ -1,0 +1,34 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "haulage_containers",
+        [
+        ('id', "var:Id::varchar"),
+        ('haulage_order_id', "var:HaulageOrderId::varchar"),
+        ('container_size_id', "var:ContainerSizeId::varchar"),
+        ('container_size_name', "var:ContainerSizeName::varchar"),
+        ('container_type_id', "var:ContainterTypeId::varchar"),
+        ('container_type_name', "var:ContainerTypeName::varchar"),
+        ('container_short_code', "var:ContainerShortCode::varchar"),
+        ('trip_type', "var:TripType::varchar"),
+        ('container_number', "var:ContainerNumber::varchar"),
+        ('seal_no', "var:SealNo::varchar"),
+        ('container_handling_instructions', "var:ContainerHandlingInstructions::varchar"),
+        ('delivery_instructions', "var:DeliveryInstructions::varchar"),
+        ('gross_weight_per_container_kg', "var:GrossWeightPerContainerKg::varchar"),
+        ('remarks', "var:Remarks::varchar"),
+        ('is_planned_container_cutoff', "var:IsPlannedContainerCutOff::boolean"),
+        ('is_container_cutoff', "var:IsContainerCutOff::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

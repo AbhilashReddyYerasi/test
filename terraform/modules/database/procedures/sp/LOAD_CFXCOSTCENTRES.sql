@@ -1,0 +1,51 @@
+BEGIN
+    BEGIN TRANSACTION;
+        DELETE FROM RAW.SP.CFXCOSTCENTRES; 
+        
+        INSERT INTO RAW.SP.CFXCOSTCENTRES (
+            ID,
+            CONTENTTYPEID,
+            CONTENTTYPE,
+            SERVPROV_GID,
+            MODIFIED,
+            CREATED,
+            CREATEDBYID,
+            MODIFIEDBYID,
+            OWSHIDDENVERSION,
+            VERSION,
+            PATH,
+            COMPLIANCEASSETID,
+            SERVPROV_XID,
+            CREST_CODE,
+            ORACLE_STRING,
+            RU,
+            MU,
+            CU,
+            SA,
+            LOAD_TS
+        ) 
+            SELECT
+                VAR:Id::NUMBER,
+                VAR:ContentTypeID::VARCHAR,
+                VAR:ContentType::VARCHAR,
+                VAR:SERVPROV_GID::VARCHAR,
+                VAR:Modified::TIMESTAMP_NTZ,
+                VAR:Created::TIMESTAMP_NTZ,
+                VAR:CreatedById::NUMBER,
+                VAR:ModifiedById::NUMBER,
+                VAR:Owshiddenversion::NUMBER,
+                VAR:Version::VARCHAR,
+                VAR:Path::VARCHAR,
+                VAR:ComplianceAssetId::VARCHAR,
+                VAR:SERVPROV_XID::VARCHAR,
+                VAR:CREST_CODE::VARCHAR,
+                VAR:ORACLE_STRING::VARCHAR,
+                VAR:RU::VARCHAR,
+                VAR:MU::NUMBER,
+                VAR:CU::NUMBER,
+                VAR:SA::NUMBER,
+                SYSDATE()
+            FROM 
+                RAW.SP.LOAD_CFXCOSTCENTRES_STREAM;
+    COMMIT;
+END

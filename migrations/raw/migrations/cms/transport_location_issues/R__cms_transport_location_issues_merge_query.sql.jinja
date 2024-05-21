@@ -1,0 +1,30 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_location_issues",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_location_id', "var:TransportLocationId::varchar"),
+        ('status', "var:Status::varchar"),
+        ('issue_time', convert_to_mastercountry_tz("var:IssueTime")),
+        ('issue_code_id', "var:IssueCodeId::varchar"),
+        ('issue_code_name', "var:IssueCodeName::varchar"),
+        ('issue_remarks', "var:IssueRemarks::varchar"),
+        ('inserted', "var:Inserted::varchar"),
+        ('issue_id', "var:IssueId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('is_share_with_shipper', "var:IsShareWithShipper::boolean"),
+        ('issue_code_primary', "var:IssueCodePrimary::varchar"),
+        ('issue_code_secondary', "var:IssueCodeSecondary::varchar"),
+        ('issue_reason_code', "var:IssueReasonCode::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

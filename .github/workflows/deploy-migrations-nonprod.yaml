@@ -1,0 +1,49 @@
+name: Deploy - NONPROD
+on:
+  push:
+    branches:
+      - test
+    paths:
+      - "migrations/**"
+
+env:
+  SNOWFLAKE_ACCOUNT: ${{ secrets.DEV_SNOWFLAKE_ACCOUNT }}.${{ secrets.DEV_SNOWFLAKE_REGION }}
+  SNOWFLAKE_USER: ${{ secrets.DEV_SNOWFLAKE_USER }}
+  SNOWFLAKE_ROLE: ${{ vars.SNOWFLAKE_ROLE }}
+  SNOWFLAKE_WAREHOUSE: ${{ vars.SNOWFLAKE_WAREHOUSE }}
+  SNOWFLAKE_DATABASE: ${{ vars.SNOWFLAKE_DATABASE }}
+  SNOWFLAKE_PRIVATE_KEY: ${{ secrets.DEV_SNOWFLAKE_PRIVATE_KEY }}
+  SNOWFLAKE_PRIVATE_KEY_PATH: "/tmp/rsa.p8"
+  PYTHON_VERSION: "3.10"
+
+jobs:
+  deploy_raw:
+    name: "Apply Migrations (RAW)"
+    runs-on: ubuntu-latest
+    concurrency: sf_test_environment
+    environment: dev
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+      
+      - name: Add snowflake key as file
+        run: echo "${{ env.SNOWFLAKE_PRIVATE_KEY }}" > $SNOWFLAKE_PRIVATE_KEY_PATH
+
+      - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: pip install -r requirements.txt
+
+      - name: Check migration versions
+        run: python -m scripts.cli validate-migrations raw/
+        working-directory: migrations
+
+      - name: Lint SQL
+        run: sqlfluff lint migrations/
+        working-directory: migrations/raw
+
+      - name: Apply migrations
+        run: schemachange -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WAREHOUSE -d $SNOWFLAKE_DATABASE -c $SNOWFLAKE_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
+        working-directory: migrations/raw

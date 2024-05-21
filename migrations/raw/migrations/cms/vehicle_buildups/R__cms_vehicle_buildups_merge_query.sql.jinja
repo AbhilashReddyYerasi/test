@@ -1,0 +1,26 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "vehicle_buildups",
+        [
+        ('vehicle_buildup_id', "var:VehicleBuildUpId::varchar"),
+        ('vehicle_buildup_name', "var:VehicleBuildUpName::varchar"),
+        ('description', "var:Description::varchar"),
+        ('is_active', "var:IsActive::boolean"),
+        ('tcode', "var:TCode::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('image_id', "var:ImageId::varchar"),
+        ('is_temp_control', "var:IsTempControl::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('vehicle_buildup_id', "var:VehicleBuildUpId::varchar")
+    )
+}}

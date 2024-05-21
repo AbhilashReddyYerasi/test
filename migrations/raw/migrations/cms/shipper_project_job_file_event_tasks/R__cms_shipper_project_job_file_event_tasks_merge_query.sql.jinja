@@ -1,0 +1,23 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_project_job_file_event_tasks",
+        [
+        ('id', "var:Id::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('shipper_project_id', "var:ShipperProjectId::varchar"),
+        ('event_type', "var:EventType::varchar"),
+        ('task_id', "var:TaskId::varchar"),
+        ('task_name', "var:TaskName::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

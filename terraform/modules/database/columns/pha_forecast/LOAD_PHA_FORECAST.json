@@ -1,0 +1,7 @@
+[
+    { "name": "FROM_REGION", "type": "VARCHAR(16777216)" },
+    { "name": "TO_REGION", "type": "VARCHAR(16777216)" },
+    { "name": "VOLUME", "type": "NUMBER(38,2)" },
+    { "name": "HAULIER", "type": "VARCHAR(16777216)" },
+    { "name": "FORECAST_DATE", "type": "VARCHAR(16777216)" }
+]

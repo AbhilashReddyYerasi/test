@@ -1,0 +1,24 @@
+config-version: 1
+
+root-folder: migrations
+modules-folder: migrations/macros
+vars:
+  cms_schema: cms
+  load_cms_schema: load_cms
+  zoho_crm_schema: zoho_crm
+  load_zoho_crm_schema: load_zoho_crm
+  cms_audit_schema: cms_audit
+  load_cms_audit_schema: load_cms_audit
+  cfx_schema: cfx
+  load_cfx_schema: load_cfx
+  pricing_schema: pricing
+  load_pricing_schema: load_pricing
+  call_3cx_schema: call_3cx
+  load_call_3cx_schema: load_call_3cx
+  finance_schema: finance
+  load_finance_schema: load_finance
+  oracle_schema: oracle
+  load_oracle_schema: load_oracle
+  streaming_schema: streaming
+  load_streaming_schema: load_streaming
+  is_prod: {{ env_var('IS_PROD', False) }}

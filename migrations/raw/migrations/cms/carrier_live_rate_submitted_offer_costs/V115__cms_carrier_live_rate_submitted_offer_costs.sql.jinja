@@ -1,0 +1,30 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "carrier_live_rate_submitted_offer_costs",
+    "cms_stage",
+    "CarrierLiveRateSubmittedOfferCosts"
+  ) -%}
+    id varchar(16777216),
+    carrier_liverate_submitted_offer_id varchar(16777216),
+    carrier_liverate_offer_cost_id varchar(16777216),
+    product_id varchar(16777216),
+    product_name varchar(16777216),
+    product_display_name varchar(16777216),
+    product_category varchar(16777216),
+    product_category_id varchar(16777216),
+    cost_type varchar(16777216),
+    quantity number(38,0),
+    unit_cost number(18,2),
+    amount number(18,2),
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

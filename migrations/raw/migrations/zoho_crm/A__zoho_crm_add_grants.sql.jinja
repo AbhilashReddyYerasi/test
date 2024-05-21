@@ -1,0 +1,14 @@
+{# Only give access to final tables, not the load_* tables #}
+
+{% for role in ["analyst", "transformer"] %}
+grant usage on schema {{ zoho_crm_schema }} to role {{ role }};
+
+grant select on all tables in schema {{ zoho_crm_schema }} to role {{ role }};
+grant select on all views in schema {{ zoho_crm_schema }} to role {{ role }};
+{% endfor %}
+
+{% if not is_prod %}
+grant usage on schema {{ zoho_crm_schema }} to role developer;
+grant select on all tables in schema {{ zoho_crm_schema }} to role developer;
+grant select on all views in schema {{ zoho_crm_schema }} to role developer;
+{% endif %}

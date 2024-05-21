@@ -1,0 +1,33 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "rate_changes_history",
+    "cms_stage",
+    "RateChangesHistory"
+  ) -%}
+    id varchar(16777216),
+    contract_type varchar(16777216),
+    status varchar(16777216),
+    contract_id varchar(16777216),
+    rate_change_entity varchar(16777216),
+    previous_rate number(38,6),
+    updated_rate number(38,6),
+    tenant_id varchar(16777216),
+    is_deleted boolean,
+    is_active boolean,
+    rate_change_at timestamp_tz(9),
+    rate_change_by varchar(16777216),
+    entity_id varchar(16777216),
+    previous_additional_drop_rate varchar(16777216),
+    previous_bonded_rate varchar(16777216),
+    updated_additional_drop_rate varchar(16777216),
+    updated_bonded_rate varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

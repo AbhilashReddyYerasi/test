@@ -1,0 +1,6 @@
+[
+    { "name": "LANE_AREA", "type": "VARCHAR(16777216)" },
+    { "name": "RATE_CARD", "type": "NUMBER(38,0)" },
+    { "name": "MONTH_REF", "type": "DATE" },
+    { "name": "LOAD_TS", "type": "TIMESTAMP_NTZ(9)" }
+]

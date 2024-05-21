@@ -1,0 +1,20 @@
+{% from 'macros/cms_audit.j2' import create_cms_audit_merge_task -%}
+{% from 'macros/cms.j2' import convert_to_mastercountry_tz -%}
+
+{{ create_cms_audit_merge_task(
+        cms_audit_schema,
+        load_cms_audit_schema,
+        "adt_transport_documents",
+        [
+        ('id', "var:Id::number(38,0)"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('shipment_number', "var:ShipmentNumber::varchar"),
+        ('entity_data', "var:EntityData::varchar"),
+        ('is_current', "var:IsCurrent::boolean"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::number(38,0)"),
+        cms_schema
+    )
+}}

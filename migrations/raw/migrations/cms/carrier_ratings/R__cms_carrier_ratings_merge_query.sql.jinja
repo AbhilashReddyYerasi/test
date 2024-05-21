@@ -1,0 +1,42 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "carrier_ratings",
+        [
+        ('id', "var:Id::varchar"),
+        ('job_file_id', "var:JobFileId::varchar"),
+        ('carrier_rating_requirement', "var:CarrierRatingRequirement::varchar"),
+        ('evaluation_status', "var:EvaluationStatus::varchar"),
+        ('carrier_rating_is_closed', "var:CarrierRatingIsClosed::boolean"),
+        ('average_rating', "var:AverageRating::number(16,2)"),
+        ('on_time_pickup_rate', "var:OnTimePickupRate::number(16,2)"),
+        ('on_time_delivery_rate', "var:OnTimeDeliveryRate::number(16,2)"),
+        ('driver_behaviour_rate', "var:DriverBehaviorRate::number(16,2)"),
+        ('communication_rate', "var:CommunicationRate::number(16,2)"),
+        ('app_usage_rate', "var:AppUsageRate::number(16,2)"),
+        ('truck_quality_rate', "var:TruckQualityRate::number(16,2)"),
+        ('on_time_pickup_comment', "var:OnTimePickupComment::varchar"),
+        ('on_time_delivery_comment', "var:OnTimeDeliveryComment::varchar"),
+        ('driver_behavior_comment', "var:DriverBehaviorComment::varchar"),
+        ('communication_comment', "var:CommunicationComment::varchar"),
+        ('app_usage_comment', "var:AppUsageComment::varchar"),
+        ('truck_quality_comment', "var:TruckQualityComment::varchar"),
+        ('issue_1', "var:Issue1::varchar"),
+        ('issue_2', "var:Issue2::varchar"),
+        ('issue_3', "var:Issue3::varchar"),
+        ('comment', "var:Comment::varchar"),
+        ('rating_completed_at', convert_to_mastercountry_tz("var:RatingCompletedAt")),
+        ('rated_by', "var:RatedBy::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

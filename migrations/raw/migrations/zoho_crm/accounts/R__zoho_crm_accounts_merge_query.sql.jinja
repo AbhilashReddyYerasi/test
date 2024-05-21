@@ -1,0 +1,31 @@
+{% from 'macros/zoho_crm.j2' import create_zoho_crm_merge_task -%}
+
+{{ create_zoho_crm_merge_task(
+        zoho_crm_schema,
+        load_zoho_crm_schema,
+        "accounts",
+        [
+        ('id', "var:Id::number"),
+        ('owner', "var:Owner::number"),
+        ('account_name', "var:Account_Name::varchar"),
+        ('phone', "var:Phone::varchar"),
+        ('website', "var:Website::varchar"),
+        ('account_type', "var:Account_Type::varchar"),
+        ('industry', "var:Industry::varchar"),
+        ('employees', "var:Employees::varchar"),
+        ('annual_revenue', "var:Annual_Revenue::varchar"),
+        ('created_by', "var:Created_By::number"),
+        ('modified_by', "var:Modified_By::number"),
+        ('created_time', "var:Created_Time::timestamp_tz(9)"),
+        ('modified_time', "var:Modified_Time::timestamp_tz(9)"),
+        ('last_activity_time', "var:Last_Activity_Time::timestamp_tz(9)"),
+        ('description', "var:Description::varchar"),
+        ('user_modified_time', "var:User_Modified_Time::timestamp_tz(9)"),
+        ('system_related_activity_time', "var:System_Related_Activity_Time::timestamp_tz(9)"),
+        ('user_related_activity_time', "var:User_Related_Activity_Time::timestamp_tz(9)"),
+        ('system_modified_time', "var:System_Modified_Time::timestamp_tz(9)"),
+        ('internal_external', "var:Internal_External::varchar"),
+        ],
+        ('id', "var:Id::number")
+    )
+}}

@@ -1,0 +1,26 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "transport_loads_ext",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_load_id', "var:TransportLoadId::varchar"),
+        ('pod_status', "var:PODStatus::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('epod_status', "var:EPODStatus::varchar"),
+        ('epod_status_updated_at', convert_to_mastercountry_tz("var:EPODStatusUpdatedAt")),
+        ('epod_status_updated_by', "var:EPODStatusUpdatedBy::varchar"),
+        ('pod_status_updated_at', convert_to_mastercountry_tz("var:PODStatusUpdatedAt")),
+        ('pod_status_updated_by', "var:PODStatusUpdatedBy::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

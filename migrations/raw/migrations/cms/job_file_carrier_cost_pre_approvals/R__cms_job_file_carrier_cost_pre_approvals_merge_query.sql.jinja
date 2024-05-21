@@ -1,0 +1,27 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "job_file_carrier_cost_pre_approvals",
+        [
+        ('id', "var:Id::varchar"),
+        ('job_file_id', "var:JobFileId::varchar"),
+        ('status', "var:Status::varchar"),
+        ('submitted_date', convert_to_mastercountry_tz("var:SubmittedDate")),
+        ('submitted_by', "var:SubmittedBy::varchar"),
+        ('submitted_by_name', "var:SubmittedByName::varchar"),
+        ('expired_at', convert_to_mastercountry_tz("var:ExpiredAt")),
+        ('approval_date', convert_to_mastercountry_tz("var:ApprovalDate")),
+        ('approval_by', "var:ApprovalBy::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

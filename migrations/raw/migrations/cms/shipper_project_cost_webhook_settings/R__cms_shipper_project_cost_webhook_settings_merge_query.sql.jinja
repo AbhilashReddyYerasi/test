@@ -1,0 +1,29 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_project_cost_webhook_settings",
+        [
+        ('id', "var:Id::varchar"),
+        ('shipper_project_id', "var:ShipperProjectId::varchar"),
+        ('created', "var:Created::number(38,0)"),
+        ('not_yet_pushed', "var:NotYetPushed::number(38,0)"),
+        ('not_yet_accepted', "var:NotYetAccepted::number(38,0)"),
+        ('accepted', "var:Accepted::number(38,0)"),
+        ('assigned', "var:Assigned::number(38,0)"),
+        ('in_progress', "var:InProgress::number(38,0)"),
+        ('shipment_completed', "var:ShipmentCompleted::number(38,0)"),
+        ('shipment_cancelled', "var:ShipmentCancelled::number(38,0)"),
+        ('job_file_closed', "var:JobFileClosed::number(38,0)"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

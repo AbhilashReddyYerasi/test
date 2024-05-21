@@ -1,0 +1,12 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(cms_schema, load_cms_schema, "transport_status_images", "cms_stage", "TransportStatusImages") -%}
+    image_id varchar(16777216),
+    url varchar(16777216),
+    shipment_number varchar(16777216),
+    project_id varchar(16777216),
+    transport_status varchar(16777216),
+    country_code varchar(16777216),
+    document_type varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

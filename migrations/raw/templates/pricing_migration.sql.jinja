@@ -1,0 +1,13 @@
+{% raw %}{% from 'macros/shared_v1.j2' import create_table_and_stream -%}{% endraw %}
+
+{% raw %}{% call create_table_and_stream(
+    pricing_schema,
+    load_pricing_schema,{% endraw %}
+    "{{ table_name }}",
+    "{{ stage }}",
+    "{{ file_name | upper }}"
+{% raw %}  ) -%}{% endraw %}
+    {% for c in columns -%}
+    {{ c["name"] | escape_keywords }} {{ c["type"] }}{{ "," if not loop.last }}
+    {% endfor -%}
+{% raw %}{%- endcall %}{% endraw %}

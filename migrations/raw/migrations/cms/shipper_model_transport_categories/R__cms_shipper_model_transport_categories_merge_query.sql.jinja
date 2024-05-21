@@ -1,0 +1,20 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "shipper_model_transport_categories",
+        [
+        ('id', "var:Id::varchar"),
+        ('transport_category', "var:TransportCategory::varchar"),
+        ('project_commission_cost_id', "var:ProjectCommissionCostId::varchar"),
+        ('shipper_project_job_file_event_task_id', "var:ShipperProjectJobFileEventTaskId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

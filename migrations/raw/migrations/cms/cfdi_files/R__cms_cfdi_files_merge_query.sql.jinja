@@ -1,0 +1,23 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "cfdi_files",
+        [
+        ('id', "var:Id::varchar"),
+        ('cfdi_process_id', "var:CFDIProcessId::varchar"),
+        ('xml_file_content', "var:XMLFileContent::varchar"),
+        ('cfdi_file_type', "var:CFDIFileType::varchar"),
+        ('blob_id', "var:BlobId::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

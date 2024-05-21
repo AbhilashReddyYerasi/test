@@ -1,0 +1,14 @@
+{% from 'macros/pricing.j2' import create_pricing_merge_task -%}
+
+{{ create_pricing_merge_task(
+        pricing_schema,
+        load_pricing_schema,
+        "buy_rates",
+        [
+        ('origin', "ORIGIN::varchar"),
+        ('destination', "DESTINATION::varchar"),
+        ('buy', "BUY::number(38,2)"),
+        ('created', "to_timestamp(CREATED::varchar, 'DD/MM/YYYY HH24:MI')::timestamp_tz(9)"),
+        ]
+    )
+}}

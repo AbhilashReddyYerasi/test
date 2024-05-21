@@ -1,0 +1,28 @@
+{% from 'macros/cms.j2' import create_cms_merge_task, convert_to_mastercountry_tz -%}
+
+{{ create_cms_merge_task(
+        cms_schema,
+        load_cms_schema,
+        "job_file_statuses",
+        [
+        ('id', "var:Id::varchar"),
+        ('tenant_id', "var:TenantId::varchar"),
+        ('job_file_id', "var:JobFileId::varchar"),
+        ('transport_order_id', "var:TransportOrderId::varchar"),
+        ('transport_route_id', "var:TransportRouteId::varchar"),
+        ('status', "var:Status::varchar"),
+        ('inserted_at', convert_to_mastercountry_tz("var:Inseted")),
+        ('inserted_by', "var:InsetedBy::varchar"),
+        ('source', "var:Source::varchar"),
+        ('data', "var:Data::varchar"),
+        ('is_deleted', "var:IsDeleted::boolean"),
+        ('is_forced', "var:IsForced::boolean"),
+        ('updated_by', "var:UpdatedBy::varchar"),
+        ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
+        ('created_by', "var:CreatedBy::varchar"),
+        ('created_at', convert_to_mastercountry_tz("var:CreatedAt")),
+        ('tenant_country_id', "var:TenantCountryId::varchar"),
+        ],
+        ('id', "var:Id::varchar")
+    )
+}}

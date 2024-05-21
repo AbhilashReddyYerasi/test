@@ -1,0 +1,117 @@
+{#
+Creates all the tables pipes and streams needed for ingesting a new source:
+- load_{table_name} table
+- {table_name}_pipe to ingest {file_name} from {stage} into load_{table_name}
+- load_{table_name}_stream on load_{table_name}
+- {table_name} table for the final import
+#}
+{% macro create_scd2_table_and_stream(output_schema, load_schema, table_name, stage, file_name) -%}
+create or replace table {{ output_schema }}.{{ table_name }} (
+    {{ caller() }},
+    _hash number(19,0),
+    _valid_from timestamp_tz(9),
+    _valid_to timestamp_tz(9),
+    _is_active boolean
+);
+
+create or replace table {{ load_schema }}.load_{{ table_name }} (
+	var variant
+);
+
+create or replace stream {{ load_schema }}.load_{{ table_name }}_stream on table {{ load_schema }}.load_{{ table_name }};
+
+create pipe {{ load_schema }}.{{ table_name }}_pipe
+  auto_ingest = true
+  integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION'
+  as copy into {{ load_schema }}.load_{{ table_name }} from @{{ load_schema }}.{{ stage }} pattern = '{{ file_name }}_.*';
+
+{%- endmacro %}
+
+{#
+Creates all the tables pipes and streams needed for ingesting a new source:
+- load_{table_name} table
+- {table_name}_pipe to ingest {file_name} from {stage} into load_{table_name}
+- load_{table_name}_stream on load_{table_name}
+- {table_name} table for the final import
+#}
+{% macro create_table_and_stream(output_schema, load_schema, table_name, stage, file_name) -%}
+create or replace table {{ output_schema }}.{{ table_name }} (
+    {{ caller() }},
+    load_ts timestamp_tz(9)
+);
+
+create or replace table {{ load_schema }}.load_{{ table_name }} (
+	var variant
+);
+
+create or replace stream {{ load_schema }}.load_{{ table_name }}_stream on table {{ load_schema }}.load_{{ table_name }};
+
+create pipe {{ load_schema }}.{{ table_name }}_pipe
+  auto_ingest = true
+  integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION'
+  as copy into {{ load_schema }}.load_{{ table_name }} from @{{ load_schema }}.{{ stage }} pattern = '{{ file_name }}_.*';
+
+{%- endmacro %}
+
+{#
+Creates a merge task {{ table_name }}_merge_task for load_{{ table_name }}_stream in {{ schema }}.
+#}
+{% macro create_merge_task(schema, table_name) -%}
+create or replace task {{ schema }}.{{ table_name }}_merge_task
+USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE = 'XSMALL'
+SCHEDULE = '2 minute'
+when
+SYSTEM$STREAM_HAS_DATA('{{ schema }}.load_{{ table_name }}_stream')
+as
+{{ caller() }};
+
+alter task {{ schema }}.{{ table_name }}_merge_task resume;
+{%- endmacro %}
+
+{#
+Creates a merge prodecure and a merge task calling the proceedure.
+#}
+{% macro create_merge_procedure(load_schema, table_name) -%}
+create or replace procedure {{ load_schema }}.{{ table_name }}_merge_proc()
+returns variant
+language sql
+execute as owner
+as
+$$
+{{ caller() }}
+$$;
+
+{% call create_merge_task(load_schema, table_name) -%}
+call {{ load_schema }}.{{ table_name }}_merge_proc()
+{%- endcall %}
+
+{%- endmacro %}
+
+{#
+Creates all the tables pipes and streams needed for ingesting a new source for file type csv:
+- load_{table_name} table
+- {table_name}_pipe to ingest {file_name} from {stage} into load_{table_name}
+- load_{table_name}_stream on load_{table_name}
+- {table_name} table for the final import
+#}
+{% macro create_table_and_stream_file_type_csv(output_schema, load_schema, table_name, stage, file_name) -%}
+create or replace table {{ output_schema }}.{{ table_name }} (
+    {{ caller() }},
+    load_ts timestamp_tz(9)
+);
+
+create or replace table {{ load_schema }}.load_{{ table_name }} (
+    {{ caller() }}
+);
+
+create or replace stream {{ load_schema }}.load_{{ table_name }}_stream on table {{ load_schema }}.load_{{ table_name }};
+
+create pipe {{ load_schema }}.{{ table_name }}_pipe
+  auto_ingest = true
+  integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION'
+  as copy into {{ load_schema }}.load_{{ table_name }} from @{{ load_schema }}.{{ stage }} pattern = '{{ file_name }}_.*';
+
+{%- endmacro %}

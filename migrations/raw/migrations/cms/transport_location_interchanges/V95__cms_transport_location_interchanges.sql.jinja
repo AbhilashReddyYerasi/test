@@ -1,0 +1,27 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "transport_location_interchanges",
+    "cms_stage",
+    "TransportLocationInterchanges"
+  ) -%}
+    id varchar(16777216),
+    start_transport_location_id varchar(16777216),
+    end_transport_location_id varchar(16777216),
+    interchange_type varchar(16777216),
+    is_accompanied boolean,
+    interchange_ref varchar(16777216),
+    interchange_name varchar(16777216),
+    ens_reference varchar(16777216),
+    eori_number varchar(16777216),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

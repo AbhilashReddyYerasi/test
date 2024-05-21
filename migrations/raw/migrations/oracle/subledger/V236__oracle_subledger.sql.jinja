@@ -1,0 +1,43 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream_file_type_csv -%}
+
+{% call create_table_and_stream_file_type_csv(
+    oracle_schema,
+    load_oracle_schema,
+    "subledger",
+    "oracle_stage",
+    "oracle_subledger"
+  ) -%}
+    name varchar,
+    source varchar,
+    jecategory varchar,
+    batchname varchar,
+    glaccountstring varchar,
+    periodname varchar,
+    customerorvendor varchar,
+    currencycode varchar,
+    accdate timestamp_tz(9),
+    linedescr varchar,
+    effectiveperiodnum number(38,0),
+    lineentcr number(36,2),
+    lineentdr number(36,2),
+    lineacctdcr number(36,2),
+    lineacctddr number(36,2),
+    entry varchar,
+    lline number(38,0),
+    slalineenteredcr number(36,2),
+    slalineentereddr number(36,2),
+    slalineaccountedcr number(36,2),
+    slalineaccounteddr number(36,2),
+    netaccountedamount number(36,2),
+    netenteredamt number(36,2),
+    transactionnum varchar,
+    gccreportingunit varchar,
+    gccmanagementunit number(38,0),
+    gcccustomerunit number(38,0),
+    gccservicearea number(38,0),
+    gccaccount number(38,0),
+    gccmovementtype varchar,
+    gccfunction number(38,0),
+    gccintercompany varchar,
+    gccanalysis number(38,0)
+    {%- endcall %}

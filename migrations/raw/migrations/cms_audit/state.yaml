@@ -1,0 +1,597 @@
+adt_carrier_costs:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: job_file_id
+    transformation: var:JobFileId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTCarrierCosts
+  stage: cms_audit_stage
+  table_name: adt_carrier_costs
+  unique_id: id
+adt_job_files:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: job_file_id
+    transformation: var:JobFileId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTJobFiles
+  stage: cms_audit_stage
+  table_name: adt_job_files
+  unique_id: id
+adt_shipper_costs:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: job_file_id
+    transformation: var:JobFileId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTShipperCosts
+  stage: cms_audit_stage
+  table_name: adt_shipper_costs
+  unique_id: id
+adt_transport_custom_requirements:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportCustomRequirements
+  stage: cms_audit_stage
+  table_name: adt_transport_custom_requirements
+  unique_id: id
+adt_transport_documents:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportDocuments
+  stage: cms_audit_stage
+  table_name: adt_transport_documents
+  unique_id: id
+adt_transport_loads:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportLoads
+  stage: cms_audit_stage
+  table_name: adt_transport_loads
+  unique_id: id
+adt_transport_locations:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportLocations
+  stage: cms_audit_stage
+  table_name: adt_transport_locations
+  unique_id: id
+adt_transport_orders:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportOrders
+  stage: cms_audit_stage
+  table_name: adt_transport_orders
+  unique_id: id
+adt_transport_references:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportReferences
+  stage: cms_audit_stage
+  table_name: adt_transport_references
+  unique_id: id
+adt_transport_requirements:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportRequirements
+  stage: cms_audit_stage
+  table_name: adt_transport_requirements
+  unique_id: id
+adt_transport_routes:
+  columns:
+  - name: id
+    transformation: var:Id::number(38,0)
+    type: number(38,0)
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: entity_data
+    transformation: var:EntityData::varchar
+    type: varchar
+  - name: is_current
+    transformation: var:IsCurrent::boolean
+    type: boolean
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_ADTTransportRoutes
+  stage: cms_audit_stage
+  table_name: adt_transport_routes
+  unique_id: id
+offer_histories:
+  columns:
+  - name: id
+    transformation: var:Id::varchar
+    type: varchar
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: transport_route_id
+    transformation: var:TransportRouteId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: offer_type
+    transformation: var:OfferType::varchar
+    type: varchar
+  - name: contract_rate_id
+    transformation: var:ContractRateId::varchar
+    type: varchar
+  - name: contract_rate_type
+    transformation: var:ContractRateType::varchar
+    type: varchar
+  - name: market_place_rate_id
+    transformation: var:MarketplaceRateId::varchar
+    type: varchar
+  - name: market_place_rate_type
+    transformation: var:MarketplaceRateType::varchar
+    type: varchar
+  - name: offer_remark
+    transformation: var:OfferRemark::varchar
+    type: varchar
+  - name: reference_ids
+    transformation: var:ReferenceIds::varchar
+    type: varchar
+  - name: trigger_from
+    transformation: var:TriggerFrom::varchar
+    type: varchar
+  - name: tenant_id
+    transformation: var:TenantId::varchar
+    type: varchar
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  - name: inserted_at
+    transformation: '{{ convert_to_mastercountry_tz("var:InsertedAt") }}'
+    type: timestamp_tz(9)
+  - name: inserted_by
+    transformation: var:InsertedBy::varchar
+    type: varchar
+  - name: created_by
+    transformation: var:CreatedBy::varchar
+    type: varchar
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: custom_rate_id
+    transformation: var:CustomRateId::varchar
+    type: varchar
+  - name: custom_rate_type
+    transformation: var:CustomRateType::varchar
+    type: varchar
+  file_name: hist_OfferHistories
+  stage: cms_audit_stage
+  table_name: offer_histories
+  unique_id: id
+offer_item_action_histories:
+  columns:
+  - name: id
+    transformation: var:Id::varchar
+    type: varchar
+  - name: offer_history_id
+    transformation: var:OfferHistoryId::varchar
+    type: varchar
+  - name: offer_item_history_id
+    transformation: var:OfferItemHistoryId::varchar
+    type: varchar
+  - name: action_type
+    transformation: var:ActionType::varchar
+    type: varchar
+  - name: trigger_from
+    transformation: var:TriggerFrom::varchar
+    type: varchar
+  - name: carrier_id
+    transformation: var:CarrierId::varchar
+    type: varchar
+  - name: carrier_company_name
+    transformation: var:CarrierCompanyName::varchar
+    type: varchar
+  - name: carrier_user_id
+    transformation: var:CarrierUserId::varchar
+    type: varchar
+  - name: carrier_user_name
+    transformation: var:CarrierUserName::varchar
+    type: varchar
+  - name: reference_ids
+    transformation: var:ReferenceIds::varchar
+    type: varchar
+  - name: created_by
+    transformation: var:CreatedBy::varchar
+    type: varchar
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_OfferItemActionHistories
+  stage: cms_audit_stage
+  table_name: offer_item_action_histories
+  unique_id: id
+offer_item_histories:
+  columns:
+  - name: id
+    transformation: var:Id::varchar
+    type: varchar
+  - name: offer_history_id
+    transformation: var:OfferHistoryId::varchar
+    type: varchar
+  - name: action_type
+    transformation: var:ActionType::varchar
+    type: varchar
+  - name: trigger_from
+    transformation: var:TriggerFrom::varchar
+    type: varchar
+  - name: rate_id
+    transformation: var:RateId::varchar
+    type: varchar
+  - name: rate_type
+    transformation: var:RateType::varchar
+    type: varchar
+  - name: carrier_id
+    transformation: var:CarrierId::varchar
+    type: varchar
+  - name: buying_rate
+    transformation: var:BuyingRate::number(18,2)
+    type: number(18,2)
+  - name: selling_rate
+    transformation: var:SellingRate::number(18,2)
+    type: number(18,2)
+  - name: is_cbt_rate
+    transformation: var:IsCBTRate::boolean
+    type: boolean
+  - name: reference_ids
+    transformation: var:ReferenceIds::varchar
+    type: varchar
+  - name: inserted_at
+    transformation: '{{ convert_to_mastercountry_tz("var:InsertedAt") }}'
+    type: timestamp_tz(9)
+  - name: inserted_by
+    transformation: var:InsertedBy::varchar
+    type: varchar
+  - name: created_by
+    transformation: var:CreatedBy::varchar
+    type: varchar
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  file_name: hist_OfferItemHistories
+  stage: cms_audit_stage
+  table_name: offer_item_histories
+  unique_id: id
+shipment_audit_trails:
+  columns:
+  - name: id
+    transformation: var:Id::varchar
+    type: varchar
+  - name: version_no
+    transformation: var:Version::number(38,0)
+    type: number(38,0)
+  - name: is_current
+    transformation: var:Current::boolean
+    type: boolean
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: transport_order
+    transformation: var:TransportOrder::number(38,0)
+    type: number(38,0)
+  - name: transport_routes
+    transformation: var:TransportRoutes::number(38,0)
+    type: number(38,0)
+  - name: transport_locations
+    transformation: var:TransportLocations::number(38,0)
+    type: number(38,0)
+  - name: transport_loads
+    transformation: var:TransportLoads::number(38,0)
+    type: number(38,0)
+  - name: transport_documents
+    transformation: var:TransportDocuments::number(38,0)
+    type: number(38,0)
+  - name: transport_references
+    transformation: var:TransportReferences::number(38,0)
+    type: number(38,0)
+  - name: transport_requirement
+    transformation: var:TransportRequirement::number(38,0)
+    type: number(38,0)
+  - name: transport_custom_requirements
+    transformation: var:TransportCustomRequirements::number(38,0)
+    type: number(38,0)
+  - name: tenant_id
+    transformation: var:TenantId::varchar
+    type: varchar
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  - name: trigger_by_entity_type
+    transformation: var:TriggerByEntityType::varchar
+    type: varchar
+  - name: inserted_by
+    transformation: var:InsertedBy::varchar
+    type: varchar
+  - name: inserted_at
+    transformation: '{{ convert_to_mastercountry_tz("var:InsertedAt") }}'
+    type: timestamp_tz(9)
+  - name: created_by
+    transformation: var:CreatedBy::varchar
+    type: varchar
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: after_save_entities
+    transformation: var:AfterSaveEntities::varchar
+    type: varchar
+  - name: before_save_entities
+    transformation: var:BeforeSaveEntities::varchar
+    type: varchar
+  file_name: hist_ShipmentAuditTrails
+  stage: cms_audit_stage
+  table_name: shipment_audit_trails
+  unique_id: id
+shipment_cost_audit_trails:
+  columns:
+  - name: id
+    transformation: var:Id::varchar
+    type: varchar
+  - name: version_no
+    transformation: var:Version::number(38,0)
+    type: number(38,0)
+  - name: is_current
+    transformation: var:Current::boolean
+    type: boolean
+  - name: job_file_id
+    transformation: var:JobFileId::varchar
+    type: varchar
+  - name: transport_order_id
+    transformation: var:TransportOrderId::varchar
+    type: varchar
+  - name: transport_route_id
+    transformation: var:TransportRouteId::varchar
+    type: varchar
+  - name: shipment_number
+    transformation: var:ShipmentNumber::varchar
+    type: varchar
+  - name: job_file
+    transformation: var:JobFile::number(38,0)
+    type: number(38,0)
+  - name: shipper_costs
+    transformation: var:ShipperCosts::number(38,0)
+    type: number(38,0)
+  - name: carrier_costs
+    transformation: var:CarrierCosts::number(38,0)
+    type: number(38,0)
+  - name: trigger_by_entity_type
+    transformation: var:TriggerByEntityType::varchar
+    type: varchar
+  - name: tenant_id
+    transformation: var:TenantId::varchar
+    type: varchar
+  - name: tenant_country_id
+    transformation: var:TenantCountryId::varchar
+    type: varchar
+  - name: inserted_by
+    transformation: var:InsertedBy::varchar
+    type: varchar
+  - name: inserted_at
+    transformation: '{{ convert_to_mastercountry_tz("var:InsertedAt") }}'
+    type: timestamp_tz(9)
+  - name: created_by
+    transformation: var:CreatedBy::varchar
+    type: varchar
+  - name: created_at
+    transformation: '{{ convert_to_mastercountry_tz("var:CreatedAt") }}'
+    type: timestamp_tz(9)
+  - name: after_save_entities
+    transformation: var:AfterSaveEntities::varchar
+    type: varchar
+  - name: before_save_entities
+    transformation: var:BeforeSaveEntities::varchar
+    type: varchar
+  file_name: hist_ShipmentCostAuditTrails
+  stage: cms_audit_stage
+  table_name: shipment_cost_audit_trails
+  unique_id: id

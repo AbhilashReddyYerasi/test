@@ -1,0 +1,43 @@
+{% from 'macros/oracle.j2' import create_oracle_merge_task -%}
+
+{{ create_oracle_merge_task(
+        oracle_schema,
+        load_oracle_schema,
+        "subledger",
+        [
+        ('name', "name::varchar"),
+        ('source', "source::varchar"),
+        ('jecategory', "jecategory::varchar"),
+        ('batchname', "batchname::varchar"),
+        ('glaccountstring', "glaccountstring::varchar"),
+        ('periodname', "periodname::varchar"),
+        ('customerorvendor', "customerorvendor::varchar"),
+        ('currencycode', "currencycode::varchar"),
+        ('accdate', "accdate::timestamp_tz(9)"),
+        ('linedescr', "linedescr::varchar"),
+        ('effectiveperiodnum', "effectiveperiodnum::number(38,0)"),
+        ('lineentcr', "lineentcr::number(36,2)"),
+        ('lineentdr', "lineentdr::number(36,2)"),
+        ('lineacctdcr', "lineacctdcr::number(36,2)"),
+        ('lineacctddr', "lineacctddr::number(36,2)"),
+        ('entry', "entry::varchar"),
+        ('lline', "lline::number(38,0)"),
+        ('slalineenteredcr', "slalineenteredcr::number(36,2)"),
+        ('slalineentereddr', "slalineentereddr::number(36,2)"),
+        ('slalineaccountedcr', "slalineaccountedcr::number(36,2)"),
+        ('slalineaccounteddr', "slalineaccounteddr::number(36,2)"),
+        ('netaccountedamount', "netaccountedamount::number(36,2)"),
+        ('netenteredamt', "netenteredamt::number(36,2)"),
+        ('transactionnum', "transactionnum::varchar"),
+        ('gccreportingunit', "gccreportingunit::varchar"),
+        ('gccmanagementunit', "gccmanagementunit::number(38,0)"),
+        ('gcccustomerunit', "gcccustomerunit::number(38,0)"),
+        ('gccservicearea', "gccservicearea::number(38,0)"),
+        ('gccaccount', "gccaccount::number(38,0)"),
+        ('gccmovementtype', "gccmovementtype::varchar"),
+        ('gccfunction', "gccfunction::number(38,0)"),
+        ('gccintercompany', "gccintercompany::varchar"),
+        ('gccanalysis', "gccanalysis::number(38,0)"),
+        ]
+    )
+}}

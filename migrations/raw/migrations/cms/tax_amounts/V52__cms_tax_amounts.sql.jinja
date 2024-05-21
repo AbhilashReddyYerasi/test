@@ -1,0 +1,33 @@
+{% from 'macros/shared_v1.j2' import create_table_and_stream -%}
+
+{% call create_table_and_stream(
+    cms_schema,
+    load_cms_schema,
+    "tax_amounts",
+    "cms_stage",
+    "TaxAmounts"
+  ) -%}
+    id varchar(16777216),
+    product_tax_id varchar(16777216),
+    product_id varchar(16777216),
+    tax_name varchar(16777216),
+    tax_display_name varchar(16777216),
+    tax_description varchar(16777216),
+    shipper_cost_id varchar(16777216),
+    tax_amount number(16,2),
+    tax_rate number(16,6),
+    input_amount number(16,2),
+    output_amount number(16,2),
+    is_tax_exclusive boolean,
+    gl_code varchar(16777216),
+    is_deleted boolean,
+    tenant_id varchar(16777216),
+    ewt_rate number(18,2),
+    tax_code varchar(16777216),
+    updated_by varchar(16777216),
+    updated_at timestamp_tz(9),
+    created_by varchar(16777216),
+    created_at timestamp_tz(9),
+    tenant_country_id varchar(16777216),
+    master_countries_country_time_zone varchar(16777216)
+{%- endcall %}

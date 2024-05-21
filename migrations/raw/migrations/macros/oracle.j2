@@ -1,0 +1,56 @@
+{% from 'macros/shared_v1.j2' import create_merge_task -%}
+
+{#
+Creates a merge task for {table_name}, given the {columns}.
+
+The output tabel will also contain:
+- load_ts
+#}
+{% macro create_oracle_merge_task(
+    output_schema,
+    load_schema,
+    table_name,
+    columns
+) -%}
+
+{% set all_columns = columns + [
+    ("load_ts", "convert_timezone('UTC',CURRENT_TIMESTAMP)::timestamp_tz")
+] %}
+
+{% call create_merge_task(load_schema, table_name) -%}
+
+merge into {{ output_schema }}.{{ table_name }} as t
+    using (
+        select
+            {% for name, source in all_columns -%}
+                {{ source }} as {{ name }}{% if not loop.last %},{% endif %}
+            {% endfor -%}
+        from {{ load_schema }}.load_{{ table_name }}_stream
+    ) as s
+        on t.batchname = s.batchname and
+            t.glaccountstring = s.glaccountstring and
+            t.periodname = s.periodname and
+            t.entry = s.entry and           
+            t.lline = s.lline and
+            t.linedescr = s.linedescr
+    when matched and not(
+        {% for name, _ in all_columns if name not in ['load_ts'] -%}
+            equal_null(t.{{ name }}, s.{{ name }}) {% if not loop.last %}and{% endif %}
+        {% endfor -%}
+    )
+    then update set
+        {% for name, _ in all_columns -%}
+            t.{{ name }} = s.{{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    when not matched then insert (
+        {% for name, _ in all_columns -%}
+            {{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    ) values (
+        {% for name, _ in all_columns -%}
+            s.{{ name }}{% if not loop.last %},{% endif %}
+        {% endfor -%}
+    )
+{%- endcall %}
+
+{%- endmacro %}

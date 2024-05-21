@@ -1,0 +1,16 @@
+alter table {{ cms_schema }}.invoices
+add column currency_code_id varchar;
+
+-- Change type of the invoice column from varchar to varchar(50)
+-- This can't be done directly, since we are reducing the maximum byte size 
+alter table {{ cms_schema }}.invoices
+rename column currency_code to currency_code_backup;
+
+alter table {{ cms_schema }}.invoices
+add column currency_code varchar(50);
+
+update {{ cms_schema }}.invoices
+set currency_code = currency_code_backup;
+
+alter table {{ cms_schema }}.invoices
+drop column currency_code_backup;
