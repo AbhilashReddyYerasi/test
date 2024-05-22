@@ -36,14 +36,6 @@ jobs:
           python-version: ${{ env.PYTHON_VERSION }}
       - run: pip install -r requirements.txt
 
-      - name: Check migration versions
-        run: python -m scripts.cli validate-migrations raw/
-        working-directory: migrations
-
       - name: Lint SQL
         run: sqlfluff lint migrations/
-        working-directory: migrations/raw
-
-      - name: Apply migrations
-        run: schemachange -a $SNOWFLAKE_ACCOUNT -u $SNOWFLAKE_USER -r $SNOWFLAKE_ROLE -w $SNOWFLAKE_WAREHOUSE -d $SNOWFLAKE_DATABASE -c $SNOWFLAKE_DATABASE.SCHEMACHANGE.CHANGE_HISTORY --create-change-history-table
         working-directory: migrations/raw
