@@ -52,6 +52,7 @@ if __name__ == "__main__":
         print(f"Arguments: {sys.argv[1:]}")
         # Split the file paths string by spaces and process each file
         lint_changed_files(sys.argv[1].split())
+        print(f"All linting finished")
     except Exception as e:
         print(f"Error: {e}")
         sys.exit(1)
