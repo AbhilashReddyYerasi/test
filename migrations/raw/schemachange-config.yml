@@ -1,7 +1,7 @@
 config-version: 1
 
 root-folder: migrations
-modules-folder: migrations/macros
+modules-folder: migrations/raw/migrations/macros
 vars:
   cms_schema: cms
   load_cms_schema: load_cms
