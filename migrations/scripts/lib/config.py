@@ -154,7 +154,7 @@ class SourceDataConfig(YAMLWizard, JSONWizard):
             return {
                 "table_name": self.target.table_name,
                 "stage": "streaming_stage",
-                "file_name": f"eh-dhdp-{env}_shipments",
+                "file_name": f"eh-dhdp-env_shipments",
                 "columns": [c.to_dict() for c in self.columns],
                 "unique_id": self.target.unique_id,
             }

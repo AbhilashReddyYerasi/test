@@ -27,7 +27,7 @@ jinja_processor = JinjaTemplateProcessor(
     modules_folder = config['modules_folder'],
 )
 
-for f in Path('E:\\TestFileFlow and Github Actions\\test\\migrations\\raw\\migrations\\cfx').glob("**/V*.sql*"):
+for f in Path(config['root_folder']).glob("**/V*.sql*"):
     print(f)
     content = jinja_processor.render(jinja_processor.relpath(f), config['vars'], False) + ";\n"
     # print(content)

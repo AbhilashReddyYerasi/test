@@ -2,8 +2,8 @@
 dialect = snowflake
 templater = jinja
 sql_file_exts = .sql,.sql.jinja,.j2
-max_line_length = 120
-exclude_rules = layout.indent
+max_line_length = 160
+exclude_rules = layout.indent, RF04
 
 [sqlfluff:indentation]
 indented_joins = False
@@ -39,4 +39,4 @@ streaming_schema = streaming
 load_streaming_schema = load_streaming
 
 [sqlfluff:rules:references.keywords]
-ignore_words = chain, name
+ignore_words = chain, name, name

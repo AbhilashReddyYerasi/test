@@ -430,7 +430,8 @@ dg_invoice:
     transformation: var:NET_AMT_DUE_W_TAX_CURRENCY_GID::varchar
     type: varchar
   - name: net_amt_due_with_tax_base
-    transformation: nullif(var:NET_AMT_DUE_WITH_TAX_BASE::varchar, '')::number(38, 4)
+    transformation: nullif(var:NET_AMT_DUE_WITH_TAX_BASE::varchar, '')::number(38,
+      4)
     type: number(38, 4)
   - name: is_pass_through
     transformation: nullif(var:IS_PASS_THROUGH::varchar, '')::boolean
@@ -717,7 +718,8 @@ dg_location:
     transformation: nullif(var:NUM_OF_ROWS_IN_YARD::varchar, '')::number(38, 2)
     type: number(38, 2)
   - name: num_of_slots_per_row_in_yard
-    transformation: nullif(var:NUM_OF_SLOTS_PER_ROW_IN_YARD::varchar, '')::number(38, 2)
+    transformation: nullif(var:NUM_OF_SLOTS_PER_ROW_IN_YARD::varchar, '')::number(38,
+      2)
     type: number(38, 2)
   - name: use_appointment_priority
     transformation: nullif(var:USE_APPOINTMENT_PRIORITY::varchar, '')::varchar
@@ -816,7 +818,8 @@ dg_location:
     transformation: nullif(var:IS_FIXED_ADDRESS::varchar, '')::boolean
     type: boolean
   - name: primary_address_line_seq
-    transformation: nullif(var:PRIMARY_ADDRESS_LINE_SEQ::varchar, '')::number(38, 0)
+    transformation: nullif(var:PRIMARY_ADDRESS_LINE_SEQ::varchar, '')::number(38,
+      0)
     type: number(38, 0)
   - name: attribute1
     transformation: nullif(var:ATTRIBUTE1::varchar, '')::varchar
@@ -1006,7 +1009,8 @@ dg_shipment:
     transformation: nullif(var:TOTAL_WEIGHTED_COST::varchar, '')::number(38, 6)
     type: number(38, 6)
   - name: total_weighted_cost_base
-    transformation: nullif(var:TOTAL_WEIGHTED_COST_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:TOTAL_WEIGHTED_COST_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: t_actual_cost_currency_gid
     transformation: var:T_ACTUAL_COST_CURRENCY_GID::varchar
@@ -1105,10 +1109,12 @@ dg_shipment:
     transformation: nullif(var:TOTAL_SHIP_UNIT_COUNT::varchar, '')::number(38, 0)
     type: number(38, 0)
   - name: total_packaging_unit_count
-    transformation: nullif(var:TOTAL_PACKAGING_UNIT_COUNT::varchar, '')::number(38, 0)
+    transformation: nullif(var:TOTAL_PACKAGING_UNIT_COUNT::varchar, '')::number(38,
+      0)
     type: number(38, 0)
   - name: total_item_package_count
-    transformation: nullif(var:TOTAL_ITEM_PACKAGE_COUNT::varchar, '')::number(38, 0)
+    transformation: nullif(var:TOTAL_ITEM_PACKAGE_COUNT::varchar, '')::number(38,
+      0)
     type: number(38, 0)
   - name: shipment_type_gid
     transformation: var:SHIPMENT_TYPE_GID::varchar
@@ -1210,7 +1216,8 @@ dg_shipment:
     transformation: var:BULK_PLAN_GID::varchar
     type: varchar
   - name: total_num_reference_units
-    transformation: nullif(var:TOTAL_NUM_REFERENCE_UNITS::varchar, '')::number(38, 0)
+    transformation: nullif(var:TOTAL_NUM_REFERENCE_UNITS::varchar, '')::number(38,
+      0)
     type: number(38, 0)
   - name: itinerary_gid
     transformation: var:ITINERARY_GID::varchar
@@ -1285,7 +1292,8 @@ dg_shipment:
     transformation: nullif(var:VOLUME_UTILIZATION::varchar, '')::number(38, 6)
     type: number(38, 6)
   - name: equip_ref_unit_utilization
-    transformation: nullif(var:EQUIP_REF_UNIT_UTILIZATION::varchar, '')::number(38, 0)
+    transformation: nullif(var:EQUIP_REF_UNIT_UTILIZATION::varchar, '')::number(38,
+      0)
     type: number(38, 0)
   - name: port_of_load_location_gid
     transformation: var:PORT_OF_LOAD_LOCATION_GID::varchar
@@ -1333,13 +1341,15 @@ dg_shipment:
     transformation: var:EXCHANGE_RATE_GID::varchar
     type: varchar
   - name: tot_matched_invoice_cost
-    transformation: nullif(var:TOT_MATCHED_INVOICE_COST::varchar, '')::number(38, 6)
+    transformation: nullif(var:TOT_MATCHED_INVOICE_COST::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: tot_matched_inv_cost_curr_gid
     transformation: var:TOT_MATCHED_INV_COST_CURR_GID::varchar
     type: varchar
   - name: tot_matched_invoice_cost_base
-    transformation: nullif(var:TOT_MATCHED_INVOICE_COST_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:TOT_MATCHED_INVOICE_COST_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: original_invoice_cost
     transformation: nullif(var:ORIGINAL_INVOICE_COST::varchar, '')::number(38, 6)
@@ -1348,7 +1358,8 @@ dg_shipment:
     transformation: var:ORIGINAL_INVOICE_COST_CURR_GID::varchar
     type: varchar
   - name: original_invoice_cost_base
-    transformation: nullif(var:ORIGINAL_INVOICE_COST_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:ORIGINAL_INVOICE_COST_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: total_approved_cost
     transformation: nullif(var:TOTAL_APPROVED_COST::varchar, '')::number(38, 6)
@@ -1357,7 +1368,8 @@ dg_shipment:
     transformation: var:TOTAL_APPROVED_COST_CURR_GID::varchar
     type: varchar
   - name: total_approved_cost_base
-    transformation: nullif(var:TOTAL_APPROVED_COST_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:TOTAL_APPROVED_COST_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: source_pier_location_gid
     transformation: var:SOURCE_PIER_LOCATION_GID::varchar
@@ -1375,7 +1387,8 @@ dg_shipment:
     transformation: var:TOTAL_DECLARED_VALUE_GID::varchar
     type: varchar
   - name: total_declared_value_base
-    transformation: nullif(var:TOTAL_DECLARED_VALUE_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:TOTAL_DECLARED_VALUE_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: is_profit_split
     transformation: nullif(var:IS_PROFIT_SPLIT::varchar,'')::boolean
@@ -1609,7 +1622,8 @@ dg_shipment:
     transformation: var:ATTRIBUTE_CURRENCY1_GID::varchar
     type: varchar
   - name: attribute_currency1_base
-    transformation: nullif(var:ATTRIBUTE_CURRENCY1_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:ATTRIBUTE_CURRENCY1_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: attribute_currency2
     transformation: nullif(var:ATTRIBUTE_CURRENCY2::varchar, '')::number(38, 6)
@@ -1618,7 +1632,8 @@ dg_shipment:
     transformation: var:ATTRIBUTE_CURRENCY2_GID::varchar
     type: varchar
   - name: attribute_currency2_base
-    transformation: nullif(var:ATTRIBUTE_CURRENCY2_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:ATTRIBUTE_CURRENCY2_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: attribute_currency3
     transformation: nullif(var:ATTRIBUTE_CURRENCY3::varchar, '')::number(38, 6)
@@ -1627,7 +1642,8 @@ dg_shipment:
     transformation: var:ATTRIBUTE_CURRENCY3_GID::varchar
     type: varchar
   - name: attribute_currency3_base
-    transformation: nullif(var:ATTRIBUTE_CURRENCY3_BASE::varchar, '')::number(38, 6)
+    transformation: nullif(var:ATTRIBUTE_CURRENCY3_BASE::varchar, '')::number(38,
+      6)
     type: number(38, 6)
   - name: domain_name
     transformation: var:DOMAIN_NAME::varchar
@@ -1852,7 +1868,8 @@ dg_shipment_stop:
     transformation: var:DIST_FROM_PREV_STOP_UOM_CODE::varchar
     type: varchar
   - name: dist_from_prev_stop_base
-    transformation: nullif(var:DIST_FROM_PREV_STOP_BASE::varchar, '')::number(38, 2)
+    transformation: nullif(var:DIST_FROM_PREV_STOP_BASE::varchar, '')::number(38,
+      2)
     type: number(38, 2)
   - name: activity_time
     transformation: nullif(var:ACTIVITY_TIME::varchar, '')::number(38, 2)
@@ -1936,7 +1953,8 @@ dg_shipment_stop:
     transformation: var:DRIVER_NON_PAYABLE::varchar
     type: varchar
   - name: repetition_sched_stop_number
-    transformation: nullif(var:REPETITION_SCHED_STOP_NUMBER::varchar, '')::number(38, 2)
+    transformation: nullif(var:REPETITION_SCHED_STOP_NUMBER::varchar, '')::number(38,
+      2)
     type: number(38, 2)
   - name: distance_type
     transformation: var:DISTANCE_TYPE::varchar
