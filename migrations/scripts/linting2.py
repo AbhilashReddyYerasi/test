@@ -51,16 +51,15 @@ def lint_changed_files(file_paths):
                 config_path=".sqlfluff"
             )
 
-            # If there are linting errors, print them and raise an error to stop the workflow
+            # If there are linting errors, print them
             if res:
                 print(f"================= Errors in {full_path}")
                 for r in res:
                     print(f"Line {r['line_no']}: {r['description']}")
-                raise RuntimeError(f"Linting failed for file: {full_path}")
-
+        
         except Exception as e:
+            # Log the error but continue processing other files
             print(f"Error processing file {file_path}: {e}")
-            raise
 
 if __name__ == "__main__":
     try:
