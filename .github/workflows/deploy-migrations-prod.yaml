@@ -41,15 +41,15 @@ jobs:
         uses: tj-actions/changed-files@v34.4.4
         with:
           files: |
-            dbt/**/*.sql
+            migrations/raw/**/*.sql
 
-      - name: Run step if any file(s) in the dbt folder change
+      - name: Run step if any file(s) in the migrations/raw folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-          echo "One or more files in the dbt folder has changed."
+          echo "One or more files in the migrations/raw folder has changed."
           echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
 
       - name: Lint SQL
         if: steps.changed-files-specific.outputs.any_changed == 'true'
-        run: sqlfluff lint migrations/
+        run: sqlfluff lint ${{ steps.changed-files-specific.outputs.all_changed_files }}
         working-directory: migrations/raw
