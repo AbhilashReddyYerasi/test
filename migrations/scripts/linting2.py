@@ -40,6 +40,11 @@ def lint_changed_files(file_paths):
             print("=================", file_path)
             for r in res:
                 print(r["line_no"], r["description"], r)
+            raise RuntimeError(f"Linting failed for file: {file_path}")
 
 if __name__ == "__main__":
-    lint_changed_files(sys.argv[1:])
+    try:
+        lint_changed_files(sys.argv[1:])
+    except Exception as e:
+        print(f"Error: {e}")
+        sys.exit(1)
