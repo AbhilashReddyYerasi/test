@@ -1,4 +1,5 @@
 import sys
+import os
 from schemachange.cli import JinjaTemplateProcessor, get_schemachange_config
 import sqlfluff
 
@@ -22,7 +23,7 @@ def lint_changed_files(file_paths):
         oauth_config=None,
         dry_run=True
     )
-
+    
     jinja_processor = JinjaTemplateProcessor(
         project_root=config['root_folder'],
         modules_folder=config['modules_folder'],
