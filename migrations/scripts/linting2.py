@@ -32,7 +32,7 @@ def lint_changed_files(file_paths):
 
     for file_path in file_paths:
         # Append root folder to each file path
-        full_path = os.path.join(config['root_folder'], file_path)
+        full_path = os.path.join('/home/runner/work/test/test/', file_path)
         print(f"Linting file: {full_path}")
         content = jinja_processor.render(jinja_processor.relpath(full_path), config['vars'], False) + ";\n"
         res = sqlfluff.lint(
