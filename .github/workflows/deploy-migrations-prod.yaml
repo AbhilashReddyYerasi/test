@@ -52,4 +52,3 @@ jobs:
       - name: Lint SQL
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: sqlfluff lint ${{ steps.changed-files-specific.outputs.all_changed_files }}
-        working-directory: migrations/raw
