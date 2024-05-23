@@ -34,7 +34,7 @@ def lint_changed_files(file_paths):
         res = sqlfluff.lint(
             content,
             dialect="snowflake",
-            config_path="/migrations/raw/.sqlfluff"
+            config_path="migrations/raw/.sqlfluff"
         )
         if res:
             print("=================", file_path)
