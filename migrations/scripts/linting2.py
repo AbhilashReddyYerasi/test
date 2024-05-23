@@ -54,12 +54,14 @@ def lint_changed_files(file_paths):
                 config_path=".sqlfluff"
             )
 
+            print(f"Linting Completed for file: {full_path}")
             # If there are linting errors, print them
             if res:
-                print(f"================= Errors in {full_path}")
+                print(f"===== Errors in {full_path} =====")
                 for r in res:
                     print(f"Line {r['line_no']}: {r['description']}")
                 error_encountered = True
+                print(f"===== Errors in {full_path} =====")
         
         except Exception as e:
             # Log the error but continue processing other files
