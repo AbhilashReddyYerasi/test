@@ -4,6 +4,7 @@ from schemachange.cli import JinjaTemplateProcessor, get_schemachange_config
 import sqlfluff
 
 def lint_changed_files(file_paths):
+    # Load the schemachange configuration
     config = get_schemachange_config(
         config_file_path="schemachange-config.yml",
         vars=None,
@@ -24,35 +25,56 @@ def lint_changed_files(file_paths):
         dry_run=True
     )
 
-
+    # Initialize the JinjaTemplateProcessor with project root and modules folder from the config
     jinja_processor = JinjaTemplateProcessor(
         project_root=config['root_folder'],
         modules_folder=config['modules_folder'],
     )
 
+    # Print the list of file paths for debugging
+    print(f"File paths to lint: {file_paths}")
+
+    # Iterate over the list of changed files
     for file_path in file_paths:
-        # Append root folder to each file path
-        full_path = os.path.join('/home/runner/work/test/test/', file_path)
-        print(f"Linting file: {full_path}")
-        content = jinja_processor.render(jinja_processor.relpath(full_path), config['vars'], False) + ";\n"
-        res = sqlfluff.lint(
-            content,
-            dialect="snowflake",
-            config_path=".sqlfluff"
-        )
-        if res:
-            print(f"================= Errors in {full_path}")
-            for r in res:
-                print(f"Line {r['line_no']}: {r['description']}")
-            raise RuntimeError(f"Linting failed for file: {full_path}")
+        try:
+            # Construct the full path of the file
+            full_path = os.path.join('/home/runner/work/test/test/', file_path)
+            print(f"Linting file: {full_path}")
+
+            # Render the Jinja template
+            content = jinja_processor.render(jinja_processor.relpath(full_path), config['vars'], False) + ";\n"
+
+            # Lint the rendered content using sqlfluff
+            res = sqlfluff.lint(
+                content,
+                dialect="snowflake",
+                config_path=".sqlfluff"
+            )
+
+            # If there are linting errors, print them and raise an error to stop the workflow
+            if res:
+                print(f"================= Errors in {full_path}")
+                for r in res:
+                    print(f"Line {r['line_no']}: {r['description']}")
+                raise RuntimeError(f"Linting failed for file: {full_path}")
+
+        except Exception as e:
+            print(f"Error processing file {file_path}: {e}")
+            raise
 
 if __name__ == "__main__":
     try:
-        # Print arguments for debugging
-        print(f"Arguments: {sys.argv[1:]}")
+        # Print raw arguments for debugging
+        print(f"Raw Arguments: {sys.argv}")
+
         # Split the file paths string by spaces and process each file
-        lint_changed_files(sys.argv[1].split())
-        print(f"All linting finished")
+        file_paths = sys.argv[1:]
+        print(f"Processed file paths: {file_paths}")
+        
+        # Call the linting function with the processed file paths
+        lint_changed_files(file_paths)
+
+        print("All linting finished successfully")
     except Exception as e:
         print(f"Error: {e}")
         sys.exit(1)
