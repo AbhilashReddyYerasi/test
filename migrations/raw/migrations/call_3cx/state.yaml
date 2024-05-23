@@ -52,8 +52,8 @@ cdr_log:
     transformation: BILL_RATE::varchar
     type: varchar
   - name: bill_cost
-    transformation: BILL_COST::number(38,2)
-    type: number(38,2)
+    transformation: BILL_COST::number(38, 2)
+    type: number(38, 2)
   - name: bill_name
     transformation: BILL_NAME::varchar
     type: varchar

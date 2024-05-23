@@ -8,7 +8,7 @@ Creates all the tables pipes and streams needed for ingesting a new source:
 {% macro create_scd2_table_and_stream(output_schema, load_schema, table_name, stage, file_name) -%}
 create or replace table {{ output_schema }}.{{ table_name }} (
     {{ caller() }},
-    _hash number(19,0),
+    _hash number(19,0), --noqa: LT01
     _valid_from timestamp_tz(9),
     _valid_to timestamp_tz(9),
     _is_active boolean
@@ -23,7 +23,7 @@ create or replace stream {{ load_schema }}.load_{{ table_name }}_stream on table
 create pipe {{ load_schema }}.{{ table_name }}_pipe
   auto_ingest = true
   integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
-  error_integration = 'AZ_ERROR_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION' -- noqa: PRS
   as copy into {{ load_schema }}.load_{{ table_name }} from @{{ load_schema }}.{{ stage }} pattern = '{{ file_name }}_.*';
 
 {%- endmacro %}
@@ -50,7 +50,7 @@ create or replace stream {{ load_schema }}.load_{{ table_name }}_stream on table
 create pipe {{ load_schema }}.{{ table_name }}_pipe
   auto_ingest = true
   integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
-  error_integration = 'AZ_ERROR_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION' -- noqa: PRS
   as copy into {{ load_schema }}.load_{{ table_name }} from @{{ load_schema }}.{{ stage }} pattern = '{{ file_name }}_.*';
 
 {%- endmacro %}
@@ -111,7 +111,7 @@ create or replace stream {{ load_schema }}.load_{{ table_name }}_stream on table
 create pipe {{ load_schema }}.{{ table_name }}_pipe
   auto_ingest = true
   integration = 'AZ_STORAGE_QUEUE_INTEGRATION'
-  error_integration = 'AZ_ERROR_INTEGRATION'
+  error_integration = 'AZ_ERROR_INTEGRATION' -- noqa: PRS
   as copy into {{ load_schema }}.load_{{ table_name }} from @{{ load_schema }}.{{ stage }} pattern = '{{ file_name }}_.*';
 
 {%- endmacro %}

@@ -39,4 +39,4 @@ streaming_schema = streaming
 load_streaming_schema = load_streaming
 
 [sqlfluff:rules:references.keywords]
-ignore_words = chain
+ignore_words = chain, name

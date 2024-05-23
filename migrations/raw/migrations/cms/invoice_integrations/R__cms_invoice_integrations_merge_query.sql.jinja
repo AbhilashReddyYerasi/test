@@ -9,7 +9,7 @@
         ('invoice_id', "var:InvoiceId::varchar"),
         ('integration_sent', "var:IntegrationSent::boolean"),
         ('integration_date', convert_to_mastercountry_tz("var:IntegrationDate")),
-        ('integration_amount', "var:IntegrationAmount::number(18,2)"),
+        ('integration_amount', "var:IntegrationAmount::number(18, 2)"),
         ('integration_ref', "var:IntegrationRef::varchar"),
         ('integration_dest', "var:IntegrationDest::varchar"),
         ('tenant_id', "var:TenantId::varchar"),
@@ -21,7 +21,7 @@
         ('updated_at', convert_to_mastercountry_tz("var:UpdatedAt")),
         ('is_resend_integration', "var:IsResendIntegration::boolean"),
         ('resend_integration_by', "var:ResendIntegrationBy::varchar"),
-        ('resend_integration_counter', "var:ResendIntegrationCounter::number(18,0)"),
+        ('resend_integration_counter', "var:ResendIntegrationCounter::number(18, 0)"),
         ('resend_integration_date', convert_to_mastercountry_tz("var:ResendIntegrationDate")),
         ],
         ('id', "var:Id::varchar")

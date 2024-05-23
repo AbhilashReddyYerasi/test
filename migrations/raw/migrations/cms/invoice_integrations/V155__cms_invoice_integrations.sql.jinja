@@ -11,7 +11,7 @@
     invoice_id varchar,
     integration_sent boolean,
     integration_date timestamp_tz(9),
-    integration_amount number(18,2),
+    integration_amount number(18, 2),
     integration_ref varchar,
     integration_dest varchar,
     tenant_id varchar,
@@ -23,7 +23,7 @@
     updated_at timestamp_tz(9),
     is_resend_integration boolean,
     resend_integration_by varchar,
-    resend_integration_counter number(18,0),
+    resend_integration_counter number(18, 0),
     resend_integration_date timestamp_tz(9),
     master_countries_country_time_zone varchar(16777216)
 {%- endcall %}

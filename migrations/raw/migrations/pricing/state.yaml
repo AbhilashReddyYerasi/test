@@ -7,8 +7,8 @@ buy_rates:
     transformation: DESTINATION::varchar
     type: varchar
   - name: buy
-    transformation: BUY::number(38,2)
-    type: number(38,2)
+    transformation: BUY::number(38, 2)
+    type: number(38, 2)
   - name: created
     transformation: to_timestamp(CREATED::varchar, 'DD/MM/YYYY HH24:MI')::timestamp_tz(9)
     type: timestamp_tz(9)
@@ -25,8 +25,8 @@ sell_rates:
     transformation: DESTINATION::varchar
     type: varchar
   - name: sell
-    transformation: SELL::number(38,2)
-    type: number(38,2)
+    transformation: SELL::number(38, 2)
+    type: number(38, 2)
   - name: created
     transformation: to_timestamp(CREATED::varchar, 'DD/MM/YYYY HH24:MI')::timestamp_tz(9)
     type: timestamp_tz(9)

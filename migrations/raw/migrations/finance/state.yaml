@@ -4,8 +4,8 @@ budget_template:
     transformation: Customer::varchar
     type: varchar
   - name: year
-    transformation: Year::number(38,0)
-    type: number(38,0)
+    transformation: Year::number(38, 0)
+    type: number(38, 0)
   - name: period
     transformation: Period::varchar
     type: varchar
@@ -13,20 +13,20 @@ budget_template:
     transformation: YearMonth::varchar
     type: varchar
   - name: loads
-    transformation: Loads::number(38,0)
-    type: number(38,0)
+    transformation: Loads::number(38, 0)
+    type: number(38, 0)
   - name: gp
-    transformation: GP::number(38,2)
-    type: number(38,2)
+    transformation: GP::number(38, 2)
+    type: number(38, 2)
   - name: avgprofitperload
-    transformation: AvgProfitPerLoad::number(38,2)
-    type: number(38,2)
+    transformation: AvgProfitPerLoad::number(38, 2)
+    type: number(38, 2)
   - name: revenue
-    transformation: Revenue::number(38,2)
-    type: number(38,2)
+    transformation: Revenue::number(38, 2)
+    type: number(38, 2)
   - name: avgrevperload
-    transformation: AvgRevPerLoad::number(38,0)
-    type: number(38,0)
+    transformation: AvgRevPerLoad::number(38, 0)
+    type: number(38, 0)
   file_name: BudgetTemplate
   stage: finance_stage
   table_name: budget_template
@@ -37,8 +37,8 @@ forecast_template:
     transformation: Customer::varchar
     type: varchar
   - name: year
-    transformation: Year::number(38,0)
-    type: number(38,0)
+    transformation: Year::number(38, 0)
+    type: number(38, 0)
   - name: period
     transformation: Period::varchar
     type: varchar
@@ -46,20 +46,20 @@ forecast_template:
     transformation: YearMonth::varchar
     type: varchar
   - name: loads
-    transformation: Loads::number(38,0)
-    type: number(38,0)
+    transformation: Loads::number(38, 0)
+    type: number(38, 0)
   - name: gp
-    transformation: GP::number(38,2)
-    type: number(38,2)
+    transformation: GP::number(38, 2)
+    type: number(38, 2)
   - name: avgprofitperload
-    transformation: AvgProfitPerLoad::number(38,2)
-    type: number(38,2)
+    transformation: AvgProfitPerLoad::number(38, 2)
+    type: number(38, 2)
   - name: revenue
-    transformation: Revenue::number(38,2)
-    type: number(38,2)
+    transformation: Revenue::number(38, 2)
+    type: number(38, 2)
   - name: avgrevperload
-    transformation: AvgRevPerLoad::number(38,2)
-    type: number(38,2)
+    transformation: AvgRevPerLoad::number(38, 2)
+    type: number(38, 2)
   file_name: ForecastTemplate
   stage: finance_stage
   table_name: forecast_template

@@ -7,15 +7,15 @@
     "cms_audit_stage",
     "offer_item_histories"
   ) -%}
-    id number(38,0),
+    id number(38, 0),
     offer_history_id varchar,
     action_type varchar,
     trigger_from varchar,
     rate_id varchar,
     rate_type varchar,
     carrier_id varchar,
-    buying_rate number(16,2),
-    selling_rate number(16,2),
+    buying_rate number(16, 2),
+    selling_rate number(16, 2),
     is_cbt_rate boolean,
     reference_ids varchar,
     inserted_at timestamp_tz(9),

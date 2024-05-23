@@ -14,8 +14,8 @@ gps:
     transformation: var:Properties::variant
     type: variant
   - name: sequencenumber
-    transformation: var:SequenceNumber::number(38,0)
-    type: number(38,0)
+    transformation: var:SequenceNumber::number(38, 0)
+    type: number(38, 0)
   - name: systemproperties
     transformation: var:SystemProperties::variant
     type: variant

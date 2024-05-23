@@ -1,8 +1,8 @@
 adt_carrier_costs:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: job_file_id
     transformation: var:JobFileId::varchar
     type: varchar
@@ -28,8 +28,8 @@ adt_carrier_costs:
 adt_job_files:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: job_file_id
     transformation: var:JobFileId::varchar
     type: varchar
@@ -55,8 +55,8 @@ adt_job_files:
 adt_shipper_costs:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: job_file_id
     transformation: var:JobFileId::varchar
     type: varchar
@@ -82,8 +82,8 @@ adt_shipper_costs:
 adt_transport_custom_requirements:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -109,8 +109,8 @@ adt_transport_custom_requirements:
 adt_transport_documents:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -136,8 +136,8 @@ adt_transport_documents:
 adt_transport_loads:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -163,8 +163,8 @@ adt_transport_loads:
 adt_transport_locations:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -190,8 +190,8 @@ adt_transport_locations:
 adt_transport_orders:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -217,8 +217,8 @@ adt_transport_orders:
 adt_transport_references:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -244,8 +244,8 @@ adt_transport_references:
 adt_transport_requirements:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -271,8 +271,8 @@ adt_transport_requirements:
 adt_transport_routes:
   columns:
   - name: id
-    transformation: var:Id::number(38,0)
-    type: number(38,0)
+    transformation: var:Id::number(38, 0)
+    type: number(38, 0)
   - name: transport_order_id
     transformation: var:TransportOrderId::varchar
     type: varchar
@@ -430,11 +430,11 @@ offer_item_histories:
     transformation: var:CarrierId::varchar
     type: varchar
   - name: buying_rate
-    transformation: var:BuyingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BuyingRate::number(18, 2)
+    type: number(18, 2)
   - name: selling_rate
-    transformation: var:SellingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:SellingRate::number(18, 2)
+    type: number(18, 2)
   - name: is_cbt_rate
     transformation: var:IsCBTRate::boolean
     type: boolean
@@ -466,8 +466,8 @@ shipment_audit_trails:
     transformation: var:Id::varchar
     type: varchar
   - name: version_no
-    transformation: var:Version::number(38,0)
-    type: number(38,0)
+    transformation: var:Version::number(38, 0)
+    type: number(38, 0)
   - name: is_current
     transformation: var:Current::boolean
     type: boolean
@@ -478,29 +478,29 @@ shipment_audit_trails:
     transformation: var:ShipmentNumber::varchar
     type: varchar
   - name: transport_order
-    transformation: var:TransportOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportOrder::number(38, 0)
+    type: number(38, 0)
   - name: transport_routes
-    transformation: var:TransportRoutes::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportRoutes::number(38, 0)
+    type: number(38, 0)
   - name: transport_locations
-    transformation: var:TransportLocations::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportLocations::number(38, 0)
+    type: number(38, 0)
   - name: transport_loads
-    transformation: var:TransportLoads::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportLoads::number(38, 0)
+    type: number(38, 0)
   - name: transport_documents
-    transformation: var:TransportDocuments::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportDocuments::number(38, 0)
+    type: number(38, 0)
   - name: transport_references
-    transformation: var:TransportReferences::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportReferences::number(38, 0)
+    type: number(38, 0)
   - name: transport_requirement
-    transformation: var:TransportRequirement::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportRequirement::number(38, 0)
+    type: number(38, 0)
   - name: transport_custom_requirements
-    transformation: var:TransportCustomRequirements::number(38,0)
-    type: number(38,0)
+    transformation: var:TransportCustomRequirements::number(38, 0)
+    type: number(38, 0)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar
@@ -538,8 +538,8 @@ shipment_cost_audit_trails:
     transformation: var:Id::varchar
     type: varchar
   - name: version_no
-    transformation: var:Version::number(38,0)
-    type: number(38,0)
+    transformation: var:Version::number(38, 0)
+    type: number(38, 0)
   - name: is_current
     transformation: var:Current::boolean
     type: boolean
@@ -556,14 +556,14 @@ shipment_cost_audit_trails:
     transformation: var:ShipmentNumber::varchar
     type: varchar
   - name: job_file
-    transformation: var:JobFile::number(38,0)
-    type: number(38,0)
+    transformation: var:JobFile::number(38, 0)
+    type: number(38, 0)
   - name: shipper_costs
-    transformation: var:ShipperCosts::number(38,0)
-    type: number(38,0)
+    transformation: var:ShipperCosts::number(38, 0)
+    type: number(38, 0)
   - name: carrier_costs
-    transformation: var:CarrierCosts::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierCosts::number(38, 0)
+    type: number(38, 0)
   - name: trigger_by_entity_type
     transformation: var:TriggerByEntityType::varchar
     type: varchar

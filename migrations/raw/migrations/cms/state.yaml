@@ -67,11 +67,11 @@ address_books:
     transformation: var:PlacesId::varchar
     type: varchar(16777216)
   - name: latitude
-    transformation: var:Latitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Latitude::number(18, 6)
+    type: number(18, 6)
   - name: longitude
-    transformation: var:Longitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Longitude::number(18, 6)
+    type: number(18, 6)
   - name: country
     transformation: var:Country::varchar
     type: varchar(16777216)
@@ -142,11 +142,11 @@ auto_margin_setting_products:
     transformation: var:UrgencyBanding::varchar
     type: varchar
   - name: round_type
-    transformation: var:RoundType::number(18,0)
-    type: number(18,0)
+    transformation: var:RoundType::number(18, 0)
+    type: number(18, 0)
   - name: round_to_nearest
-    transformation: var:RoundToNearest::number(18,2)
-    type: number(18,2)
+    transformation: var:RoundToNearest::number(18, 2)
+    type: number(18, 2)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar
@@ -199,8 +199,8 @@ cargo_discrepancy_reason_codes:
     transformation: var:TenantId::varchar
     type: varchar(16777216)
   - name: sort_order
-    transformation: var:SortOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:SortOrder::number(38, 0)
+    type: number(38, 0)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -289,8 +289,8 @@ carrier_bookmark_filters:
     transformation: var:VehicleSizes::varchar
     type: varchar(16777216)
   - name: order_no
-    transformation: var:OrderNo::number(38,0)
-    type: number(38,0)
+    transformation: var:OrderNo::number(38, 0)
+    type: number(38, 0)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -304,56 +304,56 @@ carrier_bookmark_filters:
     transformation: var:ExcludeJobMatchings::varchar
     type: varchar(16777216)
   - name: lead_time_selection_max
-    transformation: var:LeadTimeSelectionMax::number(18,2)
-    type: number(18,2)
+    transformation: var:LeadTimeSelectionMax::number(18, 2)
+    type: number(18, 2)
   - name: lead_time_selection_min
-    transformation: var:LeadTimeSelectionMin::number(18,2)
-    type: number(18,2)
+    transformation: var:LeadTimeSelectionMin::number(18, 2)
+    type: number(18, 2)
   - name: total_load_weight_max
-    transformation: var:TotalLoadWeightMax::number(18,2)
-    type: number(18,2)
+    transformation: var:TotalLoadWeightMax::number(18, 2)
+    type: number(18, 2)
   - name: total_load_weight_min
-    transformation: var:TotalLoadWeightMin::number(18,2)
-    type: number(18,2)
+    transformation: var:TotalLoadWeightMin::number(18, 2)
+    type: number(18, 2)
   - name: vehicle_buildups
     transformation: var:VehicleBuildUps::varchar
     type: varchar(16777216)
   - name: cost_per_mile_max
-    transformation: var:CostPerMileMax::number(18,2)
-    type: number(18,2)
+    transformation: var:CostPerMileMax::number(18, 2)
+    type: number(18, 2)
   - name: cost_per_mile_min
-    transformation: var:CostPerMileMin::number(18,2)
-    type: number(18,2)
+    transformation: var:CostPerMileMin::number(18, 2)
+    type: number(18, 2)
   - name: delivery_city
     transformation: var:DeliveryCity::varchar
     type: varchar(16777216)
   - name: delivery_city_radius
-    transformation: var:DeliveryCityRadius::number(18,2)
-    type: number(18,2)
+    transformation: var:DeliveryCityRadius::number(18, 2)
+    type: number(18, 2)
   - name: pick_city
     transformation: var:PickCity::varchar
     type: varchar(16777216)
   - name: pick_city_radius
-    transformation: var:PickCityRadius::number(18,2)
-    type: number(18,2)
+    transformation: var:PickCityRadius::number(18, 2)
+    type: number(18, 2)
   - name: region
     transformation: var:Region::varchar
     type: varchar(16777216)
   - name: delivery_city_latitude
-    transformation: var:DeliveryCityLatitude::number(18,6)
-    type: number(18,6)
+    transformation: var:DeliveryCityLatitude::number(18, 6)
+    type: number(18, 6)
   - name: delivery_city_longitude
-    transformation: var:DeliveryCityLongitude::number(18,6)
-    type: number(18,6)
+    transformation: var:DeliveryCityLongitude::number(18, 6)
+    type: number(18, 6)
   - name: delivery_city_place_id
     transformation: var:DeliveryCityPlaceId::varchar
     type: varchar(16777216)
   - name: pick_city_latitude
-    transformation: var:PickCityLatitude::number(18,6)
-    type: number(18,6)
+    transformation: var:PickCityLatitude::number(18, 6)
+    type: number(18, 6)
   - name: pick_city_longitude
-    transformation: var:PickCityLongitude::number(18,6)
-    type: number(18,6)
+    transformation: var:PickCityLongitude::number(18, 6)
+    type: number(18, 6)
   - name: pick_city_place_id
     transformation: var:PickCityPlaceId::varchar
     type: varchar(16777216)
@@ -676,56 +676,56 @@ carrier_cost_pre_approvals:
     transformation: var:CostType::varchar
     type: varchar(16777216)
   - name: carrier_unit_cost
-    transformation: var:CarrierUnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:CarrierUnitCost::number(16, 2)
+    type: number(16, 2)
   - name: carrier_quantity
-    transformation: var:CarrierQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierQuantity::number(38, 0)
+    type: number(38, 0)
   - name: carrier_amount
-    transformation: var:CarrierAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:CarrierAmount::number(16, 2)
+    type: number(16, 2)
   - name: carrier_display_amount
-    transformation: var:CarrierDisplayAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:CarrierDisplayAmount::number(16, 2)
+    type: number(16, 2)
   - name: carrier_remarks
     transformation: var:CarrierRemarks::varchar
     type: varchar(16777216)
   - name: unit_cost
-    transformation: var:UnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:UnitCost::number(16, 2)
+    type: number(16, 2)
   - name: quantity
-    transformation: var:Quantity::number(38,0)
-    type: number(38,0)
+    transformation: var:Quantity::number(38, 0)
+    type: number(38, 0)
   - name: amount
-    transformation: var:Amount::number(16,2)
-    type: number(16,2)
+    transformation: var:Amount::number(16, 2)
+    type: number(16, 2)
   - name: display_amount
-    transformation: var:DisplayAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:DisplayAmount::number(16, 2)
+    type: number(16, 2)
   - name: remarks
     transformation: var:Remarks::varchar
     type: varchar(16777216)
   - name: current_unit_cost
-    transformation: var:CurrentUnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:CurrentUnitCost::number(16, 2)
+    type: number(16, 2)
   - name: current_quantity
-    transformation: var:CurrentQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:CurrentQuantity::number(38, 0)
+    type: number(38, 0)
   - name: current_amount
-    transformation: var:CurrentAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:CurrentAmount::number(16, 2)
+    type: number(16, 2)
   - name: current_display_amount
-    transformation: var:CurrentDisplayAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:CurrentDisplayAmount::number(16, 2)
+    type: number(16, 2)
   - name: ori_unit_cost
-    transformation: var:OriUnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:OriUnitCost::number(16, 2)
+    type: number(16, 2)
   - name: ori_quantity
-    transformation: var:OriQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:OriQuantity::number(38, 0)
+    type: number(38, 0)
   - name: ori_amount
-    transformation: var:OriAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:OriAmount::number(16, 2)
+    type: number(16, 2)
   - name: approval_date
     transformation: '{{ convert_to_mastercountry_tz("var:ApprovalDate") }}'
     type: timestamp_tz(9)
@@ -814,29 +814,29 @@ carrier_costs:
     transformation: var:POStatus::varchar
     type: varchar(16777216)
   - name: unit_cost
-    transformation: var:UnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:UnitCost::number(16, 2)
+    type: number(16, 2)
   - name: quantity
-    transformation: var:Quantity::number(38,0)
-    type: number(38,0)
+    transformation: var:Quantity::number(38, 0)
+    type: number(38, 0)
   - name: amount
-    transformation: var:Amount::number(16,2)
-    type: number(16,2)
+    transformation: var:Amount::number(16, 2)
+    type: number(16, 2)
   - name: display_amount
-    transformation: var:DisplayAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:DisplayAmount::number(16, 2)
+    type: number(16, 2)
   - name: is_booking
     transformation: var:IsBooking::boolean
     type: boolean
   - name: ori_unit_cost
-    transformation: var:OriUnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:OriUnitCost::number(16, 2)
+    type: number(16, 2)
   - name: ori_quantity
-    transformation: var:OriQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:OriQuantity::number(38, 0)
+    type: number(38, 0)
   - name: ori_amount
-    transformation: var:OriAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:OriAmount::number(16, 2)
+    type: number(16, 2)
   - name: is_deleted
     transformation: var:IsDeleted::boolean
     type: boolean
@@ -883,8 +883,8 @@ carrier_costs:
     transformation: var:POScheduleAllocationId::varchar
     type: varchar(16777216)
   - name: faf_amount
-    transformation: var:FAFAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:FAFAmount::number(18, 2)
+    type: number(18, 2)
   - name: formula_name
     transformation: var:FormulaName::varchar
     type: varchar(16777216)
@@ -895,8 +895,8 @@ carrier_costs:
     transformation: var:IsFAFApplied::boolean
     type: boolean
   - name: ori_faf_amount
-    transformation: var:OriFAFAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:OriFAFAmount::number(18, 2)
+    type: number(18, 2)
   - name: is_shipment_x_border
     transformation: var:IsShipmentXBorder::boolean
     type: boolean
@@ -937,8 +937,8 @@ carrier_custom_offers:
     transformation: var:CarrierId::varchar
     type: varchar
   - name: amount
-    transformation: var:Amount::number(18,2)
-    type: number(18,2)
+    transformation: var:Amount::number(18, 2)
+    type: number(18, 2)
   - name: is_custom_bonded_truck
     transformation: var:IsCustomBondedTruck::boolean
     type: boolean
@@ -1165,8 +1165,8 @@ carrier_finance_details:
     transformation: var:TaxName::varchar
     type: varchar(16777216)
   - name: tax_rate
-    transformation: var:TaxRate::number(18,2)
-    type: number(18,2)
+    transformation: var:TaxRate::number(18, 2)
+    type: number(18, 2)
   - name: is_self_bill_invoice
     transformation: var:IsSelfBillInvoice::boolean
     type: boolean
@@ -1180,8 +1180,8 @@ carrier_finance_details:
     transformation: var:POCreationType::varchar
     type: varchar(16777216)
   - name: payment_term
-    transformation: var:PaymentTerm::number(38,0)
-    type: number(38,0)
+    transformation: var:PaymentTerm::number(38, 0)
+    type: number(38, 0)
   - name: is_tax_residence
     transformation: var:IsTaxResidence::boolean
     type: boolean
@@ -1322,8 +1322,8 @@ carrier_invoices:
     transformation: var:CarrierInvoiceReceivedType::varchar
     type: varchar(16777216)
   - name: integration_amount
-    transformation: var:IntegrationAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:IntegrationAmount::number(18, 2)
+    type: number(18, 2)
   - name: integration_date
     transformation: '{{ convert_to_mastercountry_tz("var:IntegrationDate") }}'
     type: timestamp_tz(9)
@@ -1349,8 +1349,8 @@ carrier_invoices:
     transformation: '{{ convert_to_mastercountry_tz("var:ResendIntegrationDate") }}'
     type: timestamp_tz(9)
   - name: resend_integration_counter
-    transformation: var:ResendIntegrationCounter::number(38,0)
-    type: number(38,0)
+    transformation: var:ResendIntegrationCounter::number(38, 0)
+    type: number(38, 0)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -1403,17 +1403,17 @@ carrier_live_rate_offer_costs:
     transformation: var:CostType::varchar
     type: varchar(16777216)
   - name: quantity
-    transformation: var:Quantity::number(38,0)
-    type: number(38,0)
+    transformation: var:Quantity::number(38, 0)
+    type: number(38, 0)
   - name: is_benchmark
     transformation: var:IsBenchmark::boolean
     type: boolean
   - name: sell_rate
-    transformation: var:SellRate::number(18,2)
-    type: number(18,2)
+    transformation: var:SellRate::number(18, 2)
+    type: number(18, 2)
   - name: buy_rate
-    transformation: var:BuyRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BuyRate::number(18, 2)
+    type: number(18, 2)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -1463,8 +1463,8 @@ carrier_live_rate_offers:
     transformation: var:HasBenchmarkRate::boolean
     type: boolean
   - name: benchmark_rate
-    transformation: var:BenchmarkRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BenchmarkRate::number(18, 2)
+    type: number(18, 2)
   - name: offer_window_start
     transformation: '{{ convert_to_mastercountry_tz("var:OfferWindowStart") }}'
     type: timestamp_tz(9)
@@ -1478,14 +1478,14 @@ carrier_live_rate_offers:
     transformation: var:IsInstantAccept::boolean
     type: boolean
   - name: instant_accept_perc
-    transformation: var:InstantAcceptPerc::number(18,2)
-    type: number(18,2)
+    transformation: var:InstantAcceptPerc::number(18, 2)
+    type: number(18, 2)
   - name: is_closed_accept
     transformation: var:IsClosedAccept::boolean
     type: boolean
   - name: closed_accept_perc
-    transformation: var:ClosedAcceptPerc::number(18,2)
-    type: number(18,2)
+    transformation: var:ClosedAcceptPerc::number(18, 2)
+    type: number(18, 2)
   - name: is_closed
     transformation: var:IsClosed::boolean
     type: boolean
@@ -1562,14 +1562,14 @@ carrier_live_rate_submitted_offer_costs:
     transformation: var:CostType::varchar
     type: varchar(16777216)
   - name: quantity
-    transformation: var:Quantity::number(38,0)
-    type: number(38,0)
+    transformation: var:Quantity::number(38, 0)
+    type: number(38, 0)
   - name: unit_cost
-    transformation: var:UnitCost::number(18,2)
-    type: number(18,2)
+    transformation: var:UnitCost::number(18, 2)
+    type: number(18, 2)
   - name: amount
-    transformation: var:Amount::number(18,2)
-    type: number(18,2)
+    transformation: var:Amount::number(18, 2)
+    type: number(18, 2)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -1616,8 +1616,8 @@ carrier_live_rate_submitted_offers:
     transformation: var:CarrierId::varchar
     type: varchar(16777216)
   - name: offer_amount
-    transformation: var:OfferAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:OfferAmount::number(18, 2)
+    type: number(18, 2)
   - name: submitted_at
     transformation: '{{ convert_to_mastercountry_tz("var:SubmittedAt") }}'
     type: timestamp_tz(9)
@@ -1793,8 +1793,8 @@ carrier_offers:
     transformation: var:CarrierId::varchar
     type: varchar(16777216)
   - name: amount
-    transformation: var:Amount::number(18,2)
-    type: number(18,2)
+    transformation: var:Amount::number(18, 2)
+    type: number(18, 2)
   - name: rate_id
     transformation: var:RateId::varchar
     type: varchar(16777216)
@@ -1811,8 +1811,8 @@ carrier_offers:
     transformation: var:IsContract::boolean
     type: boolean
   - name: incentive
-    transformation: var:Incentive::number(18,2)
-    type: number(18,2)
+    transformation: var:Incentive::number(18, 2)
+    type: number(18, 2)
   - name: is_excluded
     transformation: var:IsExcluded::boolean
     type: boolean
@@ -1879,26 +1879,26 @@ carrier_ratings:
     transformation: var:CarrierRatingIsClosed::boolean
     type: boolean
   - name: average_rating
-    transformation: var:AverageRating::number(16,2)
-    type: number(16,2)
+    transformation: var:AverageRating::number(16, 2)
+    type: number(16, 2)
   - name: on_time_pickup_rate
-    transformation: var:OnTimePickupRate::number(16,2)
-    type: number(16,2)
+    transformation: var:OnTimePickupRate::number(16, 2)
+    type: number(16, 2)
   - name: on_time_delivery_rate
-    transformation: var:OnTimeDeliveryRate::number(16,2)
-    type: number(16,2)
+    transformation: var:OnTimeDeliveryRate::number(16, 2)
+    type: number(16, 2)
   - name: driver_behaviour_rate
-    transformation: var:DriverBehaviorRate::number(16,2)
-    type: number(16,2)
+    transformation: var:DriverBehaviorRate::number(16, 2)
+    type: number(16, 2)
   - name: communication_rate
-    transformation: var:CommunicationRate::number(16,2)
-    type: number(16,2)
+    transformation: var:CommunicationRate::number(16, 2)
+    type: number(16, 2)
   - name: app_usage_rate
-    transformation: var:AppUsageRate::number(16,2)
-    type: number(16,2)
+    transformation: var:AppUsageRate::number(16, 2)
+    type: number(16, 2)
   - name: truck_quality_rate
-    transformation: var:TruckQualityRate::number(16,2)
-    type: number(16,2)
+    transformation: var:TruckQualityRate::number(16, 2)
+    type: number(16, 2)
   - name: on_time_pickup_comment
     transformation: var:OnTimePickupComment::varchar
     type: varchar(16777216)
@@ -1984,17 +1984,17 @@ carrier_tax_amounts:
     transformation: var:CarrierCostId::varchar
     type: varchar
   - name: tax_amount
-    transformation: var:TaxAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:TaxAmount::number(16, 2)
+    type: number(16, 2)
   - name: tax_rate
-    transformation: var:TaxRate::number(16,2)
-    type: number(16,6)
+    transformation: var:TaxRate::number(16, 2)
+    type: number(16, 6)
   - name: input_amount
-    transformation: var:InputAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:InputAmount::number(16, 2)
+    type: number(16, 2)
   - name: output_amount
-    transformation: var:OutputAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:OutputAmount::number(16, 2)
+    type: number(16, 2)
   - name: is_tax_exclusive
     transformation: var:IsTaxExclusive::boolean
     type: boolean
@@ -2080,11 +2080,11 @@ carrier_trucks:
     transformation: var:VehicleBuildUp::varchar
     type: varchar(16777216)
   - name: vehicle_max_weight
-    transformation: var:VehicleMaxWeight::number(18,2)
-    type: number(18,2)
+    transformation: var:VehicleMaxWeight::number(18, 2)
+    type: number(18, 2)
   - name: vehicle_max_volume
-    transformation: var:VehicleMaxVolume::number(18,2)
-    type: number(18,2)
+    transformation: var:VehicleMaxVolume::number(18, 2)
+    type: number(18, 2)
   - name: default_driver_id
     transformation: var:DefaultDriverId::varchar
     type: varchar(16777216)
@@ -2101,8 +2101,8 @@ carrier_trucks:
     transformation: var:DeviceId::varchar
     type: varchar(16777216)
   - name: customs_seals
-    transformation: var:CustomsSeals::number(38,0)
-    type: number(38,0)
+    transformation: var:CustomsSeals::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_login_id
     transformation: var:VehicleLoginId::varchar
     type: varchar(16777216)
@@ -2416,8 +2416,8 @@ cfdi_payments_receiveds:
     transformation: '{{ convert_to_mastercountry_tz("var:PaidDate") }}'
     type: timestamp_tz(9)
   - name: amount_paid
-    transformation: var:AmountPaid::number(38,2)
-    type: number(38,2)
+    transformation: var:AmountPaid::number(38, 2)
+    type: number(38, 2)
   - name: status
     transformation: var:Status::varchar
     type: varchar(16777216)
@@ -2518,8 +2518,8 @@ cfdi_processes:
     transformation: var:IsBlacklist::boolean
     type: boolean
   - name: ap_sent_amount
-    transformation: var:ApSentAmount::number(32,2)
-    type: number(32,2)
+    transformation: var:ApSentAmount::number(32, 2)
+    type: number(32, 2)
   - name: ap_sent_date
     transformation: '{{ convert_to_mastercountry_tz("var:ApSentDate") }}'
     type: timestamp_tz(9)
@@ -2608,8 +2608,8 @@ contract_additional_buy_rate_agreements:
     transformation: var:ProductDisplayName::varchar
     type: varchar
   - name: buy_rate
-    transformation: var:BuyRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BuyRate::number(18, 2)
+    type: number(18, 2)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -2659,8 +2659,8 @@ contract_additional_buy_rates:
     transformation: var:ProductDisplayName::varchar
     type: varchar(16777216)
   - name: buy_rate
-    transformation: var:BuyRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BuyRate::number(18, 2)
+    type: number(18, 2)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -2710,8 +2710,8 @@ contract_additional_sell_rate_agreements:
     transformation: var:ProductDisplayName::varchar
     type: varchar
   - name: sell_rate
-    transformation: var:SellRate::number(18,2)
-    type: number(18,2)
+    transformation: var:SellRate::number(18, 2)
+    type: number(18, 2)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -2764,8 +2764,8 @@ contract_additional_sell_rates:
     transformation: var:ProductDisplayName::varchar
     type: varchar(16777216)
   - name: sell_rate
-    transformation: var:SellRate::number(18,2)
-    type: number(18,2)
+    transformation: var:SellRate::number(18, 2)
+    type: number(18, 2)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -3532,8 +3532,8 @@ fail_log_reason_codes:
     transformation: var:Id::varchar
     type: varchar(16777216)
   - name: reason_code
-    transformation: var:ReasonCode::number(38,0)
-    type: number(38,0)
+    transformation: var:ReasonCode::number(38, 0)
+    type: number(38, 0)
   - name: primary_reason_code
     transformation: var:PrimaryReasonCode::varchar
     type: varchar(16777216)
@@ -3547,8 +3547,8 @@ fail_log_reason_codes:
     transformation: var:IsCritical::boolean
     type: boolean
   - name: sort_order
-    transformation: var:SortOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:SortOrder::number(38, 0)
+    type: number(38, 0)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -3583,11 +3583,11 @@ fuel_index_rates:
     transformation: var:FuelIndexSettingId::varchar
     type: varchar(16777216)
   - name: fuel_rate
-    transformation: var:FuelRate::number(38,2)
-    type: number(38,2)
+    transformation: var:FuelRate::number(38, 2)
+    type: number(38, 2)
   - name: fuel_adjustment_factor
-    transformation: var:FuelAdjustmentFactor::number(38,4)
-    type: number(38,4)
+    transformation: var:FuelAdjustmentFactor::number(38, 4)
+    type: number(38, 4)
   - name: is_deleted
     transformation: var:IsDeleted::boolean
     type: boolean
@@ -3661,8 +3661,8 @@ fuel_rate_setting:
     transformation: var:FuelType::varchar
     type: varchar(16777216)
   - name: fuel_value
-    transformation: var:FuelValue::number(18,2)
-    type: number(18,3)
+    transformation: var:FuelValue::number(18, 2)
+    type: number(18, 3)
   - name: valid_from
     transformation: '{{ convert_to_mastercountry_tz("var:ValidFrom") }}'
     type: timestamp_tz(9)
@@ -3778,11 +3778,11 @@ haulage_container_locations:
     transformation: var:AdditionalAddress::varchar
     type: varchar(16777216)
   - name: latitude
-    transformation: var:Latitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Latitude::number(18, 6)
+    type: number(18, 6)
   - name: longitude
-    transformation: var:Longitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Longitude::number(18, 6)
+    type: number(18, 6)
   - name: country
     transformation: var:Country::varchar
     type: varchar(16777216)
@@ -4129,8 +4129,8 @@ invoice_integrations:
     transformation: '{{ convert_to_mastercountry_tz("var:IntegrationDate") }}'
     type: timestamp_tz(9)
   - name: integration_amount
-    transformation: var:IntegrationAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:IntegrationAmount::number(18, 2)
+    type: number(18, 2)
   - name: integration_ref
     transformation: var:IntegrationRef::varchar
     type: varchar
@@ -4165,8 +4165,8 @@ invoice_integrations:
     transformation: var:ResendIntegrationBy::varchar
     type: varchar
   - name: resend_integration_counter
-    transformation: var:ResendIntegrationCounter::number(18,0)
-    type: number(18,0)
+    transformation: var:ResendIntegrationCounter::number(18, 0)
+    type: number(18, 0)
   - name: resend_integration_date
     transformation: '{{ convert_to_mastercountry_tz("var:ResendIntegrationDate") }}'
     type: timestamp_tz(9)
@@ -4222,8 +4222,8 @@ invoices:
     transformation: var:IsDOReceived::boolean
     type: boolean
   - name: credit_term
-    transformation: var:CreditTerm::number(38,0)
-    type: number(38,0)
+    transformation: var:CreditTerm::number(38, 0)
+    type: number(38, 0)
   - name: due_date
     transformation: '{{ convert_to_mastercountry_tz("var:DueDate") }}'
     type: timestamp_tz(9)
@@ -4297,17 +4297,17 @@ invoices:
     transformation: var:DocumentPDF::varchar
     type: varchar(16777216)
   - name: document_subtotal_amt
-    transformation: var:DocumentSubTotalAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentSubTotalAmt::number(18, 2)
+    type: number(18, 2)
   - name: document_total_tax_amt
-    transformation: var:DocumentTotalTaxAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentTotalTaxAmt::number(18, 2)
+    type: number(18, 2)
   - name: document_total_amt
-    transformation: var:DocumentTotalAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentTotalAmt::number(18, 2)
+    type: number(18, 2)
   - name: received_amt
-    transformation: var:ReceivedAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:ReceivedAmt::number(18, 2)
+    type: number(18, 2)
   - name: currency_locale
     transformation: var:CurrencyLocale::varchar
     type: varchar(16777216)
@@ -4342,14 +4342,14 @@ invoices:
     transformation: var:DocumentHeaderNumber::varchar
     type: varchar(16777216)
   - name: document_total_ewt_amt
-    transformation: var:DocumentTotalEWTAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentTotalEWTAmt::number(18, 2)
+    type: number(18, 2)
   - name: cgst
-    transformation: var:CGST::number(18,2)
-    type: number(18,2)
+    transformation: var:CGST::number(18, 2)
+    type: number(18, 2)
   - name: cgst_amt
-    transformation: var:CGSTAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:CGSTAmt::number(18, 2)
+    type: number(18, 2)
   - name: gstin_number
     transformation: var:GSTINNumber::varchar
     type: varchar(16777216)
@@ -4357,11 +4357,11 @@ invoices:
     transformation: var:GSTINSettingId::varchar
     type: varchar(16777216)
   - name: igst
-    transformation: var:IGST::number(18,2)
-    type: number(18,2)
+    transformation: var:IGST::number(18, 2)
+    type: number(18, 2)
   - name: igst_amt
-    transformation: var:IGSTAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:IGSTAmt::number(18, 2)
+    type: number(18, 2)
   - name: irn_number
     transformation: var:IRNNumber::varchar
     type: varchar(16777216)
@@ -4375,17 +4375,17 @@ invoices:
     transformation: var:RCMNote::varchar
     type: varchar(16777216)
   - name: sgst
-    transformation: var:SGST::number(18,2)
-    type: number(18,2)
+    transformation: var:SGST::number(18, 2)
+    type: number(18, 2)
   - name: sgst_amt
-    transformation: var:SGSTAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:SGSTAmt::number(18, 2)
+    type: number(18, 2)
   - name: invoice_type
-    transformation: var:InvoiceType::number(38,0)
-    type: number(38,0)
+    transformation: var:InvoiceType::number(38, 0)
+    type: number(38, 0)
   - name: tax_type
-    transformation: var:TaxType::number(38,0)
-    type: number(38,0)
+    transformation: var:TaxType::number(38, 0)
+    type: number(38, 0)
   - name: payment_advise_email
     transformation: var:PaymentAdviseEmail::varchar
     type: varchar(16777216)
@@ -4444,8 +4444,8 @@ invoices:
     transformation: '{{ convert_to_mastercountry_tz("var:CancelDate") }}'
     type: timestamp_tz(9)
   - name: credit_limit
-    transformation: var:CreditLimit::number(18,2)
-    type: number(18,2)
+    transformation: var:CreditLimit::number(18, 2)
+    type: number(18, 2)
   - name: tradeshift_invoice_id
     transformation: var:TradeshiftInvoiceId::varchar
     type: varchar(16777216)
@@ -4741,8 +4741,8 @@ job_files:
     transformation: var:VehicleRegNo::varchar
     type: varchar(16777216)
   - name: customs_seals
-    transformation: var:CustomsSeals::number(38,0)
-    type: number(38,0)
+    transformation: var:CustomsSeals::number(38, 0)
+    type: number(38, 0)
   - name: shipper_company_categories
     transformation: var:ShipperCompanyCategories::varchar
     type: varchar(16777216)
@@ -4806,14 +4806,14 @@ job_files:
     transformation: var:PresentFuelId::varchar
     type: varchar(16777216)
   - name: present_fuel_value
-    transformation: var:PresentFuelValue::number(18,2)
-    type: number(18,2)
+    transformation: var:PresentFuelValue::number(18, 2)
+    type: number(18, 2)
   - name: previous_fuel_id
     transformation: var:PreviousFuelId::varchar
     type: varchar(16777216)
   - name: previous_fuel_value
-    transformation: var:PreviousFuelValue::number(18,2)
-    type: number(18,2)
+    transformation: var:PreviousFuelValue::number(18, 2)
+    type: number(18, 2)
   - name: destination_border_zone_id
     transformation: var:DestinationBorderZoneId::varchar
     type: varchar(16777216)
@@ -4977,8 +4977,8 @@ master_countries:
     transformation: var:IsEPODGenerationEnabled::boolean
     type: boolean
   - name: max_truck_speed
-    transformation: var:MaxTruckSpeed::number(18,10)
-    type: number(18,2)
+    transformation: var:MaxTruckSpeed::number(18, 10)
+    type: number(18, 2)
   file_name: MasterCountries
   stage: cms_stage
   table_name: master_countries
@@ -5151,8 +5151,8 @@ payment_paids:
     transformation: '{{ convert_to_mastercountry_tz("var:PaidDate") }}'
     type: timestamp_tz(9)
   - name: amount_paid
-    transformation: var:AmountPaid::number(16,2)
-    type: number(16,2)
+    transformation: var:AmountPaid::number(16, 2)
+    type: number(16, 2)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -5256,8 +5256,8 @@ product:
     transformation: var:IsIncentive::boolean
     type: boolean
   - name: sort_order
-    transformation: var:SortOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:SortOrder::number(38, 0)
+    type: number(38, 0)
   - name: requirements_id
     transformation: var:RequirementsId::varchar
     type: varchar(16777216)
@@ -5268,11 +5268,11 @@ product:
     transformation: var:IsQtyEditEnabled::boolean
     type: boolean
   - name: carrier_cost_maximum_value
-    transformation: var:CarrierCostMaximumValue::number(18,2)
-    type: number(18,2)
+    transformation: var:CarrierCostMaximumValue::number(18, 2)
+    type: number(18, 2)
   - name: carrier_cost_threshold_value
-    transformation: var:CarrierCostThresholdValue::number(18,2)
-    type: number(18,2)
+    transformation: var:CarrierCostThresholdValue::number(18, 2)
+    type: number(18, 2)
   - name: is_carrier_cost_maximum_enabled
     transformation: var:IsCarrierCostMaximumEnabled::boolean
     type: boolean
@@ -5286,11 +5286,11 @@ product:
     transformation: var:IsShipperCostThresholdEnabled::boolean
     type: boolean
   - name: shipper_cost_maximum_value
-    transformation: var:ShipperCostMaximumValue::number(18,2)
-    type: number(18,2)
+    transformation: var:ShipperCostMaximumValue::number(18, 2)
+    type: number(18, 2)
   - name: shipper_cost_threshold_value
-    transformation: var:ShipperCostThresholdValue::number(18,2)
-    type: number(18,2)
+    transformation: var:ShipperCostThresholdValue::number(18, 2)
+    type: number(18, 2)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -5322,11 +5322,11 @@ product_additional_cost:
     transformation: var:Id::varchar
     type: varchar(16777216)
   - name: selling_rate
-    transformation: var:SellingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:SellingRate::number(18, 2)
+    type: number(18, 2)
   - name: buying_rate
-    transformation: var:BuyingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BuyingRate::number(18, 2)
+    type: number(18, 2)
   - name: product_id
     transformation: var:ProductId::varchar
     type: varchar(16777216)
@@ -5385,8 +5385,8 @@ product_tax:
     transformation: var:GLCode::varchar
     type: varchar(16777216)
   - name: tax_rate
-    transformation: var:TaxRate::number(18,2)
-    type: number(18,6)
+    transformation: var:TaxRate::number(18, 2)
+    type: number(18, 6)
   - name: is_tax_exclusive
     transformation: var:IsTaxExclusive::boolean
     type: boolean
@@ -5400,8 +5400,8 @@ product_tax:
     transformation: var:IsDeleted::boolean
     type: boolean
   - name: ewt_rate
-    transformation: var:EWTRate::number(18,2)
-    type: number(18,2)
+    transformation: var:EWTRate::number(18, 2)
+    type: number(18, 2)
   - name: ap_mapping_code
     transformation: var:APMappingCode::varchar
     type: varchar(16777216)
@@ -5547,8 +5547,8 @@ profile_users:
     transformation: var:IsDeleted::boolean
     type: boolean
   - name: status
-    transformation: var:Status::number(38,0)
-    type: number(38,0)
+    transformation: var:Status::number(38, 0)
+    type: number(38, 0)
   - name: country
     transformation: var:Country::varchar
     type: varchar(16777216)
@@ -5739,8 +5739,8 @@ purchase_orders:
     transformation: var:IsDOReceived::boolean
     type: boolean
   - name: payment_term
-    transformation: var:PaymentTerm::number(38,0)
-    type: number(38,0)
+    transformation: var:PaymentTerm::number(38, 0)
+    type: number(38, 0)
   - name: due_date
     transformation: '{{ convert_to_mastercountry_tz("var:DueDate") }}'
     type: timestamp_tz(9)
@@ -5799,17 +5799,17 @@ purchase_orders:
     transformation: var:DocumentPDF::varchar
     type: varchar(16777216)
   - name: document_subtotal_amt
-    transformation: var:DocumentSubTotalAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentSubTotalAmt::number(18, 2)
+    type: number(18, 2)
   - name: document_total_tax_amt
-    transformation: var:DocumentTotalTaxAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentTotalTaxAmt::number(18, 2)
+    type: number(18, 2)
   - name: document_total_amt
-    transformation: var:DocumentTotalAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentTotalAmt::number(18, 2)
+    type: number(18, 2)
   - name: paid_amt
-    transformation: var:PaidAmt::number(18,2)
-    type: number(18,2)
+    transformation: var:PaidAmt::number(18, 2)
+    type: number(18, 2)
   - name: currency_code
     transformation: var:CurrencyCode::varchar
     type: varchar(16777216)
@@ -5841,8 +5841,8 @@ purchase_orders:
     transformation: var:DocumentTaxName::varchar
     type: varchar(16777216)
   - name: document_tax_rate
-    transformation: var:DocumentTaxRate::number(18,2)
-    type: number(18,2)
+    transformation: var:DocumentTaxRate::number(18, 2)
+    type: number(18, 2)
   - name: document_tax_setting
     transformation: var:DocumentTaxSetting::boolean
     type: boolean
@@ -5862,8 +5862,8 @@ purchase_orders:
     transformation: var:RegimeTaxEnable::boolean
     type: boolean
   - name: regime_tax_rate
-    transformation: var:RegimeTaxRate::number(18,2)
-    type: number(18,2)
+    transformation: var:RegimeTaxRate::number(18, 2)
+    type: number(18, 2)
   - name: retention_tax_display_name
     transformation: var:RetentionTaxDisplayName::varchar
     type: varchar(16777216)
@@ -5871,14 +5871,14 @@ purchase_orders:
     transformation: var:RetentionTaxEnable::boolean
     type: boolean
   - name: retention_tax_rate
-    transformation: var:RetentionTaxRate::number(18,2)
-    type: number(18,2)
+    transformation: var:RetentionTaxRate::number(18, 2)
+    type: number(18, 2)
   - name: vat_discount_tax_enabled
     transformation: var:VatDiscountTaxEnabled::boolean
     type: boolean
   - name: vat_discount_tax_rate
-    transformation: var:VatDiscountTaxRate::number(18,2)
-    type: number(18,2)
+    transformation: var:VatDiscountTaxRate::number(18, 2)
+    type: number(18, 2)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -5919,11 +5919,11 @@ rate_changes_history:
     transformation: var:RateChangeEntity::varchar
     type: varchar(16777216)
   - name: previous_rate
-    transformation: var:PreviousRate::number(38,2)
-    type: number(38,6)
+    transformation: var:PreviousRate::number(38, 2)
+    type: number(38, 6)
   - name: updated_rate
-    transformation: var:UpdatedRate::number(38,2)
-    type: number(38,6)
+    transformation: var:UpdatedRate::number(38, 2)
+    type: number(38, 6)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -5995,16 +5995,16 @@ rate_history:
     type: varchar(16777216)
   - name: sell_rate
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: buy_rate
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: sell_rate_cbt
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: buy_rate_cbt
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: carrier_id
     transformation: null
     type: varchar(16777216)
@@ -6034,16 +6034,16 @@ rate_history:
     type: varchar(16777216)
   - name: carrier_sell_rate
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: carrier_buy_rate
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: carrier_sell_rate_cbt
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: carrier_buy_rate_cbt
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: carrier_metadata
     transformation: null
     type: varchar(16777216)
@@ -6079,13 +6079,13 @@ rate_history:
     type: boolean
   - name: live_instant_accept_benchmark_perc
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: live_closed_accept_enabled
     transformation: null
     type: boolean
   - name: live_closed_accept_benchmark_perc
     transformation: null
-    type: number(38,2)
+    type: number(38, 2)
   - name: live_benchmark_costs
     transformation: null
     type: varchar(16777216)
@@ -6120,11 +6120,11 @@ route_driver_locations:
     transformation: var:DeviceId::varchar
     type: varchar(16777216)
   - name: latitude
-    transformation: var:Latitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Latitude::number(18, 6)
+    type: number(18, 6)
   - name: longitude
-    transformation: var:Longitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Longitude::number(18, 6)
+    type: number(18, 6)
   - name: location_time
     transformation: '{{ convert_to_mastercountry_tz("var:LocationTime") }}'
     type: timestamp_tz(9)
@@ -6144,23 +6144,23 @@ route_driver_locations:
     transformation: var:IsDeleted::boolean
     type: boolean
   - name: accuracy
-    transformation: var:Accuracy::number(18,2)
-    type: number(18,2)
+    transformation: var:Accuracy::number(18, 2)
+    type: number(18, 2)
   - name: actual_speed
-    transformation: var:ActualSpeed::number(18,2)
-    type: number(18,2)
+    transformation: var:ActualSpeed::number(18, 2)
+    type: number(18, 2)
   - name: avg_speed
-    transformation: var:AvgSpeed::number(18,2)
-    type: number(18,2)
+    transformation: var:AvgSpeed::number(18, 2)
+    type: number(18, 2)
   - name: direction
-    transformation: var:Direction::number(18,2)
-    type: number(18,2)
+    transformation: var:Direction::number(18, 2)
+    type: number(18, 2)
   - name: distance
-    transformation: var:Distance::number(18,2)
-    type: number(18,2)
+    transformation: var:Distance::number(18, 2)
+    type: number(18, 2)
   - name: frequency
-    transformation: var:Frequency::number(18,2)
-    type: number(18,2)
+    transformation: var:Frequency::number(18, 2)
+    type: number(18, 2)
   - name: is_valid
     transformation: var:IsValid::boolean
     type: boolean
@@ -6420,8 +6420,8 @@ shipper_api_auths:
     transformation: var:IsAbuse::boolean
     type: boolean
   - name: rate_limit
-    transformation: var:RateLimit::number(38,2)
-    type: number(38,0)
+    transformation: var:RateLimit::number(38, 2)
+    type: number(38, 0)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -6467,8 +6467,8 @@ shipper_categories:
     transformation: var:Description::varchar
     type: varchar(16777216)
   - name: sort_order
-    transformation: var:SortOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:SortOrder::number(38, 0)
+    type: number(38, 0)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -6551,32 +6551,32 @@ shipper_costs:
     transformation: var:InvoiceStatus::varchar
     type: varchar(16777216)
   - name: unit_cost
-    transformation: var:UnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:UnitCost::number(16, 2)
+    type: number(16, 2)
   - name: quantity
-    transformation: var:Quantity::number(38,0)
-    type: number(38,0)
+    transformation: var:Quantity::number(38, 0)
+    type: number(38, 0)
   - name: amount
-    transformation: var:Amount::number(16,2)
-    type: number(16,2)
+    transformation: var:Amount::number(16, 2)
+    type: number(16, 2)
   - name: display_amount
-    transformation: var:DisplayAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:DisplayAmount::number(16, 2)
+    type: number(16, 2)
   - name: tax_amount
-    transformation: var:TaxAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:TaxAmount::number(16, 2)
+    type: number(16, 2)
   - name: is_booking
     transformation: var:IsBooking::boolean
     type: boolean
   - name: ori_unit_cost
-    transformation: var:OriUnitCost::number(16,2)
-    type: number(16,2)
+    transformation: var:OriUnitCost::number(16, 2)
+    type: number(16, 2)
   - name: ori_quantity
-    transformation: var:OriQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:OriQuantity::number(38, 0)
+    type: number(38, 0)
   - name: ori_amount
-    transformation: var:OriAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:OriAmount::number(16, 2)
+    type: number(16, 2)
   - name: is_deleted
     transformation: var:IsDeleted::boolean
     type: boolean
@@ -6602,8 +6602,8 @@ shipper_costs:
     transformation: var:ETag::varchar
     type: varchar(16777216)
   - name: ori_tax_amount
-    transformation: var:OriTaxAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:OriTaxAmount::number(18, 2)
+    type: number(18, 2)
   - name: cost_approval_status
     transformation: var:CostApprovalStatus::varchar
     type: varchar(16777216)
@@ -6614,8 +6614,8 @@ shipper_costs:
     transformation: var:BookingDisplayId::varchar
     type: varchar(16777216)
   - name: faf_amount
-    transformation: var:FAFAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:FAFAmount::number(18, 2)
+    type: number(18, 2)
   - name: formula_name
     transformation: var:FormulaName::varchar
     type: varchar(16777216)
@@ -6626,8 +6626,8 @@ shipper_costs:
     transformation: var:IsFAFApplied::boolean
     type: boolean
   - name: ori_faf_amount
-    transformation: var:OriFAFAmount::number(18,2)
-    type: number(18,2)
+    transformation: var:OriFAFAmount::number(18, 2)
+    type: number(18, 2)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -6695,8 +6695,8 @@ shipper_credit_terms:
     transformation: var:CreditTerm::varchar
     type: varchar(100)
   - name: credit_term_value
-    transformation: var:CreditTermValue::number(18,0)
-    type: number(18,0)
+    transformation: var:CreditTermValue::number(18, 0)
+    type: number(18, 0)
   - name: oracle_ar
     transformation: var:OracleAR::varchar
     type: varchar(100)
@@ -6857,8 +6857,8 @@ shipper_entities:
     transformation: var:AccountPostalCode::varchar
     type: varchar(16777216)
   - name: credit_term_days
-    transformation: var:CreditTermDays::number(18,0)
-    type: number(18,2)
+    transformation: var:CreditTermDays::number(18, 0)
+    type: number(18, 2)
   - name: primary_contact_first_name
     transformation: var:PrimaryContactFirstName::varchar
     type: varchar(16777216)
@@ -6926,8 +6926,8 @@ shipper_entities:
     transformation: var:TransactionCategoryId::varchar
     type: varchar(16777216)
   - name: credit_limit
-    transformation: var:CreditLimit::number(18,2)
-    type: number(18,2)
+    transformation: var:CreditLimit::number(18, 2)
+    type: number(18, 2)
   - name: eori_expiry_date
     transformation: '{{ convert_to_mastercountry_tz("var:EORIExpiryDate") }}'
     type: timestamp_tz(9)
@@ -7103,8 +7103,8 @@ shipper_industries:
     transformation: var:Description::varchar
     type: varchar(16777216)
   - name: sort_order
-    transformation: var:SortOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:SortOrder::number(38, 0)
+    type: number(38, 0)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -7235,14 +7235,14 @@ shipper_project_booking_settings:
     transformation: var:FixedRateEnabled::boolean
     type: boolean
   - name: fixed_rate_value
-    transformation: var:FixedRateValue::number(18,2)
-    type: number(18,2)
+    transformation: var:FixedRateValue::number(18, 2)
+    type: number(18, 2)
   - name: fixed_selling_rate
-    transformation: var:FixedSellingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:FixedSellingRate::number(18, 2)
+    type: number(18, 2)
   - name: fixed_buying_rate
-    transformation: var:FixedBuyingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:FixedBuyingRate::number(18, 2)
+    type: number(18, 2)
   - name: contract_rate_enabled
     transformation: var:ContractRateEnabled::boolean
     type: boolean
@@ -7319,8 +7319,8 @@ shipper_project_booking_settings:
     transformation: var:IsInternational::boolean
     type: boolean
   - name: auto_sell_rate_contract_value
-    transformation: var:AutoSellRateContractValue::number(38,2)
-    type: number(38,0)
+    transformation: var:AutoSellRateContractValue::number(38, 2)
+    type: number(38, 0)
   - name: is_vrn_driver_name_mandatory
     transformation: var:IsVRNDriverNameMandatory::boolean
     type: boolean
@@ -7364,32 +7364,32 @@ shipper_project_carrier_sensitives:
     transformation: var:ShipperId::varchar
     type: varchar(16777216)
   - name: company_name
-    transformation: var:CompanyName::number(38,0)
-    type: number(38,0)
+    transformation: var:CompanyName::number(38, 0)
+    type: number(38, 0)
   - name: dispatcher_name
-    transformation: var:DispatcherName::number(38,0)
-    type: number(38,0)
+    transformation: var:DispatcherName::number(38, 0)
+    type: number(38, 0)
   - name: driver_name
-    transformation: var:DriverName::number(38,0)
-    type: number(38,0)
+    transformation: var:DriverName::number(38, 0)
+    type: number(38, 0)
   - name: driver_phone_number
-    transformation: var:DriverPhoneNumber::number(38,0)
-    type: number(38,0)
+    transformation: var:DriverPhoneNumber::number(38, 0)
+    type: number(38, 0)
   - name: driver_identity_number
     transformation: var:DriverIdentityNumber::number(38,00)
-    type: number(38,0)
+    type: number(38, 0)
   - name: vehicle_brand
-    transformation: var:VehicleBrand::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleBrand::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_model
-    transformation: var:VehicleModel::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleModel::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_license
-    transformation: var:VehicleLicense::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleLicense::number(38, 0)
+    type: number(38, 0)
   - name: custom_seal
-    transformation: var:CustomSeal::number(38,0)
-    type: number(38,0)
+    transformation: var:CustomSeal::number(38, 0)
+    type: number(38, 0)
   - name: is_deleted
     transformation: var:IsDeleted::boolean
     type: boolean
@@ -7397,41 +7397,41 @@ shipper_project_carrier_sensitives:
     transformation: var:TenantId::varchar
     type: varchar(16777216)
   - name: driver_avatar
-    transformation: var:DriverAvatar::number(38,0)
-    type: number(38,0)
+    transformation: var:DriverAvatar::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_image
-    transformation: var:VehicleImage::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleImage::number(38, 0)
+    type: number(38, 0)
   - name: carrier_history_company_name
-    transformation: var:CarrierHistoryCompanyName::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierHistoryCompanyName::number(38, 0)
+    type: number(38, 0)
   - name: carrier_history_dispatcher_name
-    transformation: var:CarrierHistoryDispatcherName::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierHistoryDispatcherName::number(38, 0)
+    type: number(38, 0)
   - name: carrier_history_driver_name
-    transformation: var:CarrierHistoryDriverName::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierHistoryDriverName::number(38, 0)
+    type: number(38, 0)
   - name: carrier_history_vehicle_license
-    transformation: var:CarrierHistoryVehicleLicense::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierHistoryVehicleLicense::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_buildup
-    transformation: var:VehicleBuildUp::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleBuildUp::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_size
-    transformation: var:VehicleSize::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleSize::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_trailer_no
-    transformation: var:VehicleTrailerNo::number(38,0)
-    type: number(38,0)
+    transformation: var:VehicleTrailerNo::number(38, 0)
+    type: number(38, 0)
   - name: carrier_container_no
-    transformation: var:CarrierContainerNo::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierContainerNo::number(38, 0)
+    type: number(38, 0)
   - name: carrier_history_carrier_container_no
-    transformation: var:CarrierHistoryCarrierContainerNo::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierHistoryCarrierContainerNo::number(38, 0)
+    type: number(38, 0)
   - name: carrier_history_trailer_no
-    transformation: var:CarrierHistoryTrailerNo::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierHistoryTrailerNo::number(38, 0)
+    type: number(38, 0)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -7460,32 +7460,32 @@ shipper_project_cost_webhook_settings:
     transformation: var:ShipperProjectId::varchar
     type: varchar(16777216)
   - name: created
-    transformation: var:Created::number(38,0)
-    type: number(38,0)
+    transformation: var:Created::number(38, 0)
+    type: number(38, 0)
   - name: not_yet_pushed
-    transformation: var:NotYetPushed::number(38,0)
-    type: number(38,0)
+    transformation: var:NotYetPushed::number(38, 0)
+    type: number(38, 0)
   - name: not_yet_accepted
-    transformation: var:NotYetAccepted::number(38,0)
-    type: number(38,0)
+    transformation: var:NotYetAccepted::number(38, 0)
+    type: number(38, 0)
   - name: accepted
-    transformation: var:Accepted::number(38,0)
-    type: number(38,0)
+    transformation: var:Accepted::number(38, 0)
+    type: number(38, 0)
   - name: assigned
-    transformation: var:Assigned::number(38,0)
-    type: number(38,0)
+    transformation: var:Assigned::number(38, 0)
+    type: number(38, 0)
   - name: in_progress
-    transformation: var:InProgress::number(38,0)
-    type: number(38,0)
+    transformation: var:InProgress::number(38, 0)
+    type: number(38, 0)
   - name: shipment_completed
-    transformation: var:ShipmentCompleted::number(38,0)
-    type: number(38,0)
+    transformation: var:ShipmentCompleted::number(38, 0)
+    type: number(38, 0)
   - name: shipment_cancelled
-    transformation: var:ShipmentCancelled::number(38,0)
-    type: number(38,0)
+    transformation: var:ShipmentCancelled::number(38, 0)
+    type: number(38, 0)
   - name: job_file_closed
-    transformation: var:JobFileClosed::number(38,0)
-    type: number(38,0)
+    transformation: var:JobFileClosed::number(38, 0)
+    type: number(38, 0)
   - name: tenant_id
     transformation: var:TenantId::varchar
     type: varchar(16777216)
@@ -7676,8 +7676,8 @@ shipper_projects:
     transformation: var:IsActive::boolean
     type: boolean
   - name: job_file_due
-    transformation: var:JobFileDue::number(38,0)
-    type: number(38,0)
+    transformation: var:JobFileDue::number(38, 0)
+    type: number(38, 0)
   - name: carrier_rating_setting
     transformation: var:CarrierRatingSetting::varchar
     type: varchar(16777216)
@@ -7709,8 +7709,8 @@ shipper_projects:
     transformation: var:FixedRateEnabled::boolean
     type: boolean
   - name: fixed_rate_value
-    transformation: var:FixedRateValue::number(18,2)
-    type: number(18,2)
+    transformation: var:FixedRateValue::number(18, 2)
+    type: number(18, 2)
   - name: contract_rate_enabled
     transformation: var:ContractRateEnabled::boolean
     type: boolean
@@ -7742,17 +7742,17 @@ shipper_projects:
     transformation: var:ShipperClientBooking::boolean
     type: boolean
   - name: fixed_buying_rate
-    transformation: var:FixedBuyingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:FixedBuyingRate::number(18, 2)
+    type: number(18, 2)
   - name: fixed_selling_rate
-    transformation: var:FixedSellingRate::number(18,2)
-    type: number(18,2)
+    transformation: var:FixedSellingRate::number(18, 2)
+    type: number(18, 2)
   - name: credit_term
-    transformation: var:CreditTerm::number(38,0)
-    type: number(38,0)
+    transformation: var:CreditTerm::number(38, 0)
+    type: number(38, 0)
   - name: payment_term
-    transformation: var:PaymentTerm::number(38,0)
-    type: number(38,0)
+    transformation: var:PaymentTerm::number(38, 0)
+    type: number(38, 0)
   - name: account_holder_id
     transformation: var:AccountHolderId::varchar
     type: varchar(16777216)
@@ -7760,8 +7760,8 @@ shipper_projects:
     transformation: var:AdminFeeDescription::varchar
     type: varchar(16777216)
   - name: admin_fee_percentage
-    transformation: var:AdminFeePercentage::number(18,2)
-    type: number(18,2)
+    transformation: var:AdminFeePercentage::number(18, 2)
+    type: number(18, 2)
   - name: is_auto_admin_fee_enabled
     transformation: var:IsAutoAdminFeeEnabled::boolean
     type: boolean
@@ -7793,8 +7793,8 @@ shipper_projects:
     transformation: var:BillingMethod::varchar
     type: varchar(16777216)
   - name: credit_limit
-    transformation: var:CreditLimit::number(18,2)
-    type: number(18,2)
+    transformation: var:CreditLimit::number(18, 2)
+    type: number(18, 2)
   - name: customer_payment_cycle
     transformation: var:CustomerPaymentCycle::varchar
     type: varchar(16777216)
@@ -7948,17 +7948,17 @@ tax_amounts:
     transformation: var:ShipperCostId::varchar
     type: varchar(16777216)
   - name: tax_amount
-    transformation: var:TaxAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:TaxAmount::number(16, 2)
+    type: number(16, 2)
   - name: tax_rate
-    transformation: var:TaxRate::number(16,2)
-    type: number(16,6)
+    transformation: var:TaxRate::number(16, 2)
+    type: number(16, 6)
   - name: input_amount
-    transformation: var:InputAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:InputAmount::number(16, 2)
+    type: number(16, 2)
   - name: output_amount
-    transformation: var:OutputAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:OutputAmount::number(16, 2)
+    type: number(16, 2)
   - name: is_tax_exclusive
     transformation: var:IsTaxExclusive::boolean
     type: boolean
@@ -7972,8 +7972,8 @@ tax_amounts:
     transformation: var:TenantId::varchar
     type: varchar(16777216)
   - name: ewt_rate
-    transformation: var:EWTRate::number(18,2)
-    type: number(18,2)
+    transformation: var:EWTRate::number(18, 2)
+    type: number(18, 2)
   - name: tax_code
     transformation: var:TaxCode::varchar
     type: varchar(16777216)
@@ -8020,14 +8020,14 @@ tax_deductions:
     transformation: var:CarrierCostId::varchar
     type: varchar
   - name: cost_amount
-    transformation: var:CostAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:CostAmount::number(16, 2)
+    type: number(16, 2)
   - name: tax_rate
-    transformation: var:TaxRate::number(16,2)
-    type: number(16,6)
+    transformation: var:TaxRate::number(16, 2)
+    type: number(16, 6)
   - name: tax_amount
-    transformation: var:TaxAmount::number(16,2)
-    type: number(16,2)
+    transformation: var:TaxAmount::number(16, 2)
+    type: number(16, 2)
   - name: purchase_order_id
     transformation: var:PurchaseOrderId::varchar
     type: varchar
@@ -8089,8 +8089,8 @@ traction_contract_additional_buy_rates:
     transformation: var:ProductDisplayName::varchar
     type: varchar
   - name: buy_rate
-    transformation: var:BuyRate::number(18,2)
-    type: number(18,2)
+    transformation: var:BuyRate::number(18, 2)
+    type: number(18, 2)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -8140,8 +8140,8 @@ traction_contract_additional_sell_rates:
     transformation: var:ProductDisplayName::varchar
     type: varchar
   - name: sell_rate
-    transformation: var:SellRate::number(18,2)
-    type: number(18,2)
+    transformation: var:SellRate::number(18, 2)
+    type: number(18, 2)
   - name: is_active
     transformation: var:IsActive::boolean
     type: boolean
@@ -8353,8 +8353,8 @@ transport_custom_requirements:
     transformation: var:Type::varchar
     type: varchar(16777216)
   - name: quantity
-    transformation: var:Quantity::number(38,10)
-    type: number(38,0)
+    transformation: var:Quantity::number(38, 10)
+    type: number(38, 0)
   - name: is_deleted
     transformation: var:IsDeleted::boolean
     type: boolean
@@ -8446,23 +8446,23 @@ transport_loads:
     transformation: var:HandlingUnit::varchar
     type: varchar(16777216)
   - name: unit_quantity
-    transformation: var:UnitQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:UnitQuantity::number(38, 0)
+    type: number(38, 0)
   - name: unit_length
-    transformation: var:UnitLength::number(18,2)
-    type: number(18,2)
+    transformation: var:UnitLength::number(18, 2)
+    type: number(18, 2)
   - name: unit_width
-    transformation: var:UnitWidth::number(18,2)
-    type: number(18,2)
+    transformation: var:UnitWidth::number(18, 2)
+    type: number(18, 2)
   - name: unit_height
-    transformation: var:UnitHeight::number(18,2)
-    type: number(18,2)
+    transformation: var:UnitHeight::number(18, 2)
+    type: number(18, 2)
   - name: unit_volume
-    transformation: var:UnitVolume::number(18,6)
-    type: number(18,6)
+    transformation: var:UnitVolume::number(18, 6)
+    type: number(18, 6)
   - name: unit_weight
-    transformation: var:UnitWeight::number(18,2)
-    type: number(18,4)
+    transformation: var:UnitWeight::number(18, 2)
+    type: number(18, 4)
   - name: is_stackable
     transformation: var:IsStackable::boolean
     type: boolean
@@ -8470,11 +8470,11 @@ transport_loads:
     transformation: var:IsHazardous::boolean
     type: boolean
   - name: pickup_quantity
-    transformation: var:PickupQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:PickupQuantity::number(38, 0)
+    type: number(38, 0)
   - name: delivery_quantity
-    transformation: var:DeliveryQuantity::number(38,0)
-    type: number(38,0)
+    transformation: var:DeliveryQuantity::number(38, 0)
+    type: number(38, 0)
   - name: status
     transformation: var:Status::varchar
     type: varchar(16777216)
@@ -8482,8 +8482,8 @@ transport_loads:
     transformation: var:IsDeleted::boolean
     type: boolean
   - name: from_temperature
-    transformation: var:FromTemperature::number(18,2)
-    type: number(18,2)
+    transformation: var:FromTemperature::number(18, 2)
+    type: number(18, 2)
   - name: hazardous_classification_ids
     transformation: var:HazardousClassificationIds::varchar
     type: varchar(16777216)
@@ -8494,8 +8494,8 @@ transport_loads:
     transformation: var:TemperatureType::varchar
     type: varchar(16777216)
   - name: to_temperature
-    transformation: var:ToTemperature::number(18,2)
-    type: number(18,2)
+    transformation: var:ToTemperature::number(18, 2)
+    type: number(18, 2)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -8743,8 +8743,8 @@ transport_locations:
     transformation: var:LocationName::varchar
     type: varchar(16777216)
   - name: route_order
-    transformation: var:RouteOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:RouteOrder::number(38, 0)
+    type: number(38, 0)
   - name: status
     transformation: var:Status::varchar
     type: varchar(16777216)
@@ -8764,11 +8764,11 @@ transport_locations:
     transformation: var:PlacesId::varchar
     type: varchar(16777216)
   - name: latitude
-    transformation: var:Latitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Latitude::number(18, 6)
+    type: number(18, 6)
   - name: longitude
-    transformation: var:Longitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Longitude::number(18, 6)
+    type: number(18, 6)
   - name: country
     transformation: var:Country::varchar
     type: varchar(16777216)
@@ -8902,10 +8902,10 @@ transport_locations:
     transformation: var:IsRebooked::boolean
     type: boolean
   - name: distance_from_last_location_in_meters
-    transformation: var:DistanceFromLastLocationInMeters::number(38,0)
-    type: number(38,0)
+    transformation: var:DistanceFromLastLocationInMeters::number(38, 0)
+    type: number(38, 0)
   - name: duration_from_last_location_in_seconds
-    transformation: var:DurationFromLastLocationInSeconds::number(38,0)
+    transformation: var:DurationFromLastLocationInSeconds::number(38, 0)
     type: number(38, 0)
   file_name: TransportLocations
   stage: cms_stage
@@ -8965,20 +8965,20 @@ transport_locations_ext:
     transformation: var:OnTimeStatus::varchar
     type: varchar(16777216)
   - name: arrived_latitude
-    transformation: var:ArrivedLatitude::number(18,6)
-    type: number(18,6)
+    transformation: var:ArrivedLatitude::number(18, 6)
+    type: number(18, 6)
   - name: arrived_longitude
-    transformation: var:ArrivedLongitude::number(18,6)
-    type: number(18,6)
+    transformation: var:ArrivedLongitude::number(18, 6)
+    type: number(18, 6)
   - name: arrived_zone
     transformation: var:ArrivedZone::varchar
     type: varchar(16777216)
   - name: completed_latitude
-    transformation: var:CompletedLatitude::number(18,6)
-    type: number(18,6)
+    transformation: var:CompletedLatitude::number(18, 6)
+    type: number(18, 6)
   - name: completed_longitude
-    transformation: var:CompletedLongitude::number(18,6)
-    type: number(18,6)
+    transformation: var:CompletedLongitude::number(18, 6)
+    type: number(18, 6)
   - name: completed_zone
     transformation: var:CompletedZone::varchar
     type: varchar(16777216)
@@ -9190,8 +9190,8 @@ transport_orders:
     transformation: var:ShipperCompanyIndustries::varchar
     type: varchar(16777216)
   - name: accepted_offer_type
-    transformation: var:AcceptedOfferType::number(38,10)
-    type: number(38,0)
+    transformation: var:AcceptedOfferType::number(38, 10)
+    type: number(38, 0)
   - name: contract_rate_id
     transformation: var:ContractRateId::varchar
     type: varchar(16777216)
@@ -9286,17 +9286,17 @@ transport_orders_ext:
     transformation: var:PODStatus::varchar
     type: varchar(16777216)
   - name: pod_status_delivered
-    transformation: var:PODStatus_Delivered::number(38,0)
-    type: number(38,0)
+    transformation: var:PODStatus_Delivered::number(38, 0)
+    type: number(38, 0)
   - name: pod_status_pending
-    transformation: var:PODStatus_Pending::number(38,0)
-    type: number(38,0)
+    transformation: var:PODStatus_Pending::number(38, 0)
+    type: number(38, 0)
   - name: pod_status_received
-    transformation: var:PODStatus_Received::number(38,0)
-    type: number(38,0)
+    transformation: var:PODStatus_Received::number(38, 0)
+    type: number(38, 0)
   - name: pod_status_validated
-    transformation: var:PODStatus_Validated::number(38,0)
-    type: number(38,0)
+    transformation: var:PODStatus_Validated::number(38, 0)
+    type: number(38, 0)
   - name: booking_ref
     transformation: var:BookingRef::varchar
     type: varchar(16777216)
@@ -9310,23 +9310,23 @@ transport_orders_ext:
     transformation: var:CancellationNote::varchar
     type: varchar(16777216)
   - name: cancellation_reason_code
-    transformation: var:CancellationReasonCode::number(38,10)
-    type: number(38,0)
+    transformation: var:CancellationReasonCode::number(38, 10)
+    type: number(38, 0)
   - name: epod_status
     transformation: var:EPODStatus::varchar
     type: varchar(16777216)
   - name: epod_status_delivered
-    transformation: var:EPODStatus_Delivered::number(38,0)
-    type: number(38,0)
+    transformation: var:EPODStatus_Delivered::number(38, 0)
+    type: number(38, 0)
   - name: epod_status_pending
-    transformation: var:EPODStatus_Pending::number(38,0)
-    type: number(38,0)
+    transformation: var:EPODStatus_Pending::number(38, 0)
+    type: number(38, 0)
   - name: epod_status_received
-    transformation: var:EPODStatus_Received::number(38,0)
-    type: number(38,0)
+    transformation: var:EPODStatus_Received::number(38, 0)
+    type: number(38, 0)
   - name: epod_status_validated
-    transformation: var:EPODStatus_Validated::number(38,0)
-    type: number(38,0)
+    transformation: var:EPODStatus_Validated::number(38, 0)
+    type: number(38, 0)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -9412,8 +9412,8 @@ transport_requirements:
     transformation: var:IsContract::boolean
     type: boolean
   - name: manpower
-    transformation: var:Manpower::number(38,0)
-    type: number(38,0)
+    transformation: var:Manpower::number(38, 0)
+    type: number(38, 0)
   - name: is_lift_jack
     transformation: var:IsLiftJack::boolean
     type: boolean
@@ -9436,8 +9436,8 @@ transport_requirements:
     transformation: var:IsInsurance::boolean
     type: boolean
   - name: insurance_cost
-    transformation: var:InsuranceCost::number(18,2)
-    type: number(18,2)
+    transformation: var:InsuranceCost::number(18, 2)
+    type: number(18, 2)
   - name: insurance_under_writer
     transformation: var:InsuranceUnderWriter::varchar
     type: varchar(16777216)
@@ -9562,8 +9562,8 @@ transport_routes:
     transformation: var:IsExclusive::boolean
     type: boolean
   - name: distance
-    transformation: var:Distance::number(18,2)
-    type: number(18,2)
+    transformation: var:Distance::number(18, 2)
+    type: number(18, 2)
   - name: carrier_id
     transformation: var:CarrierId::varchar
     type: varchar(16777216)
@@ -9622,14 +9622,14 @@ transport_routes:
     transformation: var:DriverRouteJson::varchar
     type: varchar(16777216)
   - name: customs_seals
-    transformation: var:CustomsSeals::number(38,0)
-    type: number(38,0)
+    transformation: var:CustomsSeals::number(38, 0)
+    type: number(38, 0)
   - name: co2_emission_factor
-    transformation: var:CO2EmissionFactor::number(18,2)
-    type: number(18,2)
+    transformation: var:CO2EmissionFactor::number(18, 2)
+    type: number(18, 2)
   - name: co2_emission_value
-    transformation: var:CO2EmissionValue::number(18,6)
-    type: number(18,7)
+    transformation: var:CO2EmissionValue::number(18, 6)
+    type: number(18, 7)
   - name: carrier_allocated_at
     transformation: '{{ convert_to_mastercountry_tz("var:CarrierAllocatedAt") }}'
     type: timestamp_tz(9)
@@ -9637,11 +9637,11 @@ transport_routes:
     transformation: var:CarrierAllocatedBy::varchar
     type: varchar(16777216)
   - name: carrier_allocation_type
-    transformation: var:CarrierAllocationType::number(38,0)
-    type: number(38,0)
+    transformation: var:CarrierAllocationType::number(38, 0)
+    type: number(38, 0)
   - name: route_leg_order
-    transformation: var:RouteLegOrder::number(38,0)
-    type: number(38,0)
+    transformation: var:RouteLegOrder::number(38, 0)
+    type: number(38, 0)
   - name: vehicle_trailer_no
     transformation: var:VehicleTrailerNo::varchar
     type: varchar(16777216)
@@ -9809,10 +9809,10 @@ transport_statuses:
     type: varchar(16777216)
   - name: latitude
     transformation: null
-    type: number(18,6)
+    type: number(18, 6)
   - name: longitude
     transformation: null
-    type: number(18,6)
+    type: number(18, 6)
   - name: skipped
     transformation: null
     type: boolean
@@ -9848,7 +9848,7 @@ transport_statuses:
     type: boolean
   - name: cancellation_reason_code
     transformation: null
-    type: number(38,0)
+    type: number(38, 0)
   - name: rest_api_remarks
     transformation: null
     type: varchar(16777216)
@@ -9886,8 +9886,8 @@ transport_tasks:
     transformation: var:Type::varchar
     type: varchar(16777216)
   - name: order
-    transformation: var:Order::number(38,0)
-    type: number(38,0)
+    transformation: var:Order::number(38, 0)
+    type: number(38, 0)
   - name: title
     transformation: var:Title::varchar
     type: varchar(16777216)
@@ -9904,8 +9904,8 @@ transport_tasks:
     transformation: var:PopUpTitle::varchar
     type: varchar(16777216)
   - name: popup_action
-    transformation: var:PopUpAction::number(38,0)
-    type: number(38,0)
+    transformation: var:PopUpAction::number(38, 0)
+    type: number(38, 0)
   - name: skippable
     transformation: var:Skippable::boolean
     type: boolean
@@ -10057,11 +10057,11 @@ vehicle_login_histories:
     transformation: var:FailureMessage::varchar
     type: varchar(16777216)
   - name: latitude
-    transformation: var:Latitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Latitude::number(18, 6)
+    type: number(18, 6)
   - name: longitude
-    transformation: var:Longitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Longitude::number(18, 6)
+    type: number(18, 6)
   - name: updated_by
     transformation: var:UpdatedBy::varchar
     type: varchar(16777216)
@@ -10114,11 +10114,11 @@ vehicle_logins:
     transformation: var:CompanyName::varchar
     type: varchar(16777216)
   - name: latitude
-    transformation: var:Latitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Latitude::number(18, 6)
+    type: number(18, 6)
   - name: longitude
-    transformation: var:Longitude::number(18,6)
-    type: number(18,6)
+    transformation: var:Longitude::number(18, 6)
+    type: number(18, 6)
   - name: last_logout_at
     transformation: '{{ convert_to_mastercountry_tz("var:LastLogOutAt") }}'
     type: timestamp_tz(9)
@@ -10243,14 +10243,14 @@ vrn_country_settings:
     transformation: var:VehicleBuildUpId::varchar
     type: varchar(16777216)
   - name: vehicle_max_weight
-    transformation: var:VehicleMaxWeight::number(18,2)
-    type: number(18,2)
+    transformation: var:VehicleMaxWeight::number(18, 2)
+    type: number(18, 2)
   - name: vehicle_max_volume
-    transformation: var:VehicleMaxVolume::number(18,2)
-    type: number(18,2)
+    transformation: var:VehicleMaxVolume::number(18, 2)
+    type: number(18, 2)
   - name: pin_length
-    transformation: var:PinLength::number(38,0)
-    type: number(38,0)
+    transformation: var:PinLength::number(38, 0)
+    type: number(38, 0)
   - name: is_dispatcher
     transformation: var:IsDispatcher::boolean
     type: boolean

@@ -31,44 +31,44 @@ subledger:
     transformation: linedescr::varchar
     type: varchar
   - name: effectiveperiodnum
-    transformation: effectiveperiodnum::number(38,0)
-    type: number(38,0)
+    transformation: effectiveperiodnum::number(38, 0)
+    type: number(38, 0)
   - name: lineentcr
-    transformation: lineentcr::number(36,2)
-    type: number(36,2)
+    transformation: lineentcr::number(36, 2)
+    type: number(36, 2)
   - name: lineentdr
-    transformation: lineentdr::number(36,2)
-    type: number(36,2)
+    transformation: lineentdr::number(36, 2)
+    type: number(36, 2)
   - name: lineacctdcr
-    transformation: lineacctdcr::number(36,2)
-    type: number(36,2)
+    transformation: lineacctdcr::number(36, 2)
+    type: number(36, 2)
   - name: lineacctddr
-    transformation: lineacctddr::number(36,2)
-    type: number(36,2)
+    transformation: lineacctddr::number(36, 2)
+    type: number(36, 2)
   - name: entry
     transformation: entry::varchar
     type: varchar
   - name: lline
-    transformation: lline::number(38,0)
-    type: number(38,0)
+    transformation: lline::number(38, 0)
+    type: number(38, 0)
   - name: slalineenteredcr
-    transformation: slalineenteredcr::number(36,2)
-    type: number(36,2)
+    transformation: slalineenteredcr::number(36, 2)
+    type: number(36, 2)
   - name: slalineentereddr
-    transformation: slalineentereddr::number(36,2)
-    type: number(36,2)
+    transformation: slalineentereddr::number(36, 2)
+    type: number(36, 2)
   - name: slalineaccountedcr
-    transformation: slalineaccountedcr::number(36,2)
-    type: number(36,2)
+    transformation: slalineaccountedcr::number(36, 2)
+    type: number(36, 2)
   - name: slalineaccounteddr
-    transformation: slalineaccounteddr::number(36,2)
-    type: number(36,2)
+    transformation: slalineaccounteddr::number(36, 2)
+    type: number(36, 2)
   - name: netaccountedamount
-    transformation: netaccountedamount::number(36,2)
-    type: number(36,2)
+    transformation: netaccountedamount::number(36, 2)
+    type: number(36, 2)
   - name: netenteredamt
-    transformation: netenteredamt::number(36,2)
-    type: number(36,2)
+    transformation: netenteredamt::number(36, 2)
+    type: number(36, 2)
   - name: transactionnum
     transformation: transactionnum::varchar
     type: varchar
@@ -76,29 +76,29 @@ subledger:
     transformation: gccreportingunit::varchar
     type: varchar
   - name: gccmanagementunit
-    transformation: gccmanagementunit::number(38,0)
-    type: number(38,0)
+    transformation: gccmanagementunit::number(38, 0)
+    type: number(38, 0)
   - name: gcccustomerunit
-    transformation: gcccustomerunit::number(38,0)
-    type: number(38,0)
+    transformation: gcccustomerunit::number(38, 0)
+    type: number(38, 0)
   - name: gccservicearea
-    transformation: gccservicearea::number(38,0)
-    type: number(38,0)
+    transformation: gccservicearea::number(38, 0)
+    type: number(38, 0)
   - name: gccaccount
-    transformation: gccaccount::number(38,0)
-    type: number(38,0)
+    transformation: gccaccount::number(38, 0)
+    type: number(38, 0)
   - name: gccmovementtype
     transformation: gccmovementtype::varchar
     type: varchar
   - name: gccfunction
-    transformation: gccfunction::number(38,0)
-    type: number(38,0)
+    transformation: gccfunction::number(38, 0)
+    type: number(38, 0)
   - name: gccintercompany
     transformation: gccintercompany::varchar
     type: varchar
   - name: gccanalysis
-    transformation: gccanalysis::number(38,0)
-    type: number(38,0)
+    transformation: gccanalysis::number(38, 0)
+    type: number(38, 0)
   file_name: oracle_subledger
   stage: oracle_stage
   table_name: subledger
