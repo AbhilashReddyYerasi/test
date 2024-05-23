@@ -56,3 +56,4 @@ jobs:
       - name: Run Python script for linting
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: python migrations/scripts/linting2.py ${{ steps.changed-files-specific.outputs.all_changed_files }}
+        working-directory: migrations/raw
