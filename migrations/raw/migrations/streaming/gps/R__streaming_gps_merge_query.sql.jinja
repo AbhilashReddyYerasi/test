@@ -1,6 +1,0 @@
--- TODO: Update merge query
--- Name: gps
--- Added: [{'name': 'body', 'type': 'varchar', 'transformation': 'parse_json(hex_decode_string(var:Body::varchar))'}, {'name': 'enqueuedtimeutc', 'type': 'timestamp_tz(9)', 'transformation': "to_timestamp_tz(var:EnqueuedTimeUtc::varchar || ' +0000', 'MM/DD/YYYY HH12:MI:SS AM TZHTZM')"}, {'name': 'offset', 'type': 'varchar', 'transformation': 'var:Offset::varchar'}, {'name': 'properties', 'type': 'variant', 'transformation': 'var:Properties::variant'}, {'name': 'sequencenumber', 'type': 'number(38, 0)', 'transformation': 'var:SequenceNumber::number(38, 0)'}, {'name': 'systemproperties', 'type': 'variant', 'transformation': 'var:SystemProperties::variant'}]
--- Deleted: []
--- Changed: []
--- Changed File Name: eh-dhdp-env_shipments

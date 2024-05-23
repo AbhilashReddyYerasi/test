@@ -35,7 +35,21 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
       - run: pip install -r requirements.txt
+      
+      - name: Changed Files
+        id: changed-files-specific
+        uses: tj-actions/changed-files@v34.4.4
+        with:
+          files: |
+            dbt/**/*.sql
+
+      - name: Run step if any file(s) in the dbt folder change
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          echo "One or more files in the dbt folder has changed."
+          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
 
       - name: Lint SQL
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: sqlfluff lint migrations/
         working-directory: migrations/raw
