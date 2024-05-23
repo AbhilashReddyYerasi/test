@@ -41,7 +41,7 @@ jobs:
         uses: tj-actions/changed-files@v34.4.4
         with:
           files: |
-            migrations/raw/**/*.sql.jinja
+            migrations/**/V*.sql.jinja
 
       - name: Run step if any file(s) in the migrations/raw folder change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
