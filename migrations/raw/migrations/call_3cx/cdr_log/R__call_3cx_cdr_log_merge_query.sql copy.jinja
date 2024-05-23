@@ -1,0 +1,129 @@
+create or replace procedure {{ load_call_3cx_schema }}.cdr_log_merge_proc()
+returns variant
+language sql
+execute as owner
+as
+$$
+begin
+    begin transaction;
+        delete from {{ load_call_3cx_schema }}.load_cdr_log;
+
+        copy into {{ load_call_3cx_schema }}.load_cdr_log
+        from @{{ load_call_3cx_schema }}.call_3cx_stage/CDR.log
+        file_format = {{ load_call_3cx_schema }}.call_3cx_csv;
+
+        merge into {{ call_3cx_schema }}.cdr_log as t using {{ load_call_3cx_schema }}.load_cdr_log as s
+            on t.historyid = s.historyid
+        when matched and not(
+            equal_null(t.historyid, s.historyid)
+            and equal_null(t.callid, s.callid)
+            and equal_null(t.duration, s.duration)
+            and equal_null(t.time_start, s.time_start)
+            and equal_null(t.time_answered, s.time_answered)
+            and equal_null(t.time_end, s.time_end)
+            and equal_null(t.reason_terminated, s.reason_terminated)
+            and equal_null(t.from_num, s.from_num)
+            and equal_null(t.to_num, s.to_num)
+            and equal_null(t.from_dn, s.from_dn)
+            and equal_null(t.to_dn, s.to_dn)
+            and equal_null(t.dial_num, s.dial_num)
+            and equal_null(t.reason_changed, s.reason_changed)
+            and equal_null(t.final_num, s.final_num)
+            and equal_null(t.final_dn, s.final_dn)
+            and equal_null(t.bill_code, s.bill_code)
+            and equal_null(t.bill_rate, s.bill_rate)
+            and equal_null(t.bill_cost, s.bill_cost)
+            and equal_null(t.bill_name, s.bill_name)
+            and equal_null(t.chain, s.chain)
+            and equal_null(t.from_displayname, s.from_displayname)
+            and equal_null(t.to_displayname, s.to_displayname)
+            and equal_null(t.final_displayname, s.final_displayname)
+        )
+        then update set
+            t.historyid = s.historyid,
+            t.callid = s.callid,
+            t.duration = s.duration,
+            t.time_start = s.time_start,
+            t.time_answered = s.time_answered,
+            t.time_end = s.time_end,
+            t.reason_terminated = s.reason_terminated,
+            t.from_num = s.from_num,
+            t.to_num = s.to_num,
+            t.from_dn = s.from_dn,
+            t.to_dn = s.to_dn,
+            t.dial_num = s.dial_num,
+            t.reason_changed = s.reason_changed,
+            t.final_num = s.final_num,
+            t.final_dn = s.final_dn,
+            t.bill_code = s.bill_code,
+            t.bill_rate = s.bill_rate,
+            t.bill_cost = s.bill_cost,
+            t.bill_name = s.bill_name,
+            t.chain = s.chain,
+            t.from_displayname = s.from_displayname,
+            t.to_displayname = s.to_displayname,
+            t.final_displayname = s.final_displayname,
+            t.load_update_ts = sysdate()
+        when not matched then insert (
+                historyid,
+                callid,
+                duration,
+                time_start,
+                time_answered,
+                time_end,
+                reason_terminated,
+                from_num,
+                to_num,
+                from_dn,
+                to_dn,
+                dial_num,
+                reason_changed,
+                final_num,
+                final_dn,
+                bill_code,
+                bill_rate,
+                bill_cost,
+                bill_name,
+                chain,
+                from_displayname,
+                to_displayname,
+                final_displayname,
+                load_insert_ts
+            ) values (
+                historyid,
+                callid,
+                duration,
+                time_start,
+                time_answered,
+                time_end,
+                reason_terminated,
+                from_num,
+                to_num,
+                from_dn,
+                to_dn,
+                dial_num,
+                reason_changed,
+                final_num,
+                final_dn,
+                bill_code,
+                bill_rate,
+                bill_cost,
+                bill_name,
+                chain,
+                from_displayname,
+                to_displayname,
+                final_displayname,
+                sysdate()
+            );
+    commit;
+end
+$$;
+
+create or replace task {{ load_call_3cx_schema }}.cdr_log_merge_task
+user_task_managed_initial_warehouse_size = 'xsmall'
+suspend_task_after_num_failures = 10
+schedule = '10 minute'
+as
+call {{ load_call_3cx_schema }}.cdr_log_merge_proc();
+
+alter task {{ load_call_3cx_schema }}.cdr_log_merge_task resume;
