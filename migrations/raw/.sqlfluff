@@ -1,6 +1,5 @@
 [sqlfluff]
 dialect = snowflake
-templater = jinja
 sql_file_exts = .sql,.sql.jinja,.j2
 max_line_length = 160
 exclude_rules = layout.indent, RF04
@@ -12,31 +11,6 @@ template_blocks_indent = False
 
 [sqlfluff:templater]
 unwrap_wrapped_queries = True
-
-[sqlfluff:templater:jinja]
-apply_dbt_builtins = False
-load_macros_from_path = migrations
-
-[sqlfluff:templater:jinja:context]
-cms_schema = cms
-load_cms_schema = load_cms
-is_prod = False
-zoho_crm_schema = zoho_crm
-load_zoho_crm_schema = load_zoho_crm
-cms_audit_schema = cms_audit
-load_cms_audit_schema = load_cms_audit
-cfx_schema = cfx
-load_cfx_schema = load_cfx
-pricing_schema = pricing
-load_pricing_schema = load_pricing
-call_3cx_schema = call_3cx
-load_call_3cx_schema = load_call_3cx
-finance_schema = pricing
-load_finance_schema = load_finance
-oracle_schema = oracle
-load_oracle_schema = load_oracle
-streaming_schema = streaming
-load_streaming_schema = load_streaming
 
 [sqlfluff:rules:references.keywords]
 ignore_words = chain, name, name
