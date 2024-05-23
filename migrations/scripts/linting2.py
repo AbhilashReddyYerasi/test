@@ -34,6 +34,9 @@ def lint_changed_files(file_paths):
     # Print the list of file paths for debugging
     print(f"File paths to lint: {file_paths}")
 
+    # Track if any file encounters an error
+    error_encountered = False
+
     # Iterate over the list of changed files
     for file_path in file_paths:
         try:
@@ -56,10 +59,16 @@ def lint_changed_files(file_paths):
                 print(f"================= Errors in {full_path}")
                 for r in res:
                     print(f"Line {r['line_no']}: {r['description']}")
+                error_encountered = True
         
         except Exception as e:
             # Log the error but continue processing other files
             print(f"Error processing file {file_path}: {e}")
+            error_encountered = True
+
+    # If any error was encountered during linting, raise an exception
+    if error_encountered:
+        raise RuntimeError("Linting failed for one or more files")
 
 if __name__ == "__main__":
     try:
@@ -68,7 +77,6 @@ if __name__ == "__main__":
 
         # Split the file paths string by spaces and process each file
         file_paths = sys.argv[1:]
-        print(f"Processed file paths: {file_paths}")
         
         # Call the linting function with the processed file paths
         lint_changed_files(file_paths)
