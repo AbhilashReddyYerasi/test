@@ -12,7 +12,7 @@ begin
         from @{{ load_call_3cx_schema }}.call_3cx_stage/CDR.log
         file_format = {{ load_call_3cx_schema }}.call_3cx_csv;
 
-        merge into {{ call_3cx_schema }}.cdr_log as t using {{ load_call_3cx_schema }}.load_cdr_log as s
+        merge into {{ call_3cx_schema }}.cdr_log as t using {{ load_call_3cx_schema }}.load_cdr_log as s     FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
             on t.historyid = s.historyid
         when matched and not(
             equal_null(t.historyid, s.historyid)
