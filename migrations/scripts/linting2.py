@@ -32,7 +32,7 @@ def lint_changed_files(file_paths):
     )
 
     # Determine the base path using the current file's location
-    base_path = Path(__file__).resolve().parent
+    base_path = Path(__file__).resolve().parent.parent.parent
 
     # Print the list of file paths for debugging
     print(f"File paths to lint: {file_paths}")
