@@ -41,7 +41,7 @@ def lint_changed_files(file_paths):
     for file_path in file_paths:
         try:
             # Construct the full path of the file
-            full_path = os.path.join('/home/runner/work/test/test/', file_path)
+            full_path = file_path
             print(f"Linting file: {full_path}")
 
             # Render the Jinja template
@@ -54,14 +54,13 @@ def lint_changed_files(file_paths):
                 config_path=".sqlfluff"
             )
 
-            print(f"Linting Completed for file: {full_path}")
             # If there are linting errors, print them
             if res:
                 print(f"===== Errors in {full_path} =====")
                 for r in res:
                     print(f"Line {r['line_no']}: {r['description']}")
                 error_encountered = True
-                print(f"===== Errors in {full_path} =====")
+                print(f"===== Errors detail End =====")
         
         except Exception as e:
             # Log the error but continue processing other files
